@@ -29,17 +29,26 @@ async function main() {
   let data;
 
   try {
-    data = await client.put(url, {
+    data = await client.post(url, {
       json: payload
     }).json();
 
   } catch (err) {
-    core.debug("Error making Put to Nomad");
+    
+    core.debug("Error making POST to Nomad");
     core.debug(err);
+
+    const {response} = err;
+    if (response && response.body) {
+      err.message = response;
+      core.debug(response)
+    }
+
     throw err;
   }
 
   if (data && data.SecretID) {
+    core.setSecret(data.SecretID);
     core.debug('✔ Nomad Token successfully retrieved');
 
     core.startGroup('Token Info');

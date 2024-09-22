@@ -34,10 +34,10 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 
 // node_modules/@actions/core/lib/utils.js
 var require_utils = __commonJS({
-  "node_modules/@actions/core/lib/utils.js"(exports) {
+  "node_modules/@actions/core/lib/utils.js"(exports2) {
     "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.toCommandProperties = exports.toCommandValue = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.toCommandProperties = exports2.toCommandValue = void 0;
     function toCommandValue(input) {
       if (input === null || input === void 0) {
         return "";
@@ -46,7 +46,7 @@ var require_utils = __commonJS({
       }
       return JSON.stringify(input);
     }
-    exports.toCommandValue = toCommandValue;
+    exports2.toCommandValue = toCommandValue;
     function toCommandProperties(annotationProperties) {
       if (!Object.keys(annotationProperties).length) {
         return {};
@@ -60,55 +60,50 @@ var require_utils = __commonJS({
         endColumn: annotationProperties.endColumn
       };
     }
-    exports.toCommandProperties = toCommandProperties;
+    exports2.toCommandProperties = toCommandProperties;
   }
 });
 
 // node_modules/@actions/core/lib/command.js
 var require_command = __commonJS({
-  "node_modules/@actions/core/lib/command.js"(exports) {
+  "node_modules/@actions/core/lib/command.js"(exports2) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
         return m[k];
       } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
+    } : function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      o2[k2] = m[k];
     });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? function(o2, v) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v });
+    } : function(o2, v) {
+      o2["default"] = v;
     });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
-        return mod;
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.hasOwnProperty.call(mod, k))
-            __createBinding(result, mod, k);
+        for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.issue = exports.issueCommand = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.issue = exports2.issueCommand = void 0;
     var os2 = __importStar(require("os"));
     var utils_1 = require_utils();
     function issueCommand(command, properties, message) {
       const cmd = new Command(command, properties, message);
       process.stdout.write(cmd.toString() + os2.EOL);
     }
-    exports.issueCommand = issueCommand;
+    exports2.issueCommand = issueCommand;
     function issue(name, message = "") {
       issueCommand(name, {}, message);
     }
-    exports.issue = issue;
+    exports2.issue = issue;
     var CMD_STRING = "::";
     var Command = class {
       constructor(command, properties, message) {
@@ -201,8 +196,8 @@ var init_stringify = __esm({
   "node_modules/uuid/dist/esm-node/stringify.js"() {
     init_validate();
     byteToHex = [];
-    for (let i = 0; i < 256; ++i) {
-      byteToHex.push((i + 256).toString(16).substr(1));
+    for (let i2 = 0; i2 < 256; ++i2) {
+      byteToHex.push((i2 + 256).toString(16).substr(1));
     }
     stringify_default = stringify;
   }
@@ -210,7 +205,7 @@ var init_stringify = __esm({
 
 // node_modules/uuid/dist/esm-node/v1.js
 function v1(options, buf, offset) {
-  let i = buf && offset || 0;
+  let i2 = buf && offset || 0;
   const b = buf || new Array(16);
   options = options || {};
   let node = options.node || _nodeId;
@@ -241,19 +236,19 @@ function v1(options, buf, offset) {
   _clockseq = clockseq;
   msecs += 122192928e5;
   const tl = ((msecs & 268435455) * 1e4 + nsecs) % 4294967296;
-  b[i++] = tl >>> 24 & 255;
-  b[i++] = tl >>> 16 & 255;
-  b[i++] = tl >>> 8 & 255;
-  b[i++] = tl & 255;
+  b[i2++] = tl >>> 24 & 255;
+  b[i2++] = tl >>> 16 & 255;
+  b[i2++] = tl >>> 8 & 255;
+  b[i2++] = tl & 255;
   const tmh = msecs / 4294967296 * 1e4 & 268435455;
-  b[i++] = tmh >>> 8 & 255;
-  b[i++] = tmh & 255;
-  b[i++] = tmh >>> 24 & 15 | 16;
-  b[i++] = tmh >>> 16 & 255;
-  b[i++] = clockseq >>> 8 | 128;
-  b[i++] = clockseq & 255;
-  for (let n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
+  b[i2++] = tmh >>> 8 & 255;
+  b[i2++] = tmh & 255;
+  b[i2++] = tmh >>> 24 & 15 | 16;
+  b[i2++] = tmh >>> 16 & 255;
+  b[i2++] = clockseq >>> 8 | 128;
+  b[i2++] = clockseq & 255;
+  for (let n2 = 0; n2 < 6; ++n2) {
+    b[i2 + n2] = node[n2];
   }
   return buf || stringify_default(b);
 }
@@ -305,8 +300,8 @@ var init_parse = __esm({
 function stringToBytes(str) {
   str = unescape(encodeURIComponent(str));
   const bytes = [];
-  for (let i = 0; i < str.length; ++i) {
-    bytes.push(str.charCodeAt(i));
+  for (let i2 = 0; i2 < str.length; ++i2) {
+    bytes.push(str.charCodeAt(i2));
   }
   return bytes;
 }
@@ -329,8 +324,8 @@ function v35_default(name, version2, hashfunc) {
     bytes[8] = bytes[8] & 63 | 128;
     if (buf) {
       offset = offset || 0;
-      for (let i = 0; i < 16; ++i) {
-        buf[offset + i] = bytes[i];
+      for (let i2 = 0; i2 < 16; ++i2) {
+        buf[offset + i2] = bytes[i2];
       }
       return buf;
     }
@@ -390,8 +385,8 @@ function v4(options, buf, offset) {
   rnds[8] = rnds[8] & 63 | 128;
   if (buf) {
     offset = offset || 0;
-    for (let i = 0; i < 16; ++i) {
-      buf[offset + i] = rnds[i];
+    for (let i2 = 0; i2 < 16; ++i2) {
+      buf[offset + i2] = rnds[i2];
     }
     return buf;
   }
@@ -486,38 +481,33 @@ var init_esm_node = __esm({
 
 // node_modules/@actions/core/lib/file-command.js
 var require_file_command = __commonJS({
-  "node_modules/@actions/core/lib/file-command.js"(exports) {
+  "node_modules/@actions/core/lib/file-command.js"(exports2) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
         return m[k];
       } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
+    } : function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      o2[k2] = m[k];
     });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? function(o2, v) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v });
+    } : function(o2, v) {
+      o2["default"] = v;
     });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
-        return mod;
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.hasOwnProperty.call(mod, k))
-            __createBinding(result, mod, k);
+        for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.prepareKeyValueMessage = exports2.issueFileCommand = void 0;
     var fs = __importStar(require("fs"));
     var os2 = __importStar(require("os"));
     var uuid_1 = (init_esm_node(), __toCommonJS(esm_node_exports));
@@ -534,7 +524,7 @@ var require_file_command = __commonJS({
         encoding: "utf8"
       });
     }
-    exports.issueFileCommand = issueFileCommand;
+    exports2.issueFileCommand = issueFileCommand;
     function prepareKeyValueMessage(key, value) {
       const delimiter = `ghadelimiter_${uuid_1.v4()}`;
       const convertedValue = utils_1.toCommandValue(value);
@@ -546,16 +536,16 @@ var require_file_command = __commonJS({
       }
       return `${key}<<${delimiter}${os2.EOL}${convertedValue}${os2.EOL}${delimiter}`;
     }
-    exports.prepareKeyValueMessage = prepareKeyValueMessage;
+    exports2.prepareKeyValueMessage = prepareKeyValueMessage;
   }
 });
 
 // node_modules/@actions/http-client/lib/proxy.js
 var require_proxy = __commonJS({
-  "node_modules/@actions/http-client/lib/proxy.js"(exports) {
+  "node_modules/@actions/http-client/lib/proxy.js"(exports2) {
     "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.checkBypass = exports.getProxyUrl = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.checkBypass = exports2.getProxyUrl = void 0;
     function getProxyUrl(reqUrl) {
       const usingSsl = reqUrl.protocol === "https:";
       if (checkBypass(reqUrl)) {
@@ -574,7 +564,7 @@ var require_proxy = __commonJS({
         return void 0;
       }
     }
-    exports.getProxyUrl = getProxyUrl;
+    exports2.getProxyUrl = getProxyUrl;
     function checkBypass(reqUrl) {
       if (!reqUrl.hostname) {
         return false;
@@ -606,7 +596,7 @@ var require_proxy = __commonJS({
       }
       return false;
     }
-    exports.checkBypass = checkBypass;
+    exports2.checkBypass = checkBypass;
     function isLoopbackAddress(host) {
       const hostLower = host.toLowerCase();
       return hostLower === "localhost" || hostLower.startsWith("127.") || hostLower.startsWith("[::1]") || hostLower.startsWith("[0:0:0:0:0:0:0:1]");
@@ -616,7 +606,7 @@ var require_proxy = __commonJS({
 
 // node_modules/tunnel/lib/tunnel.js
 var require_tunnel = __commonJS({
-  "node_modules/tunnel/lib/tunnel.js"(exports) {
+  "node_modules/tunnel/lib/tunnel.js"(exports2) {
     "use strict";
     var net2 = require("net");
     var tls = require("tls");
@@ -625,10 +615,10 @@ var require_tunnel = __commonJS({
     var events = require("events");
     var assert2 = require("assert");
     var util = require("util");
-    exports.httpOverHttp = httpOverHttp;
-    exports.httpsOverHttp = httpsOverHttp;
-    exports.httpOverHttps = httpOverHttps;
-    exports.httpsOverHttps = httpsOverHttps;
+    exports2.httpOverHttp = httpOverHttp;
+    exports2.httpsOverHttp = httpsOverHttp;
+    exports2.httpOverHttps = httpOverHttps;
+    exports2.httpsOverHttps = httpsOverHttps;
     function httpOverHttp(options) {
       var agent = new TunnelingAgent(options);
       agent.request = http3.request;
@@ -662,10 +652,10 @@ var require_tunnel = __commonJS({
       self.sockets = [];
       self.on("free", function onFree(socket, host, port, localAddress) {
         var options2 = toOptions(host, port, localAddress);
-        for (var i = 0, len = self.requests.length; i < len; ++i) {
-          var pending = self.requests[i];
+        for (var i2 = 0, len = self.requests.length; i2 < len; ++i2) {
+          var pending = self.requests[i2];
           if (pending.host === options2.host && pending.port === options2.port) {
-            self.requests.splice(i, 1);
+            self.requests.splice(i2, 1);
             pending.request.onSocket(socket);
             return;
           }
@@ -811,8 +801,8 @@ var require_tunnel = __commonJS({
       return host;
     }
     function mergeOptions(target) {
-      for (var i = 1, len = arguments.length; i < len; ++i) {
-        var overrides = arguments[i];
+      for (var i2 = 1, len = arguments.length; i2 < len; ++i2) {
+        var overrides = arguments[i2];
         if (typeof overrides === "object") {
           var keys = Object.keys(overrides);
           for (var j = 0, keyLen = keys.length; j < keyLen; ++j) {
@@ -840,50 +830,45 @@ var require_tunnel = __commonJS({
       debug2 = function() {
       };
     }
-    exports.debug = debug2;
+    exports2.debug = debug2;
   }
 });
 
 // node_modules/tunnel/index.js
 var require_tunnel2 = __commonJS({
-  "node_modules/tunnel/index.js"(exports, module2) {
+  "node_modules/tunnel/index.js"(exports2, module2) {
     module2.exports = require_tunnel();
   }
 });
 
 // node_modules/@actions/http-client/lib/index.js
 var require_lib = __commonJS({
-  "node_modules/@actions/http-client/lib/index.js"(exports) {
+  "node_modules/@actions/http-client/lib/index.js"(exports2) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
         return m[k];
       } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
+    } : function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      o2[k2] = m[k];
     });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? function(o2, v) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v });
+    } : function(o2, v) {
+      o2["default"] = v;
     });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
-        return mod;
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.hasOwnProperty.call(mod, k))
-            __createBinding(result, mod, k);
+        for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
           resolve(value);
@@ -910,8 +895,8 @@ var require_lib = __commonJS({
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.HttpClient = exports2.isHttps = exports2.HttpClientResponse = exports2.HttpClientError = exports2.getProxyUrl = exports2.MediaTypes = exports2.Headers = exports2.HttpCodes = void 0;
     var http3 = __importStar(require("http"));
     var https2 = __importStar(require("https"));
     var pm = __importStar(require_proxy());
@@ -945,21 +930,21 @@ var require_lib = __commonJS({
       HttpCodes2[HttpCodes2["BadGateway"] = 502] = "BadGateway";
       HttpCodes2[HttpCodes2["ServiceUnavailable"] = 503] = "ServiceUnavailable";
       HttpCodes2[HttpCodes2["GatewayTimeout"] = 504] = "GatewayTimeout";
-    })(HttpCodes = exports.HttpCodes || (exports.HttpCodes = {}));
+    })(HttpCodes = exports2.HttpCodes || (exports2.HttpCodes = {}));
     var Headers;
     (function(Headers2) {
       Headers2["Accept"] = "accept";
       Headers2["ContentType"] = "content-type";
-    })(Headers = exports.Headers || (exports.Headers = {}));
+    })(Headers = exports2.Headers || (exports2.Headers = {}));
     var MediaTypes;
     (function(MediaTypes2) {
       MediaTypes2["ApplicationJson"] = "application/json";
-    })(MediaTypes = exports.MediaTypes || (exports.MediaTypes = {}));
+    })(MediaTypes = exports2.MediaTypes || (exports2.MediaTypes = {}));
     function getProxyUrl(serverUrl) {
       const proxyUrl = pm.getProxyUrl(new URL(serverUrl));
       return proxyUrl ? proxyUrl.href : "";
     }
-    exports.getProxyUrl = getProxyUrl;
+    exports2.getProxyUrl = getProxyUrl;
     var HttpRedirectCodes = [
       HttpCodes.MovedPermanently,
       HttpCodes.ResourceMoved,
@@ -975,15 +960,15 @@ var require_lib = __commonJS({
     var RetryableHttpVerbs = ["OPTIONS", "GET", "DELETE", "HEAD"];
     var ExponentialBackoffCeiling = 10;
     var ExponentialBackoffTimeSlice = 5;
-    var HttpClientError = class extends Error {
+    var HttpClientError = class _HttpClientError extends Error {
       constructor(message, statusCode) {
         super(message);
         this.name = "HttpClientError";
         this.statusCode = statusCode;
-        Object.setPrototypeOf(this, HttpClientError.prototype);
+        Object.setPrototypeOf(this, _HttpClientError.prototype);
       }
     };
-    exports.HttpClientError = HttpClientError;
+    exports2.HttpClientError = HttpClientError;
     var HttpClientResponse = class {
       constructor(message) {
         this.message = message;
@@ -992,8 +977,8 @@ var require_lib = __commonJS({
         return __awaiter(this, void 0, void 0, function* () {
           return new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
             let output = Buffer.alloc(0);
-            this.message.on("data", (chunk) => {
-              output = Buffer.concat([output, chunk]);
+            this.message.on("data", (chunk2) => {
+              output = Buffer.concat([output, chunk2]);
             });
             this.message.on("end", () => {
               resolve(output.toString());
@@ -1002,12 +987,12 @@ var require_lib = __commonJS({
         });
       }
     };
-    exports.HttpClientResponse = HttpClientResponse;
+    exports2.HttpClientResponse = HttpClientResponse;
     function isHttps(requestUrl) {
       const parsedUrl = new URL(requestUrl);
       return parsedUrl.protocol === "https:";
     }
-    exports.isHttps = isHttps;
+    exports2.isHttps = isHttps;
     var HttpClient = class {
       constructor(userAgent, handlers, requestOptions) {
         this._ignoreSslError = false;
@@ -1385,9 +1370,9 @@ var require_lib = __commonJS({
             }
             function dateTimeDeserializer(key, value) {
               if (typeof value === "string") {
-                const a = new Date(value);
-                if (!isNaN(a.valueOf())) {
-                  return a;
+                const a2 = new Date(value);
+                if (!isNaN(a2.valueOf())) {
+                  return a2;
                 }
               }
               return value;
@@ -1426,16 +1411,16 @@ var require_lib = __commonJS({
         });
       }
     };
-    exports.HttpClient = HttpClient;
-    var lowercaseKeys2 = (obj) => Object.keys(obj).reduce((c, k) => (c[k.toLowerCase()] = obj[k], c), {});
+    exports2.HttpClient = HttpClient;
+    var lowercaseKeys2 = (obj) => Object.keys(obj).reduce((c3, k) => (c3[k.toLowerCase()] = obj[k], c3), {});
   }
 });
 
 // node_modules/@actions/http-client/lib/auth.js
 var require_auth = __commonJS({
-  "node_modules/@actions/http-client/lib/auth.js"(exports) {
+  "node_modules/@actions/http-client/lib/auth.js"(exports2) {
     "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
           resolve(value);
@@ -1462,8 +1447,8 @@ var require_auth = __commonJS({
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.PersonalAccessTokenCredentialHandler = exports.BearerCredentialHandler = exports.BasicCredentialHandler = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.PersonalAccessTokenCredentialHandler = exports2.BearerCredentialHandler = exports2.BasicCredentialHandler = void 0;
     var BasicCredentialHandler = class {
       constructor(username, password) {
         this.username = username;
@@ -1485,7 +1470,7 @@ var require_auth = __commonJS({
         });
       }
     };
-    exports.BasicCredentialHandler = BasicCredentialHandler;
+    exports2.BasicCredentialHandler = BasicCredentialHandler;
     var BearerCredentialHandler = class {
       constructor(token) {
         this.token = token;
@@ -1508,7 +1493,7 @@ var require_auth = __commonJS({
         });
       }
     };
-    exports.BearerCredentialHandler = BearerCredentialHandler;
+    exports2.BearerCredentialHandler = BearerCredentialHandler;
     var PersonalAccessTokenCredentialHandler = class {
       constructor(token) {
         this.token = token;
@@ -1531,15 +1516,15 @@ var require_auth = __commonJS({
         });
       }
     };
-    exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHandler;
+    exports2.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHandler;
   }
 });
 
 // node_modules/@actions/core/lib/oidc-utils.js
 var require_oidc_utils = __commonJS({
-  "node_modules/@actions/core/lib/oidc-utils.js"(exports) {
+  "node_modules/@actions/core/lib/oidc-utils.js"(exports2) {
     "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
           resolve(value);
@@ -1566,18 +1551,18 @@ var require_oidc_utils = __commonJS({
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.OidcClient = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.OidcClient = void 0;
     var http_client_1 = require_lib();
     var auth_1 = require_auth();
     var core_1 = require_core();
-    var OidcClient = class {
+    var OidcClient = class _OidcClient {
       static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
           allowRetries: allowRetry,
           maxRetries: maxRetry
         };
-        return new http_client_1.HttpClient("actions/oidc-client", [new auth_1.BearerCredentialHandler(OidcClient.getRequestToken())], requestOptions);
+        return new http_client_1.HttpClient("actions/oidc-client", [new auth_1.BearerCredentialHandler(_OidcClient.getRequestToken())], requestOptions);
       }
       static getRequestToken() {
         const token = process.env["ACTIONS_ID_TOKEN_REQUEST_TOKEN"];
@@ -1596,7 +1581,7 @@ var require_oidc_utils = __commonJS({
       static getCall(id_token_url) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
-          const httpclient = OidcClient.createHttpClient();
+          const httpclient = _OidcClient.createHttpClient();
           const res = yield httpclient.getJson(id_token_url).catch((error) => {
             throw new Error(`Failed to get ID Token. 
  
@@ -1614,13 +1599,13 @@ var require_oidc_utils = __commonJS({
       static getIDToken(audience) {
         return __awaiter(this, void 0, void 0, function* () {
           try {
-            let id_token_url = OidcClient.getIDTokenUrl();
+            let id_token_url = _OidcClient.getIDTokenUrl();
             if (audience) {
               const encodedAudience = encodeURIComponent(audience);
               id_token_url = `${id_token_url}&audience=${encodedAudience}`;
             }
             core_1.debug(`ID token url is ${id_token_url}`);
-            const id_token = yield OidcClient.getCall(id_token_url);
+            const id_token = yield _OidcClient.getCall(id_token_url);
             core_1.setSecret(id_token);
             return id_token;
           } catch (error) {
@@ -1629,15 +1614,15 @@ var require_oidc_utils = __commonJS({
         });
       }
     };
-    exports.OidcClient = OidcClient;
+    exports2.OidcClient = OidcClient;
   }
 });
 
 // node_modules/@actions/core/lib/summary.js
 var require_summary = __commonJS({
-  "node_modules/@actions/core/lib/summary.js"(exports) {
+  "node_modules/@actions/core/lib/summary.js"(exports2) {
     "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
           resolve(value);
@@ -1664,13 +1649,13 @@ var require_summary = __commonJS({
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.summary = exports2.markdownSummary = exports2.SUMMARY_DOCS_URL = exports2.SUMMARY_ENV_VAR = void 0;
     var os_1 = require("os");
     var fs_1 = require("fs");
     var { access, appendFile, writeFile } = fs_1.promises;
-    exports.SUMMARY_ENV_VAR = "GITHUB_STEP_SUMMARY";
-    exports.SUMMARY_DOCS_URL = "https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary";
+    exports2.SUMMARY_ENV_VAR = "GITHUB_STEP_SUMMARY";
+    exports2.SUMMARY_DOCS_URL = "https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary";
     var Summary = class {
       constructor() {
         this._buffer = "";
@@ -1686,9 +1671,9 @@ var require_summary = __commonJS({
           if (this._filePath) {
             return this._filePath;
           }
-          const pathFromEnv = process.env[exports.SUMMARY_ENV_VAR];
+          const pathFromEnv = process.env[exports2.SUMMARY_ENV_VAR];
           if (!pathFromEnv) {
-            throw new Error(`Unable to find environment variable for $${exports.SUMMARY_ENV_VAR}. Check if your runtime environment supports job summaries.`);
+            throw new Error(`Unable to find environment variable for $${exports2.SUMMARY_ENV_VAR}. Check if your runtime environment supports job summaries.`);
           }
           try {
             yield access(pathFromEnv, fs_1.constants.R_OK | fs_1.constants.W_OK);
@@ -1922,94 +1907,84 @@ var require_summary = __commonJS({
       }
     };
     var _summary = new Summary();
-    exports.markdownSummary = _summary;
-    exports.summary = _summary;
+    exports2.markdownSummary = _summary;
+    exports2.summary = _summary;
   }
 });
 
 // node_modules/@actions/core/lib/path-utils.js
 var require_path_utils = __commonJS({
-  "node_modules/@actions/core/lib/path-utils.js"(exports) {
+  "node_modules/@actions/core/lib/path-utils.js"(exports2) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
         return m[k];
       } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
+    } : function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      o2[k2] = m[k];
     });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? function(o2, v) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v });
+    } : function(o2, v) {
+      o2["default"] = v;
     });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
-        return mod;
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.hasOwnProperty.call(mod, k))
-            __createBinding(result, mod, k);
+        for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.toPlatformPath = exports.toWin32Path = exports.toPosixPath = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.toPlatformPath = exports2.toWin32Path = exports2.toPosixPath = void 0;
     var path = __importStar(require("path"));
     function toPosixPath(pth) {
       return pth.replace(/[\\]/g, "/");
     }
-    exports.toPosixPath = toPosixPath;
+    exports2.toPosixPath = toPosixPath;
     function toWin32Path(pth) {
       return pth.replace(/[/]/g, "\\");
     }
-    exports.toWin32Path = toWin32Path;
+    exports2.toWin32Path = toWin32Path;
     function toPlatformPath(pth) {
       return pth.replace(/[/\\]/g, path.sep);
     }
-    exports.toPlatformPath = toPlatformPath;
+    exports2.toPlatformPath = toPlatformPath;
   }
 });
 
 // node_modules/@actions/core/lib/core.js
 var require_core = __commonJS({
-  "node_modules/@actions/core/lib/core.js"(exports) {
+  "node_modules/@actions/core/lib/core.js"(exports2) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
         return m[k];
       } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
+    } : function(o2, m, k, k2) {
+      if (k2 === void 0) k2 = k;
+      o2[k2] = m[k];
     });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? function(o2, v) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v });
+    } : function(o2, v) {
+      o2["default"] = v;
     });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
-        return mod;
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.hasOwnProperty.call(mod, k))
-            __createBinding(result, mod, k);
+        for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
           resolve(value);
@@ -2036,8 +2011,8 @@ var require_core = __commonJS({
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
     };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.getIDToken = exports2.getState = exports2.saveState = exports2.group = exports2.endGroup = exports2.startGroup = exports2.info = exports2.notice = exports2.warning = exports2.error = exports2.debug = exports2.isDebug = exports2.setFailed = exports2.setCommandEcho = exports2.setOutput = exports2.getBooleanInput = exports2.getMultilineInput = exports2.getInput = exports2.addPath = exports2.setSecret = exports2.exportVariable = exports2.ExitCode = void 0;
     var command_1 = require_command();
     var file_command_1 = require_file_command();
     var utils_1 = require_utils();
@@ -2048,7 +2023,7 @@ var require_core = __commonJS({
     (function(ExitCode2) {
       ExitCode2[ExitCode2["Success"] = 0] = "Success";
       ExitCode2[ExitCode2["Failure"] = 1] = "Failure";
-    })(ExitCode = exports.ExitCode || (exports.ExitCode = {}));
+    })(ExitCode = exports2.ExitCode || (exports2.ExitCode = {}));
     function exportVariable2(name, val) {
       const convertedVal = utils_1.toCommandValue(val);
       process.env[name] = convertedVal;
@@ -2058,11 +2033,11 @@ var require_core = __commonJS({
       }
       command_1.issueCommand("set-env", { name }, convertedVal);
     }
-    exports.exportVariable = exportVariable2;
-    function setSecret(secret) {
+    exports2.exportVariable = exportVariable2;
+    function setSecret2(secret) {
       command_1.issueCommand("add-mask", {}, secret);
     }
-    exports.setSecret = setSecret;
+    exports2.setSecret = setSecret2;
     function addPath(inputPath) {
       const filePath = process.env["GITHUB_PATH"] || "";
       if (filePath) {
@@ -2072,7 +2047,7 @@ var require_core = __commonJS({
       }
       process.env["PATH"] = `${inputPath}${path.delimiter}${process.env["PATH"]}`;
     }
-    exports.addPath = addPath;
+    exports2.addPath = addPath;
     function getInput2(name, options) {
       const val = process.env[`INPUT_${name.replace(/ /g, "_").toUpperCase()}`] || "";
       if (options && options.required && !val) {
@@ -2083,7 +2058,7 @@ var require_core = __commonJS({
       }
       return val.trim();
     }
-    exports.getInput = getInput2;
+    exports2.getInput = getInput2;
     function getMultilineInput(name, options) {
       const inputs = getInput2(name, options).split("\n").filter((x) => x !== "");
       if (options && options.trimWhitespace === false) {
@@ -2091,7 +2066,7 @@ var require_core = __commonJS({
       }
       return inputs.map((input) => input.trim());
     }
-    exports.getMultilineInput = getMultilineInput;
+    exports2.getMultilineInput = getMultilineInput;
     function getBooleanInput(name, options) {
       const trueValue = ["true", "True", "TRUE"];
       const falseValue = ["false", "False", "FALSE"];
@@ -2103,7 +2078,7 @@ var require_core = __commonJS({
       throw new TypeError(`Input does not meet YAML 1.2 "Core Schema" specification: ${name}
 Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
     }
-    exports.getBooleanInput = getBooleanInput;
+    exports2.getBooleanInput = getBooleanInput;
     function setOutput2(name, value) {
       const filePath = process.env["GITHUB_OUTPUT"] || "";
       if (filePath) {
@@ -2112,48 +2087,48 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
       process.stdout.write(os2.EOL);
       command_1.issueCommand("set-output", { name }, utils_1.toCommandValue(value));
     }
-    exports.setOutput = setOutput2;
+    exports2.setOutput = setOutput2;
     function setCommandEcho(enabled) {
       command_1.issue("echo", enabled ? "on" : "off");
     }
-    exports.setCommandEcho = setCommandEcho;
+    exports2.setCommandEcho = setCommandEcho;
     function setFailed(message) {
       process.exitCode = ExitCode.Failure;
       error(message);
     }
-    exports.setFailed = setFailed;
+    exports2.setFailed = setFailed;
     function isDebug() {
       return process.env["RUNNER_DEBUG"] === "1";
     }
-    exports.isDebug = isDebug;
+    exports2.isDebug = isDebug;
     function debug2(message) {
       command_1.issueCommand("debug", {}, message);
     }
-    exports.debug = debug2;
+    exports2.debug = debug2;
     function error(message, properties = {}) {
       command_1.issueCommand("error", utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
     }
-    exports.error = error;
+    exports2.error = error;
     function warning(message, properties = {}) {
       command_1.issueCommand("warning", utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
     }
-    exports.warning = warning;
+    exports2.warning = warning;
     function notice(message, properties = {}) {
       command_1.issueCommand("notice", utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
     }
-    exports.notice = notice;
+    exports2.notice = notice;
     function info(message) {
       process.stdout.write(message + os2.EOL);
     }
-    exports.info = info;
+    exports2.info = info;
     function startGroup2(name) {
       command_1.issue("group", name);
     }
-    exports.startGroup = startGroup2;
+    exports2.startGroup = startGroup2;
     function endGroup2() {
       command_1.issue("endgroup");
     }
-    exports.endGroup = endGroup2;
+    exports2.endGroup = endGroup2;
     function group(name, fn) {
       return __awaiter(this, void 0, void 0, function* () {
         startGroup2(name);
@@ -2166,7 +2141,7 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
         return result;
       });
     }
-    exports.group = group;
+    exports2.group = group;
     function saveState(name, value) {
       const filePath = process.env["GITHUB_STATE"] || "";
       if (filePath) {
@@ -2174,33 +2149,33 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
       }
       command_1.issueCommand("save-state", { name }, utils_1.toCommandValue(value));
     }
-    exports.saveState = saveState;
+    exports2.saveState = saveState;
     function getState(name) {
       return process.env[`STATE_${name}`] || "";
     }
-    exports.getState = getState;
+    exports2.getState = getState;
     function getIDToken2(aud) {
       return __awaiter(this, void 0, void 0, function* () {
         return yield oidc_utils_1.OidcClient.getIDToken(aud);
       });
     }
-    exports.getIDToken = getIDToken2;
+    exports2.getIDToken = getIDToken2;
     var summary_1 = require_summary();
-    Object.defineProperty(exports, "summary", { enumerable: true, get: function() {
+    Object.defineProperty(exports2, "summary", { enumerable: true, get: function() {
       return summary_1.summary;
     } });
     var summary_2 = require_summary();
-    Object.defineProperty(exports, "markdownSummary", { enumerable: true, get: function() {
+    Object.defineProperty(exports2, "markdownSummary", { enumerable: true, get: function() {
       return summary_2.markdownSummary;
     } });
     var path_utils_1 = require_path_utils();
-    Object.defineProperty(exports, "toPosixPath", { enumerable: true, get: function() {
+    Object.defineProperty(exports2, "toPosixPath", { enumerable: true, get: function() {
       return path_utils_1.toPosixPath;
     } });
-    Object.defineProperty(exports, "toWin32Path", { enumerable: true, get: function() {
+    Object.defineProperty(exports2, "toWin32Path", { enumerable: true, get: function() {
       return path_utils_1.toWin32Path;
     } });
-    Object.defineProperty(exports, "toPlatformPath", { enumerable: true, get: function() {
+    Object.defineProperty(exports2, "toPlatformPath", { enumerable: true, get: function() {
       return path_utils_1.toPlatformPath;
     } });
   }
@@ -2208,9 +2183,9 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
 
 // node_modules/defer-to-connect/dist/source/index.js
 var require_source = __commonJS({
-  "node_modules/defer-to-connect/dist/source/index.js"(exports, module2) {
+  "node_modules/defer-to-connect/dist/source/index.js"(exports2, module2) {
     "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
+    Object.defineProperty(exports2, "__esModule", { value: true });
     function isTLSSocket(socket) {
       return socket.encrypted;
     }
@@ -2248,115 +2223,15 @@ var require_source = __commonJS({
         listeners.close(socket._hadError);
       }
     };
-    exports.default = deferToConnect2;
+    exports2.default = deferToConnect2;
     module2.exports = deferToConnect2;
     module2.exports.default = deferToConnect2;
   }
 });
 
-// node_modules/get-stream/buffer-stream.js
-var require_buffer_stream = __commonJS({
-  "node_modules/get-stream/buffer-stream.js"(exports, module2) {
-    "use strict";
-    var { PassThrough: PassThroughStream2 } = require("stream");
-    module2.exports = (options) => {
-      options = { ...options };
-      const { array } = options;
-      let { encoding } = options;
-      const isBuffer = encoding === "buffer";
-      let objectMode = false;
-      if (array) {
-        objectMode = !(encoding || isBuffer);
-      } else {
-        encoding = encoding || "utf8";
-      }
-      if (isBuffer) {
-        encoding = null;
-      }
-      const stream2 = new PassThroughStream2({ objectMode });
-      if (encoding) {
-        stream2.setEncoding(encoding);
-      }
-      let length = 0;
-      const chunks = [];
-      stream2.on("data", (chunk) => {
-        chunks.push(chunk);
-        if (objectMode) {
-          length = chunks.length;
-        } else {
-          length += chunk.length;
-        }
-      });
-      stream2.getBufferedValue = () => {
-        if (array) {
-          return chunks;
-        }
-        return isBuffer ? Buffer.concat(chunks, length) : chunks.join("");
-      };
-      stream2.getBufferedLength = () => length;
-      return stream2;
-    };
-  }
-});
-
-// node_modules/get-stream/index.js
-var require_get_stream = __commonJS({
-  "node_modules/get-stream/index.js"(exports, module2) {
-    "use strict";
-    var { constants: BufferConstants } = require("buffer");
-    var stream2 = require("stream");
-    var { promisify: promisify4 } = require("util");
-    var bufferStream = require_buffer_stream();
-    var streamPipelinePromisified = promisify4(stream2.pipeline);
-    var MaxBufferError = class extends Error {
-      constructor() {
-        super("maxBuffer exceeded");
-        this.name = "MaxBufferError";
-      }
-    };
-    async function getStream3(inputStream, options) {
-      if (!inputStream) {
-        throw new Error("Expected a stream");
-      }
-      options = {
-        maxBuffer: Infinity,
-        ...options
-      };
-      const { maxBuffer } = options;
-      const stream3 = bufferStream(options);
-      await new Promise((resolve, reject) => {
-        const rejectPromise = (error) => {
-          if (error && stream3.getBufferedLength() <= BufferConstants.MAX_LENGTH) {
-            error.bufferedData = stream3.getBufferedValue();
-          }
-          reject(error);
-        };
-        (async () => {
-          try {
-            await streamPipelinePromisified(inputStream, stream3);
-            resolve();
-          } catch (error) {
-            rejectPromise(error);
-          }
-        })();
-        stream3.on("data", () => {
-          if (stream3.getBufferedLength() > maxBuffer) {
-            rejectPromise(new MaxBufferError());
-          }
-        });
-      });
-      return stream3.getBufferedValue();
-    }
-    module2.exports = getStream3;
-    module2.exports.buffer = (stream3, options) => getStream3(stream3, { ...options, encoding: "buffer" });
-    module2.exports.array = (stream3, options) => getStream3(stream3, { ...options, array: true });
-    module2.exports.MaxBufferError = MaxBufferError;
-  }
-});
-
 // node_modules/http-cache-semantics/index.js
 var require_http_cache_semantics = __commonJS({
-  "node_modules/http-cache-semantics/index.js"(exports, module2) {
+  "node_modules/http-cache-semantics/index.js"(exports2, module2) {
     "use strict";
     var statusCodeCacheableByDefault = /* @__PURE__ */ new Set([
       200,
@@ -2414,8 +2289,8 @@ var require_http_cache_semantics = __commonJS({
       "content-range": true
     };
     function toNumberOrZero(s) {
-      const n = parseInt(s, 10);
-      return isFinite(n) ? n : 0;
+      const n2 = parseInt(s, 10);
+      return isFinite(n2) ? n2 : 0;
     }
     function isErrorResponse(response) {
       if (!response) {
@@ -2425,8 +2300,7 @@ var require_http_cache_semantics = __commonJS({
     }
     function parseCacheControl(header) {
       const cc = {};
-      if (!header)
-        return cc;
+      if (!header) return cc;
       const parts = header.trim().split(/,/);
       for (const part of parts) {
         const [k, v] = part.split(/=/, 2);
@@ -2553,16 +2427,14 @@ var require_http_cache_semantics = __commonJS({
         }
         const fields = this._resHeaders.vary.trim().toLowerCase().split(/\s*,\s*/);
         for (const name of fields) {
-          if (req.headers[name] !== this._reqHeaders[name])
-            return false;
+          if (req.headers[name] !== this._reqHeaders[name]) return false;
         }
         return true;
       }
       _copyWithoutHopByHopHeaders(inHeaders) {
         const headers = {};
         for (const name in inHeaders) {
-          if (hopByHopHeaders[name])
-            continue;
+          if (hopByHopHeaders[name]) continue;
           headers[name] = inHeaders[name];
         }
         if (inHeaders.connection) {
@@ -2685,10 +2557,8 @@ var require_http_cache_semantics = __commonJS({
         return new this(void 0, void 0, { _fromObject: obj });
       }
       _fromObject(obj) {
-        if (this._responseTime)
-          throw Error("Reinitialized");
-        if (!obj || obj.v !== 1)
-          throw Error("Invalid serialization");
+        if (this._responseTime) throw Error("Reinitialized");
+        if (!obj || obj.v !== 1) throw Error("Invalid serialization");
         this._responseTime = obj.t;
         this._isShared = obj.sh;
         this._cacheHeuristic = obj.ch;
@@ -2828,45 +2698,44 @@ var require_http_cache_semantics = __commonJS({
 
 // node_modules/json-buffer/index.js
 var require_json_buffer = __commonJS({
-  "node_modules/json-buffer/index.js"(exports) {
-    exports.stringify = function stringify2(o) {
-      if ("undefined" == typeof o)
-        return o;
-      if (o && Buffer.isBuffer(o))
-        return JSON.stringify(":base64:" + o.toString("base64"));
-      if (o && o.toJSON)
-        o = o.toJSON();
-      if (o && "object" === typeof o) {
+  "node_modules/json-buffer/index.js"(exports2) {
+    exports2.stringify = function stringify2(o2) {
+      if ("undefined" == typeof o2) return o2;
+      if (o2 && Buffer.isBuffer(o2))
+        return JSON.stringify(":base64:" + o2.toString("base64"));
+      if (o2 && o2.toJSON)
+        o2 = o2.toJSON();
+      if (o2 && "object" === typeof o2) {
         var s = "";
-        var array = Array.isArray(o);
+        var array = Array.isArray(o2);
         s = array ? "[" : "{";
         var first = true;
-        for (var k in o) {
-          var ignore = "function" == typeof o[k] || !array && "undefined" === typeof o[k];
-          if (Object.hasOwnProperty.call(o, k) && !ignore) {
+        for (var k in o2) {
+          var ignore = "function" == typeof o2[k] || !array && "undefined" === typeof o2[k];
+          if (Object.hasOwnProperty.call(o2, k) && !ignore) {
             if (!first)
               s += ",";
             first = false;
             if (array) {
-              if (o[k] == void 0)
+              if (o2[k] == void 0)
                 s += "null";
               else
-                s += stringify2(o[k]);
-            } else if (o[k] !== void 0) {
-              s += stringify2(k) + ":" + stringify2(o[k]);
+                s += stringify2(o2[k]);
+            } else if (o2[k] !== void 0) {
+              s += stringify2(k) + ":" + stringify2(o2[k]);
             }
           }
         }
         s += array ? "]" : "}";
         return s;
-      } else if ("string" === typeof o) {
-        return JSON.stringify(/^:/.test(o) ? ":" + o : o);
-      } else if ("undefined" === typeof o) {
+      } else if ("string" === typeof o2) {
+        return JSON.stringify(/^:/.test(o2) ? ":" + o2 : o2);
+      } else if ("undefined" === typeof o2) {
         return "null";
       } else
-        return JSON.stringify(o);
+        return JSON.stringify(o2);
     };
-    exports.parse = function(s) {
+    exports2.parse = function(s) {
       return JSON.parse(s, function(key, value) {
         if ("string" === typeof value) {
           if (/^:base64:/.test(value))
@@ -2882,7 +2751,7 @@ var require_json_buffer = __commonJS({
 
 // node_modules/keyv/src/index.js
 var require_src = __commonJS({
-  "node_modules/keyv/src/index.js"(exports, module2) {
+  "node_modules/keyv/src/index.js"(exports2, module2) {
     "use strict";
     var EventEmitter3 = require("events");
     var JSONB = require_json_buffer();
@@ -2939,7 +2808,7 @@ var require_src = __commonJS({
         this.opts.store.namespace = this.opts.namespace;
         const generateIterator = (iterator) => async function* () {
           for await (const [key, raw] of typeof iterator === "function" ? iterator(this.opts.store.namespace) : iterator) {
-            const data = this.opts.deserialize(raw);
+            const data = await this.opts.deserialize(raw);
             if (this.opts.store.namespace && !key.includes(this.opts.store.namespace)) {
               continue;
             }
@@ -2970,9 +2839,9 @@ var require_src = __commonJS({
       }
       get(key, options) {
         const { store } = this.opts;
-        const isArray = Array.isArray(key);
-        const keyPrefixed = isArray ? this._getKeyPrefixArray(key) : this._getKeyPrefix(key);
-        if (isArray && store.getMany === void 0) {
+        const isArray2 = Array.isArray(key);
+        const keyPrefixed = isArray2 ? this._getKeyPrefixArray(key) : this._getKeyPrefix(key);
+        if (isArray2 && store.getMany === void 0) {
           const promises = [];
           for (const key2 of keyPrefixed) {
             promises.push(
@@ -2995,28 +2864,24 @@ var require_src = __commonJS({
             return data;
           });
         }
-        return Promise.resolve().then(() => isArray ? store.getMany(keyPrefixed) : store.get(keyPrefixed)).then((data) => typeof data === "string" ? this.opts.deserialize(data) : this.opts.compression ? this.opts.deserialize(data) : data).then((data) => {
+        return Promise.resolve().then(() => isArray2 ? store.getMany(keyPrefixed) : store.get(keyPrefixed)).then((data) => typeof data === "string" ? this.opts.deserialize(data) : this.opts.compression ? this.opts.deserialize(data) : data).then((data) => {
           if (data === void 0 || data === null) {
             return void 0;
           }
-          if (isArray) {
-            const result = [];
-            for (let row of data) {
+          if (isArray2) {
+            return data.map((row, index) => {
               if (typeof row === "string") {
                 row = this.opts.deserialize(row);
               }
               if (row === void 0 || row === null) {
-                result.push(void 0);
-                continue;
+                return void 0;
               }
               if (typeof row.expires === "number" && Date.now() > row.expires) {
-                this.delete(key).then(() => void 0);
-                result.push(void 0);
-              } else {
-                result.push(options && options.raw ? row : row.value);
+                this.delete(key[index]).then(() => void 0);
+                return void 0;
               }
-            }
-            return result;
+              return options && options.raw ? row : row.value;
+            });
           }
           if (typeof data.expires === "number" && Date.now() > data.expires) {
             return this.delete(key).then(() => void 0);
@@ -3086,7 +2951,7 @@ var require_src = __commonJS({
 
 // node_modules/decompress-response/node_modules/mimic-response/index.js
 var require_mimic_response = __commonJS({
-  "node_modules/decompress-response/node_modules/mimic-response/index.js"(exports, module2) {
+  "node_modules/decompress-response/node_modules/mimic-response/index.js"(exports2, module2) {
     "use strict";
     var knownProperties2 = [
       "aborted",
@@ -3118,8 +2983,8 @@ var require_mimic_response = __commonJS({
         properties[property] = {
           get() {
             const value = fromStream[property];
-            const isFunction2 = typeof value === "function";
-            return isFunction2 ? value.bind(fromStream) : value;
+            const isFunction3 = typeof value === "function";
+            return isFunction3 ? value.bind(fromStream) : value;
           },
           set(value) {
             fromStream[property] = value;
@@ -3153,7 +3018,7 @@ var require_mimic_response = __commonJS({
 
 // node_modules/decompress-response/index.js
 var require_decompress_response = __commonJS({
-  "node_modules/decompress-response/index.js"(exports, module2) {
+  "node_modules/decompress-response/index.js"(exports2, module2) {
     "use strict";
     var { Transform, PassThrough } = require("stream");
     var zlib = require("zlib");
@@ -3202,7 +3067,7 @@ var require_decompress_response = __commonJS({
 
 // node_modules/quick-lru/index.js
 var require_quick_lru = __commonJS({
-  "node_modules/quick-lru/index.js"(exports, module2) {
+  "node_modules/quick-lru/index.js"(exports2, module2) {
     "use strict";
     var QuickLRU = class {
       constructor(options = {}) {
@@ -3308,7 +3173,7 @@ var require_quick_lru = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/delay-async-destroy.js
 var require_delay_async_destroy = __commonJS({
-  "node_modules/http2-wrapper/source/utils/delay-async-destroy.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/delay-async-destroy.js"(exports2, module2) {
     "use strict";
     module2.exports = (stream2) => {
       if (stream2.listenerCount("error") !== 0) {
@@ -3338,7 +3203,7 @@ var require_delay_async_destroy = __commonJS({
 
 // node_modules/http2-wrapper/source/agent.js
 var require_agent = __commonJS({
-  "node_modules/http2-wrapper/source/agent.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/agent.js"(exports2, module2) {
     "use strict";
     var { URL: URL3 } = require("url");
     var EventEmitter3 = require("events");
@@ -3411,7 +3276,7 @@ var require_agent = __commonJS({
       }
       return low;
     };
-    var compareSessions = (a, b) => a.remoteSettings.maxConcurrentStreams > b.remoteSettings.maxConcurrentStreams;
+    var compareSessions = (a2, b) => a2.remoteSettings.maxConcurrentStreams > b.remoteSettings.maxConcurrentStreams;
     var closeCoveredSessions = (where, session) => {
       for (let index = 0; index < where.length; index++) {
         const coveredSession = where[index];
@@ -3439,7 +3304,7 @@ var require_agent = __commonJS({
         session.close();
       }
     };
-    var Agent = class extends EventEmitter3 {
+    var Agent = class _Agent extends EventEmitter3 {
       constructor({ timeout = 0, maxSessions = Number.POSITIVE_INFINITY, maxEmptySessions = 10, maxCachedTlsSessions = 100 } = {}) {
         super();
         this.sessions = {};
@@ -3801,7 +3666,7 @@ var require_agent = __commonJS({
         });
       }
       async createConnection(origin, options) {
-        return Agent.connect(origin, options);
+        return _Agent.connect(origin, options);
       }
       static connect(origin, options) {
         options.ALPNProtocols = ["h2"];
@@ -3876,7 +3741,7 @@ var require_agent = __commonJS({
 
 // node_modules/http2-wrapper/source/incoming-message.js
 var require_incoming_message = __commonJS({
-  "node_modules/http2-wrapper/source/incoming-message.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/incoming-message.js"(exports2, module2) {
     "use strict";
     var { Readable } = require("stream");
     var IncomingMessage = class extends Readable {
@@ -3938,7 +3803,7 @@ var require_incoming_message = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/proxy-events.js
 var require_proxy_events = __commonJS({
-  "node_modules/http2-wrapper/source/utils/proxy-events.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/proxy-events.js"(exports2, module2) {
     "use strict";
     module2.exports = (from, to, events) => {
       for (const event of events) {
@@ -3950,7 +3815,7 @@ var require_proxy_events = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/errors.js
 var require_errors = __commonJS({
-  "node_modules/http2-wrapper/source/utils/errors.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/errors.js"(exports2, module2) {
     "use strict";
     var makeError = (Base, key, getMessage) => {
       module2.exports[key] = class NodeError extends Base {
@@ -4005,7 +3870,7 @@ var require_errors = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/is-request-pseudo-header.js
 var require_is_request_pseudo_header = __commonJS({
-  "node_modules/http2-wrapper/source/utils/is-request-pseudo-header.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/is-request-pseudo-header.js"(exports2, module2) {
     "use strict";
     module2.exports = (header) => {
       switch (header) {
@@ -4023,7 +3888,7 @@ var require_is_request_pseudo_header = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/validate-header-name.js
 var require_validate_header_name = __commonJS({
-  "node_modules/http2-wrapper/source/utils/validate-header-name.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/validate-header-name.js"(exports2, module2) {
     "use strict";
     var { ERR_INVALID_HTTP_TOKEN } = require_errors();
     var isRequestPseudoHeader = require_is_request_pseudo_header();
@@ -4038,7 +3903,7 @@ var require_validate_header_name = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/validate-header-value.js
 var require_validate_header_value = __commonJS({
-  "node_modules/http2-wrapper/source/utils/validate-header-value.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/validate-header-value.js"(exports2, module2) {
     "use strict";
     var {
       ERR_HTTP_INVALID_HEADER_VALUE,
@@ -4058,7 +3923,7 @@ var require_validate_header_value = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/proxy-socket-handler.js
 var require_proxy_socket_handler = __commonJS({
-  "node_modules/http2-wrapper/source/utils/proxy-socket-handler.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/proxy-socket-handler.js"(exports2, module2) {
     "use strict";
     var { ERR_HTTP2_NO_SOCKET_MANIPULATION } = require_errors();
     var proxySocketHandler = {
@@ -4147,7 +4012,7 @@ var require_proxy_socket_handler = __commonJS({
 
 // node_modules/http2-wrapper/source/client-request.js
 var require_client_request = __commonJS({
-  "node_modules/http2-wrapper/source/client-request.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/client-request.js"(exports2, module2) {
     "use strict";
     var { URL: URL3, urlToHttpOptions } = require("url");
     var http22 = require("http2");
@@ -4294,13 +4159,13 @@ var require_client_request = __commonJS({
       get _mustNotHaveABody() {
         return this.method === "GET" || this.method === "HEAD" || this.method === "DELETE";
       }
-      _write(chunk, encoding, callback) {
+      _write(chunk2, encoding, callback) {
         if (this._mustNotHaveABody) {
           callback(new Error("The GET, HEAD and DELETE methods must NOT have a body"));
           return;
         }
         this.flushHeaders();
-        const callWrite = () => this._request.write(chunk, encoding, callback);
+        const callWrite = () => this._request.write(chunk2, encoding, callback);
         if (this._request) {
           callWrite();
         } else {
@@ -4401,8 +4266,8 @@ var require_client_request = __commonJS({
                 stream2.destroy();
               }
             } else {
-              stream2.on("data", (chunk) => {
-                if (!response._dumped && !response.push(chunk)) {
+              stream2.on("data", (chunk2) => {
+                if (!response._dumped && !response.push(chunk2)) {
                   stream2.pause();
                 }
               });
@@ -4564,7 +4429,7 @@ var require_client_request = __commonJS({
 
 // node_modules/resolve-alpn/index.js
 var require_resolve_alpn = __commonJS({
-  "node_modules/resolve-alpn/index.js"(exports, module2) {
+  "node_modules/resolve-alpn/index.js"(exports2, module2) {
     "use strict";
     var tls = require("tls");
     module2.exports = (options = {}, connect = tls.connect) => new Promise((resolve, reject) => {
@@ -4604,7 +4469,7 @@ var require_resolve_alpn = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/calculate-server-name.js
 var require_calculate_server_name = __commonJS({
-  "node_modules/http2-wrapper/source/utils/calculate-server-name.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/calculate-server-name.js"(exports2, module2) {
     "use strict";
     var { isIP } = require("net");
     var assert2 = require("assert");
@@ -4632,7 +4497,7 @@ var require_calculate_server_name = __commonJS({
 
 // node_modules/http2-wrapper/source/auto.js
 var require_auto = __commonJS({
-  "node_modules/http2-wrapper/source/auto.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/auto.js"(exports2, module2) {
     "use strict";
     var { URL: URL3, urlToHttpOptions } = require("url");
     var http3 = require("http");
@@ -4780,6 +4645,18 @@ var require_auto = __commonJS({
       } else if (agent) {
         options.agent = agent.http;
       }
+      if (options.headers) {
+        options.headers = { ...options.headers };
+        if (options.headers[":authority"]) {
+          if (!options.headers.host) {
+            options.headers.host = options.headers[":authority"];
+          }
+          delete options.headers[":authority"];
+        }
+        delete options.headers[":method"];
+        delete options.headers[":scheme"];
+        delete options.headers[":path"];
+      }
       return delayAsyncDestroy(http3.request(options, callback));
     };
     module2.exports.protocolCache = cache;
@@ -4790,7 +4667,7 @@ var require_auto = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/js-stream-socket.js
 var require_js_stream_socket = __commonJS({
-  "node_modules/http2-wrapper/source/utils/js-stream-socket.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/js-stream-socket.js"(exports2, module2) {
     "use strict";
     var stream2 = require("stream");
     var tls = require("tls");
@@ -4801,7 +4678,7 @@ var require_js_stream_socket = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/unexpected-status-code-error.js
 var require_unexpected_status_code_error = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/unexpected-status-code-error.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/unexpected-status-code-error.js"(exports2, module2) {
     "use strict";
     var UnexpectedStatusCodeError = class extends Error {
       constructor(statusCode, statusMessage = "") {
@@ -4816,7 +4693,7 @@ var require_unexpected_status_code_error = __commonJS({
 
 // node_modules/http2-wrapper/source/utils/check-type.js
 var require_check_type = __commonJS({
-  "node_modules/http2-wrapper/source/utils/check-type.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/utils/check-type.js"(exports2, module2) {
     "use strict";
     var checkType = (name, value, types2) => {
       const valid = types2.some((type) => {
@@ -4837,7 +4714,7 @@ var require_check_type = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/initialize.js
 var require_initialize = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/initialize.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/initialize.js"(exports2, module2) {
     "use strict";
     var { URL: URL3 } = require("url");
     var checkType = require_check_type();
@@ -4859,7 +4736,7 @@ var require_initialize = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/get-auth-headers.js
 var require_get_auth_headers = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/get-auth-headers.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/get-auth-headers.js"(exports2, module2) {
     "use strict";
     module2.exports = (self) => {
       const { username, password } = self.proxyOptions.url;
@@ -4878,7 +4755,7 @@ var require_get_auth_headers = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/h1-over-h2.js
 var require_h1_over_h2 = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/h1-over-h2.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/h1-over-h2.js"(exports2, module2) {
     "use strict";
     var tls = require("tls");
     var http3 = require("http");
@@ -4957,7 +4834,7 @@ var require_h1_over_h2 = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/h2-over-hx.js
 var require_h2_over_hx = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/h2-over-hx.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/h2-over-hx.js"(exports2, module2) {
     "use strict";
     var { Agent } = require_agent();
     var JSStreamSocket = require_js_stream_socket();
@@ -4995,7 +4872,7 @@ var require_h2_over_hx = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/h2-over-h2.js
 var require_h2_over_h2 = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/h2-over-h2.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/h2-over-h2.js"(exports2, module2) {
     "use strict";
     var { globalAgent } = require_agent();
     var Http2OverHttpX = require_h2_over_hx();
@@ -5027,13 +4904,13 @@ var require_h2_over_h2 = __commonJS({
 
 // node_modules/http2-wrapper/source/proxies/h2-over-h1.js
 var require_h2_over_h1 = __commonJS({
-  "node_modules/http2-wrapper/source/proxies/h2-over-h1.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/proxies/h2-over-h1.js"(exports2, module2) {
     "use strict";
     var http3 = require("http");
     var https2 = require("https");
     var Http2OverHttpX = require_h2_over_hx();
     var getAuthorizationHeaders = require_get_auth_headers();
-    var getStream3 = (request) => new Promise((resolve, reject) => {
+    var getStream = (request) => new Promise((resolve, reject) => {
       const onConnect = (response, socket, head) => {
         socket.unshift(head);
         request.off("error", reject);
@@ -5059,7 +4936,7 @@ var require_h2_over_h1 = __commonJS({
           },
           method: "CONNECT"
         }).end();
-        return getStream3(request);
+        return getStream(request);
       }
     };
     module2.exports = {
@@ -5071,7 +4948,7 @@ var require_h2_over_h1 = __commonJS({
 
 // node_modules/http2-wrapper/source/index.js
 var require_source2 = __commonJS({
-  "node_modules/http2-wrapper/source/index.js"(exports, module2) {
+  "node_modules/http2-wrapper/source/index.js"(exports2, module2) {
     "use strict";
     var http22 = require("http2");
     var {
@@ -5123,7 +5000,7 @@ var require_source2 = __commonJS({
 // src/main.ts
 var core = __toESM(require_core());
 
-// node_modules/@sindresorhus/is/dist/index.js
+// node_modules/@sindresorhus/is/distribution/index.js
 var typedArrayTypeNames = [
   "Int8Array",
   "Uint8Array",
@@ -5186,13 +5063,55 @@ var primitiveTypeNames = [
 function isPrimitiveTypeName(name) {
   return primitiveTypeNames.includes(name);
 }
-function isOfType(type) {
-  return (value) => typeof value === type;
-}
-var { toString } = Object.prototype;
+var assertionTypeDescriptions = [
+  "positive number",
+  "negative number",
+  "Class",
+  "string with a number",
+  "null or undefined",
+  "Iterable",
+  "AsyncIterable",
+  "native Promise",
+  "EnumCase",
+  "string with a URL",
+  "truthy",
+  "falsy",
+  "primitive",
+  "integer",
+  "plain object",
+  "TypedArray",
+  "array-like",
+  "tuple-like",
+  "Node.js Stream",
+  "infinite number",
+  "empty array",
+  "non-empty array",
+  "empty string",
+  "empty string or whitespace",
+  "non-empty string",
+  "non-empty string and not whitespace",
+  "empty object",
+  "non-empty object",
+  "empty set",
+  "non-empty set",
+  "empty map",
+  "non-empty map",
+  "PropertyKey",
+  "even integer",
+  "odd integer",
+  "T",
+  "in range",
+  "predicate returns truthy for any value",
+  "predicate returns truthy for all values",
+  "valid Date",
+  "valid length",
+  "whitespace string",
+  ...objectTypeNames,
+  ...primitiveTypeNames
+];
 var getObjectType = (value) => {
-  const objectTypeName = toString.call(value).slice(8, -1);
-  if (/HTML\w+Element/.test(objectTypeName) && is.domElement(value)) {
+  const objectTypeName = Object.prototype.toString.call(value).slice(8, -1);
+  if (/HTML\w+Element/.test(objectTypeName) && isHtmlElement(value)) {
     return "HTMLElement";
   }
   if (isObjectTypeName(objectTypeName)) {
@@ -5200,8 +5119,7 @@ var getObjectType = (value) => {
   }
   return void 0;
 };
-var isObjectOfType = (type) => (value) => getObjectType(value) === type;
-function is(value) {
+function detect(value) {
   if (value === null) {
     return "null";
   }
@@ -5229,13 +5147,13 @@ function is(value) {
     }
     default:
   }
-  if (is.observable(value)) {
+  if (isObservable(value)) {
     return "Observable";
   }
-  if (is.array(value)) {
+  if (isArray(value)) {
     return "Array";
   }
-  if (is.buffer(value)) {
+  if (isBuffer(value)) {
     return "Buffer";
   }
   const tagType = getObjectType(value);
@@ -5247,105 +5165,223 @@ function is(value) {
   }
   return "Object";
 }
-is.undefined = isOfType("undefined");
-is.string = isOfType("string");
-var isNumberType = isOfType("number");
-is.number = (value) => isNumberType(value) && !is.nan(value);
-is.bigint = isOfType("bigint");
-is.function_ = isOfType("function");
-is.null_ = (value) => value === null;
-is.class_ = (value) => is.function_(value) && value.toString().startsWith("class ");
-is.boolean = (value) => value === true || value === false;
-is.symbol = isOfType("symbol");
-is.numericString = (value) => is.string(value) && !is.emptyStringOrWhitespace(value) && !Number.isNaN(Number(value));
-is.array = (value, assertion) => {
+function hasPromiseApi(value) {
+  return isFunction(value?.then) && isFunction(value?.catch);
+}
+var is = Object.assign(detect, {
+  all: isAll,
+  any: isAny,
+  array: isArray,
+  arrayBuffer: isArrayBuffer,
+  arrayLike: isArrayLike,
+  asyncFunction: isAsyncFunction,
+  asyncGenerator: isAsyncGenerator,
+  asyncGeneratorFunction: isAsyncGeneratorFunction,
+  asyncIterable: isAsyncIterable,
+  bigint: isBigint,
+  bigInt64Array: isBigInt64Array,
+  bigUint64Array: isBigUint64Array,
+  blob: isBlob,
+  boolean: isBoolean,
+  boundFunction: isBoundFunction,
+  buffer: isBuffer,
+  class: isClass,
+  dataView: isDataView,
+  date: isDate,
+  detect,
+  directInstanceOf: isDirectInstanceOf,
+  emptyArray: isEmptyArray,
+  emptyMap: isEmptyMap,
+  emptyObject: isEmptyObject,
+  emptySet: isEmptySet,
+  emptyString: isEmptyString,
+  emptyStringOrWhitespace: isEmptyStringOrWhitespace,
+  enumCase: isEnumCase,
+  error: isError,
+  evenInteger: isEvenInteger,
+  falsy: isFalsy,
+  float32Array: isFloat32Array,
+  float64Array: isFloat64Array,
+  formData: isFormData,
+  function: isFunction,
+  generator: isGenerator,
+  generatorFunction: isGeneratorFunction,
+  htmlElement: isHtmlElement,
+  infinite: isInfinite,
+  inRange: isInRange,
+  int16Array: isInt16Array,
+  int32Array: isInt32Array,
+  int8Array: isInt8Array,
+  integer: isInteger,
+  iterable: isIterable,
+  map: isMap,
+  nan: isNan,
+  nativePromise: isNativePromise,
+  negativeNumber: isNegativeNumber,
+  nodeStream: isNodeStream,
+  nonEmptyArray: isNonEmptyArray,
+  nonEmptyMap: isNonEmptyMap,
+  nonEmptyObject: isNonEmptyObject,
+  nonEmptySet: isNonEmptySet,
+  nonEmptyString: isNonEmptyString,
+  nonEmptyStringAndNotWhitespace: isNonEmptyStringAndNotWhitespace,
+  null: isNull,
+  nullOrUndefined: isNullOrUndefined,
+  number: isNumber,
+  numericString: isNumericString,
+  object: isObject,
+  observable: isObservable,
+  oddInteger: isOddInteger,
+  plainObject: isPlainObject,
+  positiveNumber: isPositiveNumber,
+  primitive: isPrimitive,
+  promise: isPromise,
+  propertyKey: isPropertyKey,
+  regExp: isRegExp,
+  safeInteger: isSafeInteger,
+  set: isSet,
+  sharedArrayBuffer: isSharedArrayBuffer,
+  string: isString,
+  symbol: isSymbol,
+  truthy: isTruthy,
+  tupleLike: isTupleLike,
+  typedArray: isTypedArray,
+  uint16Array: isUint16Array,
+  uint32Array: isUint32Array,
+  uint8Array: isUint8Array,
+  uint8ClampedArray: isUint8ClampedArray,
+  undefined: isUndefined,
+  urlInstance: isUrlInstance,
+  urlSearchParams: isUrlSearchParams,
+  urlString: isUrlString,
+  validDate: isValidDate,
+  validLength: isValidLength,
+  weakMap: isWeakMap,
+  weakRef: isWeakRef,
+  weakSet: isWeakSet,
+  whitespaceString: isWhitespaceString
+});
+function isAbsoluteModule2(remainder) {
+  return (value) => isInteger(value) && Math.abs(value % 2) === remainder;
+}
+function isAll(predicate, ...values) {
+  return predicateOnArray(Array.prototype.every, predicate, values);
+}
+function isAny(predicate, ...values) {
+  const predicates = isArray(predicate) ? predicate : [predicate];
+  return predicates.some((singlePredicate) => predicateOnArray(Array.prototype.some, singlePredicate, values));
+}
+function isArray(value, assertion) {
   if (!Array.isArray(value)) {
     return false;
   }
-  if (!is.function_(assertion)) {
+  if (!isFunction(assertion)) {
     return true;
   }
   return value.every((element) => assertion(element));
-};
-is.buffer = (value) => {
-  var _a, _b;
-  return ((_b = (_a = value == null ? void 0 : value.constructor) == null ? void 0 : _a.isBuffer) == null ? void 0 : _b.call(_a, value)) ?? false;
-};
-is.blob = (value) => isObjectOfType("Blob")(value);
-is.nullOrUndefined = (value) => is.null_(value) || is.undefined(value);
-is.object = (value) => !is.null_(value) && (typeof value === "object" || is.function_(value));
-is.iterable = (value) => is.function_(value == null ? void 0 : value[Symbol.iterator]);
-is.asyncIterable = (value) => is.function_(value == null ? void 0 : value[Symbol.asyncIterator]);
-is.generator = (value) => is.iterable(value) && is.function_(value == null ? void 0 : value.next) && is.function_(value == null ? void 0 : value.throw);
-is.asyncGenerator = (value) => is.asyncIterable(value) && is.function_(value.next) && is.function_(value.throw);
-is.nativePromise = (value) => isObjectOfType("Promise")(value);
-var hasPromiseApi = (value) => is.function_(value == null ? void 0 : value.then) && is.function_(value == null ? void 0 : value.catch);
-is.promise = (value) => is.nativePromise(value) || hasPromiseApi(value);
-is.generatorFunction = isObjectOfType("GeneratorFunction");
-is.asyncGeneratorFunction = (value) => getObjectType(value) === "AsyncGeneratorFunction";
-is.asyncFunction = (value) => getObjectType(value) === "AsyncFunction";
-is.boundFunction = (value) => is.function_(value) && !value.hasOwnProperty("prototype");
-is.regExp = isObjectOfType("RegExp");
-is.date = isObjectOfType("Date");
-is.error = isObjectOfType("Error");
-is.map = (value) => isObjectOfType("Map")(value);
-is.set = (value) => isObjectOfType("Set")(value);
-is.weakMap = (value) => isObjectOfType("WeakMap")(value);
-is.weakSet = (value) => isObjectOfType("WeakSet")(value);
-is.weakRef = (value) => isObjectOfType("WeakRef")(value);
-is.int8Array = isObjectOfType("Int8Array");
-is.uint8Array = isObjectOfType("Uint8Array");
-is.uint8ClampedArray = isObjectOfType("Uint8ClampedArray");
-is.int16Array = isObjectOfType("Int16Array");
-is.uint16Array = isObjectOfType("Uint16Array");
-is.int32Array = isObjectOfType("Int32Array");
-is.uint32Array = isObjectOfType("Uint32Array");
-is.float32Array = isObjectOfType("Float32Array");
-is.float64Array = isObjectOfType("Float64Array");
-is.bigInt64Array = isObjectOfType("BigInt64Array");
-is.bigUint64Array = isObjectOfType("BigUint64Array");
-is.arrayBuffer = isObjectOfType("ArrayBuffer");
-is.sharedArrayBuffer = isObjectOfType("SharedArrayBuffer");
-is.dataView = isObjectOfType("DataView");
-is.enumCase = (value, targetEnum) => Object.values(targetEnum).includes(value);
-is.directInstanceOf = (instance, class_) => Object.getPrototypeOf(instance) === class_.prototype;
-is.urlInstance = (value) => isObjectOfType("URL")(value);
-is.urlString = (value) => {
-  if (!is.string(value)) {
+}
+function isArrayBuffer(value) {
+  return getObjectType(value) === "ArrayBuffer";
+}
+function isArrayLike(value) {
+  return !isNullOrUndefined(value) && !isFunction(value) && isValidLength(value.length);
+}
+function isAsyncFunction(value) {
+  return getObjectType(value) === "AsyncFunction";
+}
+function isAsyncGenerator(value) {
+  return isAsyncIterable(value) && isFunction(value.next) && isFunction(value.throw);
+}
+function isAsyncGeneratorFunction(value) {
+  return getObjectType(value) === "AsyncGeneratorFunction";
+}
+function isAsyncIterable(value) {
+  return isFunction(value?.[Symbol.asyncIterator]);
+}
+function isBigint(value) {
+  return typeof value === "bigint";
+}
+function isBigInt64Array(value) {
+  return getObjectType(value) === "BigInt64Array";
+}
+function isBigUint64Array(value) {
+  return getObjectType(value) === "BigUint64Array";
+}
+function isBlob(value) {
+  return getObjectType(value) === "Blob";
+}
+function isBoolean(value) {
+  return value === true || value === false;
+}
+function isBoundFunction(value) {
+  return isFunction(value) && !Object.hasOwn(value, "prototype");
+}
+function isBuffer(value) {
+  return value?.constructor?.isBuffer?.(value) ?? false;
+}
+function isClass(value) {
+  return isFunction(value) && value.toString().startsWith("class ");
+}
+function isDataView(value) {
+  return getObjectType(value) === "DataView";
+}
+function isDate(value) {
+  return getObjectType(value) === "Date";
+}
+function isDirectInstanceOf(instance, class_) {
+  if (instance === void 0 || instance === null) {
     return false;
   }
-  try {
-    new URL(value);
-    return true;
-  } catch {
-    return false;
-  }
-};
-is.truthy = (value) => Boolean(value);
-is.falsy = (value) => !value;
-is.nan = (value) => Number.isNaN(value);
-is.primitive = (value) => is.null_(value) || isPrimitiveTypeName(typeof value);
-is.integer = (value) => Number.isInteger(value);
-is.safeInteger = (value) => Number.isSafeInteger(value);
-is.plainObject = (value) => {
-  if (typeof value !== "object" || value === null) {
-    return false;
-  }
-  const prototype = Object.getPrototypeOf(value);
-  return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in value) && !(Symbol.iterator in value);
-};
-is.typedArray = (value) => isTypedArrayName(getObjectType(value));
-var isValidLength = (value) => is.safeInteger(value) && value >= 0;
-is.arrayLike = (value) => !is.nullOrUndefined(value) && !is.function_(value) && isValidLength(value.length);
-is.inRange = (value, range) => {
-  if (is.number(range)) {
-    return value >= Math.min(0, range) && value <= Math.max(range, 0);
-  }
-  if (is.array(range) && range.length === 2) {
-    return value >= Math.min(...range) && value <= Math.max(...range);
-  }
-  throw new TypeError(`Invalid range: ${JSON.stringify(range)}`);
-};
+  return Object.getPrototypeOf(instance) === class_.prototype;
+}
+function isEmptyArray(value) {
+  return isArray(value) && value.length === 0;
+}
+function isEmptyMap(value) {
+  return isMap(value) && value.size === 0;
+}
+function isEmptyObject(value) {
+  return isObject(value) && !isMap(value) && !isSet(value) && Object.keys(value).length === 0;
+}
+function isEmptySet(value) {
+  return isSet(value) && value.size === 0;
+}
+function isEmptyString(value) {
+  return isString(value) && value.length === 0;
+}
+function isEmptyStringOrWhitespace(value) {
+  return isEmptyString(value) || isWhitespaceString(value);
+}
+function isEnumCase(value, targetEnum) {
+  return Object.values(targetEnum).includes(value);
+}
+function isError(value) {
+  return getObjectType(value) === "Error";
+}
+function isEvenInteger(value) {
+  return isAbsoluteModule2(0)(value);
+}
+function isFalsy(value) {
+  return !value;
+}
+function isFloat32Array(value) {
+  return getObjectType(value) === "Float32Array";
+}
+function isFloat64Array(value) {
+  return getObjectType(value) === "Float64Array";
+}
+function isFormData(value) {
+  return getObjectType(value) === "FormData";
+}
+function isFunction(value) {
+  return typeof value === "function";
+}
+function isGenerator(value) {
+  return isIterable(value) && isFunction(value?.next) && isFunction(value?.throw);
+}
+function isGeneratorFunction(value) {
+  return getObjectType(value) === "GeneratorFunction";
+}
 var NODE_TYPE_ELEMENT = 1;
 var DOM_PROPERTIES_TO_CHECK = [
   "innerHTML",
@@ -5354,189 +5390,871 @@ var DOM_PROPERTIES_TO_CHECK = [
   "attributes",
   "nodeValue"
 ];
-is.domElement = (value) => is.object(value) && value.nodeType === NODE_TYPE_ELEMENT && is.string(value.nodeName) && !is.plainObject(value) && DOM_PROPERTIES_TO_CHECK.every((property) => property in value);
-is.observable = (value) => {
-  var _a, _b;
+function isHtmlElement(value) {
+  return isObject(value) && value.nodeType === NODE_TYPE_ELEMENT && isString(value.nodeName) && !isPlainObject(value) && DOM_PROPERTIES_TO_CHECK.every((property) => property in value);
+}
+function isInfinite(value) {
+  return value === Number.POSITIVE_INFINITY || value === Number.NEGATIVE_INFINITY;
+}
+function isInRange(value, range) {
+  if (isNumber(range)) {
+    return value >= Math.min(0, range) && value <= Math.max(range, 0);
+  }
+  if (isArray(range) && range.length === 2) {
+    return value >= Math.min(...range) && value <= Math.max(...range);
+  }
+  throw new TypeError(`Invalid range: ${JSON.stringify(range)}`);
+}
+function isInt16Array(value) {
+  return getObjectType(value) === "Int16Array";
+}
+function isInt32Array(value) {
+  return getObjectType(value) === "Int32Array";
+}
+function isInt8Array(value) {
+  return getObjectType(value) === "Int8Array";
+}
+function isInteger(value) {
+  return Number.isInteger(value);
+}
+function isIterable(value) {
+  return isFunction(value?.[Symbol.iterator]);
+}
+function isMap(value) {
+  return getObjectType(value) === "Map";
+}
+function isNan(value) {
+  return Number.isNaN(value);
+}
+function isNativePromise(value) {
+  return getObjectType(value) === "Promise";
+}
+function isNegativeNumber(value) {
+  return isNumber(value) && value < 0;
+}
+function isNodeStream(value) {
+  return isObject(value) && isFunction(value.pipe) && !isObservable(value);
+}
+function isNonEmptyArray(value) {
+  return isArray(value) && value.length > 0;
+}
+function isNonEmptyMap(value) {
+  return isMap(value) && value.size > 0;
+}
+function isNonEmptyObject(value) {
+  return isObject(value) && !isMap(value) && !isSet(value) && Object.keys(value).length > 0;
+}
+function isNonEmptySet(value) {
+  return isSet(value) && value.size > 0;
+}
+function isNonEmptyString(value) {
+  return isString(value) && value.length > 0;
+}
+function isNonEmptyStringAndNotWhitespace(value) {
+  return isString(value) && !isEmptyStringOrWhitespace(value);
+}
+function isNull(value) {
+  return value === null;
+}
+function isNullOrUndefined(value) {
+  return isNull(value) || isUndefined(value);
+}
+function isNumber(value) {
+  return typeof value === "number" && !Number.isNaN(value);
+}
+function isNumericString(value) {
+  return isString(value) && !isEmptyStringOrWhitespace(value) && !Number.isNaN(Number(value));
+}
+function isObject(value) {
+  return !isNull(value) && (typeof value === "object" || isFunction(value));
+}
+function isObservable(value) {
   if (!value) {
     return false;
   }
-  if (value === ((_a = value[Symbol.observable]) == null ? void 0 : _a.call(value))) {
+  if (value === value[Symbol.observable]?.()) {
     return true;
   }
-  if (value === ((_b = value["@@observable"]) == null ? void 0 : _b.call(value))) {
+  if (value === value["@@observable"]?.()) {
     return true;
   }
   return false;
-};
-is.nodeStream = (value) => is.object(value) && is.function_(value.pipe) && !is.observable(value);
-is.infinite = (value) => value === Number.POSITIVE_INFINITY || value === Number.NEGATIVE_INFINITY;
-var isAbsoluteMod2 = (remainder) => (value) => is.integer(value) && Math.abs(value % 2) === remainder;
-is.evenInteger = isAbsoluteMod2(0);
-is.oddInteger = isAbsoluteMod2(1);
-is.emptyArray = (value) => is.array(value) && value.length === 0;
-is.nonEmptyArray = (value) => is.array(value) && value.length > 0;
-is.emptyString = (value) => is.string(value) && value.length === 0;
-var isWhiteSpaceString = (value) => is.string(value) && !/\S/.test(value);
-is.emptyStringOrWhitespace = (value) => is.emptyString(value) || isWhiteSpaceString(value);
-is.nonEmptyString = (value) => is.string(value) && value.length > 0;
-is.nonEmptyStringAndNotWhitespace = (value) => is.string(value) && !is.emptyStringOrWhitespace(value);
-is.emptyObject = (value) => is.object(value) && !is.map(value) && !is.set(value) && Object.keys(value).length === 0;
-is.nonEmptyObject = (value) => is.object(value) && !is.map(value) && !is.set(value) && Object.keys(value).length > 0;
-is.emptySet = (value) => is.set(value) && value.size === 0;
-is.nonEmptySet = (value) => is.set(value) && value.size > 0;
-is.emptyMap = (value) => is.map(value) && value.size === 0;
-is.nonEmptyMap = (value) => is.map(value) && value.size > 0;
-is.propertyKey = (value) => is.any([is.string, is.number, is.symbol], value);
-is.formData = (value) => isObjectOfType("FormData")(value);
-is.urlSearchParams = (value) => isObjectOfType("URLSearchParams")(value);
-var predicateOnArray = (method, predicate, values) => {
-  if (!is.function_(predicate)) {
+}
+function isOddInteger(value) {
+  return isAbsoluteModule2(1)(value);
+}
+function isPlainObject(value) {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(value);
+  return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in value) && !(Symbol.iterator in value);
+}
+function isPositiveNumber(value) {
+  return isNumber(value) && value > 0;
+}
+function isPrimitive(value) {
+  return isNull(value) || isPrimitiveTypeName(typeof value);
+}
+function isPromise(value) {
+  return isNativePromise(value) || hasPromiseApi(value);
+}
+function isPropertyKey(value) {
+  return isAny([isString, isNumber, isSymbol], value);
+}
+function isRegExp(value) {
+  return getObjectType(value) === "RegExp";
+}
+function isSafeInteger(value) {
+  return Number.isSafeInteger(value);
+}
+function isSet(value) {
+  return getObjectType(value) === "Set";
+}
+function isSharedArrayBuffer(value) {
+  return getObjectType(value) === "SharedArrayBuffer";
+}
+function isString(value) {
+  return typeof value === "string";
+}
+function isSymbol(value) {
+  return typeof value === "symbol";
+}
+function isTruthy(value) {
+  return Boolean(value);
+}
+function isTupleLike(value, guards) {
+  if (isArray(guards) && isArray(value) && guards.length === value.length) {
+    return guards.every((guard, index) => guard(value[index]));
+  }
+  return false;
+}
+function isTypedArray(value) {
+  return isTypedArrayName(getObjectType(value));
+}
+function isUint16Array(value) {
+  return getObjectType(value) === "Uint16Array";
+}
+function isUint32Array(value) {
+  return getObjectType(value) === "Uint32Array";
+}
+function isUint8Array(value) {
+  return getObjectType(value) === "Uint8Array";
+}
+function isUint8ClampedArray(value) {
+  return getObjectType(value) === "Uint8ClampedArray";
+}
+function isUndefined(value) {
+  return value === void 0;
+}
+function isUrlInstance(value) {
+  return getObjectType(value) === "URL";
+}
+function isUrlSearchParams(value) {
+  return getObjectType(value) === "URLSearchParams";
+}
+function isUrlString(value) {
+  if (!isString(value)) {
+    return false;
+  }
+  try {
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+function isValidDate(value) {
+  return isDate(value) && !isNan(Number(value));
+}
+function isValidLength(value) {
+  return isSafeInteger(value) && value >= 0;
+}
+function isWeakMap(value) {
+  return getObjectType(value) === "WeakMap";
+}
+function isWeakRef(value) {
+  return getObjectType(value) === "WeakRef";
+}
+function isWeakSet(value) {
+  return getObjectType(value) === "WeakSet";
+}
+function isWhitespaceString(value) {
+  return isString(value) && /^\s+$/.test(value);
+}
+function predicateOnArray(method, predicate, values) {
+  if (!isFunction(predicate)) {
     throw new TypeError(`Invalid predicate: ${JSON.stringify(predicate)}`);
   }
   if (values.length === 0) {
     throw new TypeError("Invalid number of values");
   }
   return method.call(values, predicate);
-};
-is.any = (predicate, ...values) => {
-  const predicates = is.array(predicate) ? predicate : [predicate];
-  return predicates.some((singlePredicate) => predicateOnArray(Array.prototype.some, singlePredicate, values));
-};
-is.all = (predicate, ...values) => predicateOnArray(Array.prototype.every, predicate, values);
-var assertType = (condition, description, value, options = {}) => {
-  if (!condition) {
-    const { multipleValues } = options;
-    const valuesMessage = multipleValues ? `received values of types ${[
-      ...new Set(value.map((singleValue) => `\`${is(singleValue)}\``))
-    ].join(", ")}` : `received value of type \`${is(value)}\``;
-    throw new TypeError(`Expected value which is \`${description}\`, ${valuesMessage}.`);
-  }
-};
+}
+function typeErrorMessage(description, value) {
+  return `Expected value which is \`${description}\`, received value of type \`${is(value)}\`.`;
+}
+function unique(values) {
+  return Array.from(new Set(values));
+}
+var andFormatter = new Intl.ListFormat("en", { style: "long", type: "conjunction" });
+var orFormatter = new Intl.ListFormat("en", { style: "long", type: "disjunction" });
+function typeErrorMessageMultipleValues(expectedType, values) {
+  const uniqueExpectedTypes = unique((isArray(expectedType) ? expectedType : [expectedType]).map((value) => `\`${value}\``));
+  const uniqueValueTypes = unique(values.map((value) => `\`${is(value)}\``));
+  return `Expected values which are ${orFormatter.format(uniqueExpectedTypes)}. Received values of type${uniqueValueTypes.length > 1 ? "s" : ""} ${andFormatter.format(uniqueValueTypes)}.`;
+}
 var assert = {
-  // Unknowns.
-  undefined: (value) => assertType(is.undefined(value), "undefined", value),
-  string: (value) => assertType(is.string(value), "string", value),
-  number: (value) => assertType(is.number(value), "number", value),
-  bigint: (value) => assertType(is.bigint(value), "bigint", value),
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  function_: (value) => assertType(is.function_(value), "Function", value),
-  null_: (value) => assertType(is.null_(value), "null", value),
-  class_: (value) => assertType(is.class_(value), "Class", value),
-  boolean: (value) => assertType(is.boolean(value), "boolean", value),
-  symbol: (value) => assertType(is.symbol(value), "symbol", value),
-  numericString: (value) => assertType(is.numericString(value), "string with a number", value),
-  array: (value, assertion) => {
-    const assert2 = assertType;
-    assert2(is.array(value), "Array", value);
-    if (assertion) {
-      value.forEach(assertion);
-    }
-  },
-  buffer: (value) => assertType(is.buffer(value), "Buffer", value),
-  blob: (value) => assertType(is.blob(value), "Blob", value),
-  nullOrUndefined: (value) => assertType(is.nullOrUndefined(value), "null or undefined", value),
-  object: (value) => assertType(is.object(value), "Object", value),
-  iterable: (value) => assertType(is.iterable(value), "Iterable", value),
-  asyncIterable: (value) => assertType(is.asyncIterable(value), "AsyncIterable", value),
-  generator: (value) => assertType(is.generator(value), "Generator", value),
-  asyncGenerator: (value) => assertType(is.asyncGenerator(value), "AsyncGenerator", value),
-  nativePromise: (value) => assertType(is.nativePromise(value), "native Promise", value),
-  promise: (value) => assertType(is.promise(value), "Promise", value),
-  generatorFunction: (value) => assertType(is.generatorFunction(value), "GeneratorFunction", value),
-  asyncGeneratorFunction: (value) => assertType(is.asyncGeneratorFunction(value), "AsyncGeneratorFunction", value),
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  asyncFunction: (value) => assertType(is.asyncFunction(value), "AsyncFunction", value),
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  boundFunction: (value) => assertType(is.boundFunction(value), "Function", value),
-  regExp: (value) => assertType(is.regExp(value), "RegExp", value),
-  date: (value) => assertType(is.date(value), "Date", value),
-  error: (value) => assertType(is.error(value), "Error", value),
-  map: (value) => assertType(is.map(value), "Map", value),
-  set: (value) => assertType(is.set(value), "Set", value),
-  weakMap: (value) => assertType(is.weakMap(value), "WeakMap", value),
-  weakSet: (value) => assertType(is.weakSet(value), "WeakSet", value),
-  weakRef: (value) => assertType(is.weakRef(value), "WeakRef", value),
-  int8Array: (value) => assertType(is.int8Array(value), "Int8Array", value),
-  uint8Array: (value) => assertType(is.uint8Array(value), "Uint8Array", value),
-  uint8ClampedArray: (value) => assertType(is.uint8ClampedArray(value), "Uint8ClampedArray", value),
-  int16Array: (value) => assertType(is.int16Array(value), "Int16Array", value),
-  uint16Array: (value) => assertType(is.uint16Array(value), "Uint16Array", value),
-  int32Array: (value) => assertType(is.int32Array(value), "Int32Array", value),
-  uint32Array: (value) => assertType(is.uint32Array(value), "Uint32Array", value),
-  float32Array: (value) => assertType(is.float32Array(value), "Float32Array", value),
-  float64Array: (value) => assertType(is.float64Array(value), "Float64Array", value),
-  bigInt64Array: (value) => assertType(is.bigInt64Array(value), "BigInt64Array", value),
-  bigUint64Array: (value) => assertType(is.bigUint64Array(value), "BigUint64Array", value),
-  arrayBuffer: (value) => assertType(is.arrayBuffer(value), "ArrayBuffer", value),
-  sharedArrayBuffer: (value) => assertType(is.sharedArrayBuffer(value), "SharedArrayBuffer", value),
-  dataView: (value) => assertType(is.dataView(value), "DataView", value),
-  enumCase: (value, targetEnum) => assertType(is.enumCase(value, targetEnum), "EnumCase", value),
-  urlInstance: (value) => assertType(is.urlInstance(value), "URL", value),
-  urlString: (value) => assertType(is.urlString(value), "string with a URL", value),
-  truthy: (value) => assertType(is.truthy(value), "truthy", value),
-  falsy: (value) => assertType(is.falsy(value), "falsy", value),
-  nan: (value) => assertType(is.nan(value), "NaN", value),
-  primitive: (value) => assertType(is.primitive(value), "primitive", value),
-  integer: (value) => assertType(is.integer(value), "integer", value),
-  safeInteger: (value) => assertType(is.safeInteger(value), "integer", value),
-  plainObject: (value) => assertType(is.plainObject(value), "plain object", value),
-  typedArray: (value) => assertType(is.typedArray(value), "TypedArray", value),
-  arrayLike: (value) => assertType(is.arrayLike(value), "array-like", value),
-  domElement: (value) => assertType(is.domElement(value), "HTMLElement", value),
-  observable: (value) => assertType(is.observable(value), "Observable", value),
-  nodeStream: (value) => assertType(is.nodeStream(value), "Node.js Stream", value),
-  infinite: (value) => assertType(is.infinite(value), "infinite number", value),
-  emptyArray: (value) => assertType(is.emptyArray(value), "empty array", value),
-  nonEmptyArray: (value) => assertType(is.nonEmptyArray(value), "non-empty array", value),
-  emptyString: (value) => assertType(is.emptyString(value), "empty string", value),
-  emptyStringOrWhitespace: (value) => assertType(is.emptyStringOrWhitespace(value), "empty string or whitespace", value),
-  nonEmptyString: (value) => assertType(is.nonEmptyString(value), "non-empty string", value),
-  nonEmptyStringAndNotWhitespace: (value) => assertType(is.nonEmptyStringAndNotWhitespace(value), "non-empty string and not whitespace", value),
-  emptyObject: (value) => assertType(is.emptyObject(value), "empty object", value),
-  nonEmptyObject: (value) => assertType(is.nonEmptyObject(value), "non-empty object", value),
-  emptySet: (value) => assertType(is.emptySet(value), "empty set", value),
-  nonEmptySet: (value) => assertType(is.nonEmptySet(value), "non-empty set", value),
-  emptyMap: (value) => assertType(is.emptyMap(value), "empty map", value),
-  nonEmptyMap: (value) => assertType(is.nonEmptyMap(value), "non-empty map", value),
-  propertyKey: (value) => assertType(is.propertyKey(value), "PropertyKey", value),
-  formData: (value) => assertType(is.formData(value), "FormData", value),
-  urlSearchParams: (value) => assertType(is.urlSearchParams(value), "URLSearchParams", value),
-  // Numbers.
-  evenInteger: (value) => assertType(is.evenInteger(value), "even integer", value),
-  oddInteger: (value) => assertType(is.oddInteger(value), "odd integer", value),
-  // Two arguments.
-  directInstanceOf: (instance, class_) => assertType(is.directInstanceOf(instance, class_), "T", instance),
-  inRange: (value, range) => assertType(is.inRange(value, range), "in range", value),
-  // Variadic functions.
-  any: (predicate, ...values) => assertType(is.any(predicate, ...values), "predicate returns truthy for any value", values, { multipleValues: true }),
-  all: (predicate, ...values) => assertType(is.all(predicate, ...values), "predicate returns truthy for all values", values, { multipleValues: true })
+  all: assertAll,
+  any: assertAny,
+  array: assertArray,
+  arrayBuffer: assertArrayBuffer,
+  arrayLike: assertArrayLike,
+  asyncFunction: assertAsyncFunction,
+  asyncGenerator: assertAsyncGenerator,
+  asyncGeneratorFunction: assertAsyncGeneratorFunction,
+  asyncIterable: assertAsyncIterable,
+  bigint: assertBigint,
+  bigInt64Array: assertBigInt64Array,
+  bigUint64Array: assertBigUint64Array,
+  blob: assertBlob,
+  boolean: assertBoolean,
+  boundFunction: assertBoundFunction,
+  buffer: assertBuffer,
+  class: assertClass,
+  dataView: assertDataView,
+  date: assertDate,
+  directInstanceOf: assertDirectInstanceOf,
+  emptyArray: assertEmptyArray,
+  emptyMap: assertEmptyMap,
+  emptyObject: assertEmptyObject,
+  emptySet: assertEmptySet,
+  emptyString: assertEmptyString,
+  emptyStringOrWhitespace: assertEmptyStringOrWhitespace,
+  enumCase: assertEnumCase,
+  error: assertError,
+  evenInteger: assertEvenInteger,
+  falsy: assertFalsy,
+  float32Array: assertFloat32Array,
+  float64Array: assertFloat64Array,
+  formData: assertFormData,
+  function: assertFunction,
+  generator: assertGenerator,
+  generatorFunction: assertGeneratorFunction,
+  htmlElement: assertHtmlElement,
+  infinite: assertInfinite,
+  inRange: assertInRange,
+  int16Array: assertInt16Array,
+  int32Array: assertInt32Array,
+  int8Array: assertInt8Array,
+  integer: assertInteger,
+  iterable: assertIterable,
+  map: assertMap,
+  nan: assertNan,
+  nativePromise: assertNativePromise,
+  negativeNumber: assertNegativeNumber,
+  nodeStream: assertNodeStream,
+  nonEmptyArray: assertNonEmptyArray,
+  nonEmptyMap: assertNonEmptyMap,
+  nonEmptyObject: assertNonEmptyObject,
+  nonEmptySet: assertNonEmptySet,
+  nonEmptyString: assertNonEmptyString,
+  nonEmptyStringAndNotWhitespace: assertNonEmptyStringAndNotWhitespace,
+  null: assertNull,
+  nullOrUndefined: assertNullOrUndefined,
+  number: assertNumber,
+  numericString: assertNumericString,
+  object: assertObject,
+  observable: assertObservable,
+  oddInteger: assertOddInteger,
+  plainObject: assertPlainObject,
+  positiveNumber: assertPositiveNumber,
+  primitive: assertPrimitive,
+  promise: assertPromise,
+  propertyKey: assertPropertyKey,
+  regExp: assertRegExp,
+  safeInteger: assertSafeInteger,
+  set: assertSet,
+  sharedArrayBuffer: assertSharedArrayBuffer,
+  string: assertString,
+  symbol: assertSymbol,
+  truthy: assertTruthy,
+  tupleLike: assertTupleLike,
+  typedArray: assertTypedArray,
+  uint16Array: assertUint16Array,
+  uint32Array: assertUint32Array,
+  uint8Array: assertUint8Array,
+  uint8ClampedArray: assertUint8ClampedArray,
+  undefined: assertUndefined,
+  urlInstance: assertUrlInstance,
+  urlSearchParams: assertUrlSearchParams,
+  urlString: assertUrlString,
+  validDate: assertValidDate,
+  validLength: assertValidLength,
+  weakMap: assertWeakMap,
+  weakRef: assertWeakRef,
+  weakSet: assertWeakSet,
+  whitespaceString: assertWhitespaceString
 };
-Object.defineProperties(is, {
-  class: {
-    value: is.class_
-  },
-  function: {
-    value: is.function_
-  },
-  null: {
-    value: is.null_
+var methodTypeMap = {
+  isArray: "Array",
+  isArrayBuffer: "ArrayBuffer",
+  isArrayLike: "array-like",
+  isAsyncFunction: "AsyncFunction",
+  isAsyncGenerator: "AsyncGenerator",
+  isAsyncGeneratorFunction: "AsyncGeneratorFunction",
+  isAsyncIterable: "AsyncIterable",
+  isBigint: "bigint",
+  isBigInt64Array: "BigInt64Array",
+  isBigUint64Array: "BigUint64Array",
+  isBlob: "Blob",
+  isBoolean: "boolean",
+  isBoundFunction: "Function",
+  isBuffer: "Buffer",
+  isClass: "Class",
+  isDataView: "DataView",
+  isDate: "Date",
+  isDirectInstanceOf: "T",
+  isEmptyArray: "empty array",
+  isEmptyMap: "empty map",
+  isEmptyObject: "empty object",
+  isEmptySet: "empty set",
+  isEmptyString: "empty string",
+  isEmptyStringOrWhitespace: "empty string or whitespace",
+  isEnumCase: "EnumCase",
+  isError: "Error",
+  isEvenInteger: "even integer",
+  isFalsy: "falsy",
+  isFloat32Array: "Float32Array",
+  isFloat64Array: "Float64Array",
+  isFormData: "FormData",
+  isFunction: "Function",
+  isGenerator: "Generator",
+  isGeneratorFunction: "GeneratorFunction",
+  isHtmlElement: "HTMLElement",
+  isInfinite: "infinite number",
+  isInRange: "in range",
+  isInt16Array: "Int16Array",
+  isInt32Array: "Int32Array",
+  isInt8Array: "Int8Array",
+  isInteger: "integer",
+  isIterable: "Iterable",
+  isMap: "Map",
+  isNan: "NaN",
+  isNativePromise: "native Promise",
+  isNegativeNumber: "negative number",
+  isNodeStream: "Node.js Stream",
+  isNonEmptyArray: "non-empty array",
+  isNonEmptyMap: "non-empty map",
+  isNonEmptyObject: "non-empty object",
+  isNonEmptySet: "non-empty set",
+  isNonEmptyString: "non-empty string",
+  isNonEmptyStringAndNotWhitespace: "non-empty string and not whitespace",
+  isNull: "null",
+  isNullOrUndefined: "null or undefined",
+  isNumber: "number",
+  isNumericString: "string with a number",
+  isObject: "Object",
+  isObservable: "Observable",
+  isOddInteger: "odd integer",
+  isPlainObject: "plain object",
+  isPositiveNumber: "positive number",
+  isPrimitive: "primitive",
+  isPromise: "Promise",
+  isPropertyKey: "PropertyKey",
+  isRegExp: "RegExp",
+  isSafeInteger: "integer",
+  isSet: "Set",
+  isSharedArrayBuffer: "SharedArrayBuffer",
+  isString: "string",
+  isSymbol: "symbol",
+  isTruthy: "truthy",
+  isTupleLike: "tuple-like",
+  isTypedArray: "TypedArray",
+  isUint16Array: "Uint16Array",
+  isUint32Array: "Uint32Array",
+  isUint8Array: "Uint8Array",
+  isUint8ClampedArray: "Uint8ClampedArray",
+  isUndefined: "undefined",
+  isUrlInstance: "URL",
+  isUrlSearchParams: "URLSearchParams",
+  isUrlString: "string with a URL",
+  isValidDate: "valid Date",
+  isValidLength: "valid length",
+  isWeakMap: "WeakMap",
+  isWeakRef: "WeakRef",
+  isWeakSet: "WeakSet",
+  isWhitespaceString: "whitespace string"
+};
+function keysOf(value) {
+  return Object.keys(value);
+}
+var isMethodNames = keysOf(methodTypeMap);
+function isIsMethodName(value) {
+  return isMethodNames.includes(value);
+}
+function assertAll(predicate, ...values) {
+  if (!isAll(predicate, ...values)) {
+    const expectedType = isIsMethodName(predicate.name) ? methodTypeMap[predicate.name] : "predicate returns truthy for all values";
+    throw new TypeError(typeErrorMessageMultipleValues(expectedType, values));
   }
-});
-Object.defineProperties(assert, {
-  class: {
-    value: assert.class_
-  },
-  function: {
-    value: assert.function_
-  },
-  null: {
-    value: assert.null_
+}
+function assertAny(predicate, ...values) {
+  if (!isAny(predicate, ...values)) {
+    const predicates = isArray(predicate) ? predicate : [predicate];
+    const expectedTypes = predicates.map((predicate2) => isIsMethodName(predicate2.name) ? methodTypeMap[predicate2.name] : "predicate returns truthy for any value");
+    throw new TypeError(typeErrorMessageMultipleValues(expectedTypes, values));
   }
-});
-var dist_default = is;
+}
+function assertArray(value, assertion, message) {
+  if (!isArray(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Array", value));
+  }
+  if (assertion) {
+    for (const element of value) {
+      assertion(element, message);
+    }
+  }
+}
+function assertArrayBuffer(value, message) {
+  if (!isArrayBuffer(value)) {
+    throw new TypeError(message ?? typeErrorMessage("ArrayBuffer", value));
+  }
+}
+function assertArrayLike(value, message) {
+  if (!isArrayLike(value)) {
+    throw new TypeError(message ?? typeErrorMessage("array-like", value));
+  }
+}
+function assertAsyncFunction(value, message) {
+  if (!isAsyncFunction(value)) {
+    throw new TypeError(message ?? typeErrorMessage("AsyncFunction", value));
+  }
+}
+function assertAsyncGenerator(value, message) {
+  if (!isAsyncGenerator(value)) {
+    throw new TypeError(message ?? typeErrorMessage("AsyncGenerator", value));
+  }
+}
+function assertAsyncGeneratorFunction(value, message) {
+  if (!isAsyncGeneratorFunction(value)) {
+    throw new TypeError(message ?? typeErrorMessage("AsyncGeneratorFunction", value));
+  }
+}
+function assertAsyncIterable(value, message) {
+  if (!isAsyncIterable(value)) {
+    throw new TypeError(message ?? typeErrorMessage("AsyncIterable", value));
+  }
+}
+function assertBigint(value, message) {
+  if (!isBigint(value)) {
+    throw new TypeError(message ?? typeErrorMessage("bigint", value));
+  }
+}
+function assertBigInt64Array(value, message) {
+  if (!isBigInt64Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("BigInt64Array", value));
+  }
+}
+function assertBigUint64Array(value, message) {
+  if (!isBigUint64Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("BigUint64Array", value));
+  }
+}
+function assertBlob(value, message) {
+  if (!isBlob(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Blob", value));
+  }
+}
+function assertBoolean(value, message) {
+  if (!isBoolean(value)) {
+    throw new TypeError(message ?? typeErrorMessage("boolean", value));
+  }
+}
+function assertBoundFunction(value, message) {
+  if (!isBoundFunction(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Function", value));
+  }
+}
+function assertBuffer(value, message) {
+  if (!isBuffer(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Buffer", value));
+  }
+}
+function assertClass(value, message) {
+  if (!isClass(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Class", value));
+  }
+}
+function assertDataView(value, message) {
+  if (!isDataView(value)) {
+    throw new TypeError(message ?? typeErrorMessage("DataView", value));
+  }
+}
+function assertDate(value, message) {
+  if (!isDate(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Date", value));
+  }
+}
+function assertDirectInstanceOf(instance, class_, message) {
+  if (!isDirectInstanceOf(instance, class_)) {
+    throw new TypeError(message ?? typeErrorMessage("T", instance));
+  }
+}
+function assertEmptyArray(value, message) {
+  if (!isEmptyArray(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty array", value));
+  }
+}
+function assertEmptyMap(value, message) {
+  if (!isEmptyMap(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty map", value));
+  }
+}
+function assertEmptyObject(value, message) {
+  if (!isEmptyObject(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty object", value));
+  }
+}
+function assertEmptySet(value, message) {
+  if (!isEmptySet(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty set", value));
+  }
+}
+function assertEmptyString(value, message) {
+  if (!isEmptyString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty string", value));
+  }
+}
+function assertEmptyStringOrWhitespace(value, message) {
+  if (!isEmptyStringOrWhitespace(value)) {
+    throw new TypeError(message ?? typeErrorMessage("empty string or whitespace", value));
+  }
+}
+function assertEnumCase(value, targetEnum, message) {
+  if (!isEnumCase(value, targetEnum)) {
+    throw new TypeError(message ?? typeErrorMessage("EnumCase", value));
+  }
+}
+function assertError(value, message) {
+  if (!isError(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Error", value));
+  }
+}
+function assertEvenInteger(value, message) {
+  if (!isEvenInteger(value)) {
+    throw new TypeError(message ?? typeErrorMessage("even integer", value));
+  }
+}
+function assertFalsy(value, message) {
+  if (!isFalsy(value)) {
+    throw new TypeError(message ?? typeErrorMessage("falsy", value));
+  }
+}
+function assertFloat32Array(value, message) {
+  if (!isFloat32Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Float32Array", value));
+  }
+}
+function assertFloat64Array(value, message) {
+  if (!isFloat64Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Float64Array", value));
+  }
+}
+function assertFormData(value, message) {
+  if (!isFormData(value)) {
+    throw new TypeError(message ?? typeErrorMessage("FormData", value));
+  }
+}
+function assertFunction(value, message) {
+  if (!isFunction(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Function", value));
+  }
+}
+function assertGenerator(value, message) {
+  if (!isGenerator(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Generator", value));
+  }
+}
+function assertGeneratorFunction(value, message) {
+  if (!isGeneratorFunction(value)) {
+    throw new TypeError(message ?? typeErrorMessage("GeneratorFunction", value));
+  }
+}
+function assertHtmlElement(value, message) {
+  if (!isHtmlElement(value)) {
+    throw new TypeError(message ?? typeErrorMessage("HTMLElement", value));
+  }
+}
+function assertInfinite(value, message) {
+  if (!isInfinite(value)) {
+    throw new TypeError(message ?? typeErrorMessage("infinite number", value));
+  }
+}
+function assertInRange(value, range, message) {
+  if (!isInRange(value, range)) {
+    throw new TypeError(message ?? typeErrorMessage("in range", value));
+  }
+}
+function assertInt16Array(value, message) {
+  if (!isInt16Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Int16Array", value));
+  }
+}
+function assertInt32Array(value, message) {
+  if (!isInt32Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Int32Array", value));
+  }
+}
+function assertInt8Array(value, message) {
+  if (!isInt8Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Int8Array", value));
+  }
+}
+function assertInteger(value, message) {
+  if (!isInteger(value)) {
+    throw new TypeError(message ?? typeErrorMessage("integer", value));
+  }
+}
+function assertIterable(value, message) {
+  if (!isIterable(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Iterable", value));
+  }
+}
+function assertMap(value, message) {
+  if (!isMap(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Map", value));
+  }
+}
+function assertNan(value, message) {
+  if (!isNan(value)) {
+    throw new TypeError(message ?? typeErrorMessage("NaN", value));
+  }
+}
+function assertNativePromise(value, message) {
+  if (!isNativePromise(value)) {
+    throw new TypeError(message ?? typeErrorMessage("native Promise", value));
+  }
+}
+function assertNegativeNumber(value, message) {
+  if (!isNegativeNumber(value)) {
+    throw new TypeError(message ?? typeErrorMessage("negative number", value));
+  }
+}
+function assertNodeStream(value, message) {
+  if (!isNodeStream(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Node.js Stream", value));
+  }
+}
+function assertNonEmptyArray(value, message) {
+  if (!isNonEmptyArray(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty array", value));
+  }
+}
+function assertNonEmptyMap(value, message) {
+  if (!isNonEmptyMap(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty map", value));
+  }
+}
+function assertNonEmptyObject(value, message) {
+  if (!isNonEmptyObject(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty object", value));
+  }
+}
+function assertNonEmptySet(value, message) {
+  if (!isNonEmptySet(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty set", value));
+  }
+}
+function assertNonEmptyString(value, message) {
+  if (!isNonEmptyString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty string", value));
+  }
+}
+function assertNonEmptyStringAndNotWhitespace(value, message) {
+  if (!isNonEmptyStringAndNotWhitespace(value)) {
+    throw new TypeError(message ?? typeErrorMessage("non-empty string and not whitespace", value));
+  }
+}
+function assertNull(value, message) {
+  if (!isNull(value)) {
+    throw new TypeError(message ?? typeErrorMessage("null", value));
+  }
+}
+function assertNullOrUndefined(value, message) {
+  if (!isNullOrUndefined(value)) {
+    throw new TypeError(message ?? typeErrorMessage("null or undefined", value));
+  }
+}
+function assertNumber(value, message) {
+  if (!isNumber(value)) {
+    throw new TypeError(message ?? typeErrorMessage("number", value));
+  }
+}
+function assertNumericString(value, message) {
+  if (!isNumericString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("string with a number", value));
+  }
+}
+function assertObject(value, message) {
+  if (!isObject(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Object", value));
+  }
+}
+function assertObservable(value, message) {
+  if (!isObservable(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Observable", value));
+  }
+}
+function assertOddInteger(value, message) {
+  if (!isOddInteger(value)) {
+    throw new TypeError(message ?? typeErrorMessage("odd integer", value));
+  }
+}
+function assertPlainObject(value, message) {
+  if (!isPlainObject(value)) {
+    throw new TypeError(message ?? typeErrorMessage("plain object", value));
+  }
+}
+function assertPositiveNumber(value, message) {
+  if (!isPositiveNumber(value)) {
+    throw new TypeError(message ?? typeErrorMessage("positive number", value));
+  }
+}
+function assertPrimitive(value, message) {
+  if (!isPrimitive(value)) {
+    throw new TypeError(message ?? typeErrorMessage("primitive", value));
+  }
+}
+function assertPromise(value, message) {
+  if (!isPromise(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Promise", value));
+  }
+}
+function assertPropertyKey(value, message) {
+  if (!isPropertyKey(value)) {
+    throw new TypeError(message ?? typeErrorMessage("PropertyKey", value));
+  }
+}
+function assertRegExp(value, message) {
+  if (!isRegExp(value)) {
+    throw new TypeError(message ?? typeErrorMessage("RegExp", value));
+  }
+}
+function assertSafeInteger(value, message) {
+  if (!isSafeInteger(value)) {
+    throw new TypeError(message ?? typeErrorMessage("integer", value));
+  }
+}
+function assertSet(value, message) {
+  if (!isSet(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Set", value));
+  }
+}
+function assertSharedArrayBuffer(value, message) {
+  if (!isSharedArrayBuffer(value)) {
+    throw new TypeError(message ?? typeErrorMessage("SharedArrayBuffer", value));
+  }
+}
+function assertString(value, message) {
+  if (!isString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("string", value));
+  }
+}
+function assertSymbol(value, message) {
+  if (!isSymbol(value)) {
+    throw new TypeError(message ?? typeErrorMessage("symbol", value));
+  }
+}
+function assertTruthy(value, message) {
+  if (!isTruthy(value)) {
+    throw new TypeError(message ?? typeErrorMessage("truthy", value));
+  }
+}
+function assertTupleLike(value, guards, message) {
+  if (!isTupleLike(value, guards)) {
+    throw new TypeError(message ?? typeErrorMessage("tuple-like", value));
+  }
+}
+function assertTypedArray(value, message) {
+  if (!isTypedArray(value)) {
+    throw new TypeError(message ?? typeErrorMessage("TypedArray", value));
+  }
+}
+function assertUint16Array(value, message) {
+  if (!isUint16Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Uint16Array", value));
+  }
+}
+function assertUint32Array(value, message) {
+  if (!isUint32Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Uint32Array", value));
+  }
+}
+function assertUint8Array(value, message) {
+  if (!isUint8Array(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Uint8Array", value));
+  }
+}
+function assertUint8ClampedArray(value, message) {
+  if (!isUint8ClampedArray(value)) {
+    throw new TypeError(message ?? typeErrorMessage("Uint8ClampedArray", value));
+  }
+}
+function assertUndefined(value, message) {
+  if (!isUndefined(value)) {
+    throw new TypeError(message ?? typeErrorMessage("undefined", value));
+  }
+}
+function assertUrlInstance(value, message) {
+  if (!isUrlInstance(value)) {
+    throw new TypeError(message ?? typeErrorMessage("URL", value));
+  }
+}
+function assertUrlSearchParams(value, message) {
+  if (!isUrlSearchParams(value)) {
+    throw new TypeError(message ?? typeErrorMessage("URLSearchParams", value));
+  }
+}
+function assertUrlString(value, message) {
+  if (!isUrlString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("string with a URL", value));
+  }
+}
+function assertValidDate(value, message) {
+  if (!isValidDate(value)) {
+    throw new TypeError(message ?? typeErrorMessage("valid Date", value));
+  }
+}
+function assertValidLength(value, message) {
+  if (!isValidLength(value)) {
+    throw new TypeError(message ?? typeErrorMessage("valid length", value));
+  }
+}
+function assertWeakMap(value, message) {
+  if (!isWeakMap(value)) {
+    throw new TypeError(message ?? typeErrorMessage("WeakMap", value));
+  }
+}
+function assertWeakRef(value, message) {
+  if (!isWeakRef(value)) {
+    throw new TypeError(message ?? typeErrorMessage("WeakRef", value));
+  }
+}
+function assertWeakSet(value, message) {
+  if (!isWeakSet(value)) {
+    throw new TypeError(message ?? typeErrorMessage("WeakSet", value));
+  }
+}
+function assertWhitespaceString(value, message) {
+  if (!isWhitespaceString(value)) {
+    throw new TypeError(message ?? typeErrorMessage("whitespace string", value));
+  }
+}
+var distribution_default = is;
 
 // node_modules/got/dist/source/as-promise/index.js
-var import_node_events2 = require("node:events");
+var import_node_events3 = require("node:events");
 
 // node_modules/p-cancelable/index.js
 var CancelError = class extends Error {
@@ -5548,127 +6266,109 @@ var CancelError = class extends Error {
     return true;
   }
 };
-var PCancelable = class {
+var promiseState = Object.freeze({
+  pending: Symbol("pending"),
+  canceled: Symbol("canceled"),
+  resolved: Symbol("resolved"),
+  rejected: Symbol("rejected")
+});
+var PCancelable = class _PCancelable {
   static fn(userFunction) {
-    return (...arguments_) => {
-      return new PCancelable((resolve, reject, onCancel) => {
-        arguments_.push(onCancel);
-        userFunction(...arguments_).then(resolve, reject);
-      });
-    };
+    return (...arguments_) => new _PCancelable((resolve, reject, onCancel) => {
+      arguments_.push(onCancel);
+      userFunction(...arguments_).then(resolve, reject);
+    });
   }
+  #cancelHandlers = [];
+  #rejectOnCancel = true;
+  #state = promiseState.pending;
+  #promise;
+  #reject;
   constructor(executor) {
-    this._cancelHandlers = [];
-    this._isPending = true;
-    this._isCanceled = false;
-    this._rejectOnCancel = true;
-    this._promise = new Promise((resolve, reject) => {
-      this._reject = reject;
+    this.#promise = new Promise((resolve, reject) => {
+      this.#reject = reject;
       const onResolve = (value) => {
-        if (!this._isCanceled || !onCancel.shouldReject) {
-          this._isPending = false;
+        if (this.#state !== promiseState.canceled || !onCancel.shouldReject) {
           resolve(value);
+          this.#setState(promiseState.resolved);
         }
       };
       const onReject = (error) => {
-        this._isPending = false;
-        reject(error);
+        if (this.#state !== promiseState.canceled || !onCancel.shouldReject) {
+          reject(error);
+          this.#setState(promiseState.rejected);
+        }
       };
       const onCancel = (handler) => {
-        if (!this._isPending) {
-          throw new Error("The `onCancel` handler was attached after the promise settled.");
+        if (this.#state !== promiseState.pending) {
+          throw new Error(`The \`onCancel\` handler was attached after the promise ${this.#state.description}.`);
         }
-        this._cancelHandlers.push(handler);
+        this.#cancelHandlers.push(handler);
       };
       Object.defineProperties(onCancel, {
         shouldReject: {
-          get: () => this._rejectOnCancel,
+          get: () => this.#rejectOnCancel,
           set: (boolean) => {
-            this._rejectOnCancel = boolean;
+            this.#rejectOnCancel = boolean;
           }
         }
       });
       executor(onResolve, onReject, onCancel);
     });
   }
+  // eslint-disable-next-line unicorn/no-thenable
   then(onFulfilled, onRejected) {
-    return this._promise.then(onFulfilled, onRejected);
+    return this.#promise.then(onFulfilled, onRejected);
   }
   catch(onRejected) {
-    return this._promise.catch(onRejected);
+    return this.#promise.catch(onRejected);
   }
   finally(onFinally) {
-    return this._promise.finally(onFinally);
+    return this.#promise.finally(onFinally);
   }
   cancel(reason) {
-    if (!this._isPending || this._isCanceled) {
+    if (this.#state !== promiseState.pending) {
       return;
     }
-    this._isCanceled = true;
-    if (this._cancelHandlers.length > 0) {
+    this.#setState(promiseState.canceled);
+    if (this.#cancelHandlers.length > 0) {
       try {
-        for (const handler of this._cancelHandlers) {
+        for (const handler of this.#cancelHandlers) {
           handler();
         }
       } catch (error) {
-        this._reject(error);
+        this.#reject(error);
         return;
       }
     }
-    if (this._rejectOnCancel) {
-      this._reject(new CancelError(reason));
+    if (this.#rejectOnCancel) {
+      this.#reject(new CancelError(reason));
     }
   }
   get isCanceled() {
-    return this._isCanceled;
+    return this.#state === promiseState.canceled;
+  }
+  #setState(state) {
+    if (this.#state === promiseState.pending) {
+      this.#state = state;
+    }
   }
 };
 Object.setPrototypeOf(PCancelable.prototype, Promise.prototype);
 
 // node_modules/got/dist/source/core/errors.js
 function isRequest(x) {
-  return dist_default.object(x) && "_onResponse" in x;
+  return distribution_default.object(x) && "_onResponse" in x;
 }
 var RequestError = class extends Error {
+  input;
+  code;
+  stack;
+  response;
+  request;
+  timings;
   constructor(message, error, self) {
-    var _a;
-    super(message);
-    Object.defineProperty(this, "input", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "code", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "stack", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "response", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "request", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "timings", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
+    super(message, { cause: error });
     Error.captureStackTrace(this, this.constructor);
     this.name = "RequestError";
     this.code = error.code ?? "ERR_GOT_REQUEST_ERROR";
@@ -5686,8 +6386,8 @@ var RequestError = class extends Error {
     } else {
       this.options = self;
     }
-    this.timings = (_a = this.request) == null ? void 0 : _a.timings;
-    if (dist_default.string(error.stack) && dist_default.string(this.stack)) {
+    this.timings = this.request?.timings;
+    if (distribution_default.string(error.stack) && distribution_default.string(this.stack)) {
       const indexOfMessage = this.stack.indexOf(this.message) + this.message.length;
       const thisStackTrace = this.stack.slice(indexOfMessage).split("\n").reverse();
       const errorStackTrace = error.stack.slice(error.stack.indexOf(error.message) + error.message.length).split("\n").reverse();
@@ -5727,20 +6427,10 @@ var UploadError = class extends RequestError {
   }
 };
 var TimeoutError = class extends RequestError {
+  timings;
+  event;
   constructor(error, timings, request) {
     super(error.message, error, request);
-    Object.defineProperty(this, "timings", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "event", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
     this.name = "TimeoutError";
     this.event = error.event;
     this.timings = timings;
@@ -5880,7 +6570,7 @@ var timer = (request) => {
 var source_default = timer;
 
 // node_modules/cacheable-request/dist/index.js
-var import_node_events = __toESM(require("node:events"), 1);
+var import_node_events2 = __toESM(require("node:events"), 1);
 var import_node_url = __toESM(require("node:url"), 1);
 var import_node_crypto = __toESM(require("node:crypto"), 1);
 var import_node_stream2 = __toESM(require("node:stream"), 1);
@@ -5897,13 +6587,12 @@ var supportedProtocols = /* @__PURE__ */ new Set([
 var hasCustomProtocol = (urlString) => {
   try {
     const { protocol } = new URL(urlString);
-    return protocol.endsWith(":") && !supportedProtocols.has(protocol);
+    return protocol.endsWith(":") && !protocol.includes(".") && !supportedProtocols.has(protocol);
   } catch {
     return false;
   }
 };
 var normalizeDataURL = (urlString, { stripHash }) => {
-  var _a;
   const match = /^data:(?<type>[^,]*?),(?<data>[^#]*?)(?:#(?<hash>.*))?$/.exec(urlString);
   if (!match) {
     throw new Error(`Invalid URL: ${urlString}`);
@@ -5916,7 +6605,7 @@ var normalizeDataURL = (urlString, { stripHash }) => {
     mediaType.pop();
     isBase64 = true;
   }
-  const mimeType = ((_a = mediaType.shift()) == null ? void 0 : _a.toLowerCase()) ?? "";
+  const mimeType = mediaType.shift()?.toLowerCase() ?? "";
   const attributes = mediaType.map((attribute) => {
     let [key, value = ""] = attribute.split("=").map((string) => string.trim());
     if (key === "charset") {
@@ -6080,8 +6769,329 @@ function normalizeUrl(urlString, options) {
   return urlString;
 }
 
+// node_modules/get-stream/source/index.js
+var import_node_events = require("node:events");
+var import_promises = require("node:stream/promises");
+
+// node_modules/is-stream/index.js
+function isStream(stream2, { checkOpen = true } = {}) {
+  return stream2 !== null && typeof stream2 === "object" && (stream2.writable || stream2.readable || !checkOpen || stream2.writable === void 0 && stream2.readable === void 0) && typeof stream2.pipe === "function";
+}
+function isReadableStream(stream2, { checkOpen = true } = {}) {
+  return isStream(stream2, { checkOpen }) && (stream2.readable || !checkOpen) && typeof stream2.read === "function" && typeof stream2.readable === "boolean" && typeof stream2.readableObjectMode === "boolean" && typeof stream2.destroy === "function" && typeof stream2.destroyed === "boolean";
+}
+
+// node_modules/@sec-ant/readable-stream/dist/ponyfill/asyncIterator.js
+var a = Object.getPrototypeOf(
+  Object.getPrototypeOf(
+    /* istanbul ignore next */
+    async function* () {
+    }
+  ).prototype
+);
+var c = class {
+  #t;
+  #n;
+  #r = false;
+  #e = void 0;
+  constructor(e, t) {
+    this.#t = e, this.#n = t;
+  }
+  next() {
+    const e = () => this.#s();
+    return this.#e = this.#e ? this.#e.then(e, e) : e(), this.#e;
+  }
+  return(e) {
+    const t = () => this.#i(e);
+    return this.#e ? this.#e.then(t, t) : t();
+  }
+  async #s() {
+    if (this.#r)
+      return {
+        done: true,
+        value: void 0
+      };
+    let e;
+    try {
+      e = await this.#t.read();
+    } catch (t) {
+      throw this.#e = void 0, this.#r = true, this.#t.releaseLock(), t;
+    }
+    return e.done && (this.#e = void 0, this.#r = true, this.#t.releaseLock()), e;
+  }
+  async #i(e) {
+    if (this.#r)
+      return {
+        done: true,
+        value: e
+      };
+    if (this.#r = true, !this.#n) {
+      const t = this.#t.cancel(e);
+      return this.#t.releaseLock(), await t, {
+        done: true,
+        value: e
+      };
+    }
+    return this.#t.releaseLock(), {
+      done: true,
+      value: e
+    };
+  }
+};
+var n = Symbol();
+function i() {
+  return this[n].next();
+}
+Object.defineProperty(i, "name", { value: "next" });
+function o(r) {
+  return this[n].return(r);
+}
+Object.defineProperty(o, "name", { value: "return" });
+var u = Object.create(a, {
+  next: {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    value: i
+  },
+  return: {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    value: o
+  }
+});
+function h({ preventCancel: r = false } = {}) {
+  const e = this.getReader(), t = new c(
+    e,
+    r
+  ), s = Object.create(u);
+  return s[n] = t, s;
+}
+
+// node_modules/get-stream/source/stream.js
+var getAsyncIterable = (stream2) => {
+  if (isReadableStream(stream2, { checkOpen: false }) && nodeImports.on !== void 0) {
+    return getStreamIterable(stream2);
+  }
+  if (typeof stream2?.[Symbol.asyncIterator] === "function") {
+    return stream2;
+  }
+  if (toString.call(stream2) === "[object ReadableStream]") {
+    return h.call(stream2);
+  }
+  throw new TypeError("The first argument must be a Readable, a ReadableStream, or an async iterable.");
+};
+var { toString } = Object.prototype;
+var getStreamIterable = async function* (stream2) {
+  const controller = new AbortController();
+  const state = {};
+  handleStreamEnd(stream2, controller, state);
+  try {
+    for await (const [chunk2] of nodeImports.on(stream2, "data", { signal: controller.signal })) {
+      yield chunk2;
+    }
+  } catch (error) {
+    if (state.error !== void 0) {
+      throw state.error;
+    } else if (!controller.signal.aborted) {
+      throw error;
+    }
+  } finally {
+    stream2.destroy();
+  }
+};
+var handleStreamEnd = async (stream2, controller, state) => {
+  try {
+    await nodeImports.finished(stream2, {
+      cleanup: true,
+      readable: true,
+      writable: false,
+      error: false
+    });
+  } catch (error) {
+    state.error = error;
+  } finally {
+    controller.abort();
+  }
+};
+var nodeImports = {};
+
+// node_modules/get-stream/source/contents.js
+var getStreamContents = async (stream2, { init: init2, convertChunk, getSize, truncateChunk, addChunk, getFinalChunk, finalize }, { maxBuffer = Number.POSITIVE_INFINITY } = {}) => {
+  const asyncIterable = getAsyncIterable(stream2);
+  const state = init2();
+  state.length = 0;
+  try {
+    for await (const chunk2 of asyncIterable) {
+      const chunkType = getChunkType(chunk2);
+      const convertedChunk = convertChunk[chunkType](chunk2, state);
+      appendChunk({
+        convertedChunk,
+        state,
+        getSize,
+        truncateChunk,
+        addChunk,
+        maxBuffer
+      });
+    }
+    appendFinalChunk({
+      state,
+      convertChunk,
+      getSize,
+      truncateChunk,
+      addChunk,
+      getFinalChunk,
+      maxBuffer
+    });
+    return finalize(state);
+  } catch (error) {
+    const normalizedError = typeof error === "object" && error !== null ? error : new Error(error);
+    normalizedError.bufferedData = finalize(state);
+    throw normalizedError;
+  }
+};
+var appendFinalChunk = ({ state, getSize, truncateChunk, addChunk, getFinalChunk, maxBuffer }) => {
+  const convertedChunk = getFinalChunk(state);
+  if (convertedChunk !== void 0) {
+    appendChunk({
+      convertedChunk,
+      state,
+      getSize,
+      truncateChunk,
+      addChunk,
+      maxBuffer
+    });
+  }
+};
+var appendChunk = ({ convertedChunk, state, getSize, truncateChunk, addChunk, maxBuffer }) => {
+  const chunkSize = getSize(convertedChunk);
+  const newLength = state.length + chunkSize;
+  if (newLength <= maxBuffer) {
+    addNewChunk(convertedChunk, state, addChunk, newLength);
+    return;
+  }
+  const truncatedChunk = truncateChunk(convertedChunk, maxBuffer - state.length);
+  if (truncatedChunk !== void 0) {
+    addNewChunk(truncatedChunk, state, addChunk, maxBuffer);
+  }
+  throw new MaxBufferError();
+};
+var addNewChunk = (convertedChunk, state, addChunk, newLength) => {
+  state.contents = addChunk(convertedChunk, state, newLength);
+  state.length = newLength;
+};
+var getChunkType = (chunk2) => {
+  const typeOfChunk = typeof chunk2;
+  if (typeOfChunk === "string") {
+    return "string";
+  }
+  if (typeOfChunk !== "object" || chunk2 === null) {
+    return "others";
+  }
+  if (globalThis.Buffer?.isBuffer(chunk2)) {
+    return "buffer";
+  }
+  const prototypeName = objectToString.call(chunk2);
+  if (prototypeName === "[object ArrayBuffer]") {
+    return "arrayBuffer";
+  }
+  if (prototypeName === "[object DataView]") {
+    return "dataView";
+  }
+  if (Number.isInteger(chunk2.byteLength) && Number.isInteger(chunk2.byteOffset) && objectToString.call(chunk2.buffer) === "[object ArrayBuffer]") {
+    return "typedArray";
+  }
+  return "others";
+};
+var { toString: objectToString } = Object.prototype;
+var MaxBufferError = class extends Error {
+  name = "MaxBufferError";
+  constructor() {
+    super("maxBuffer exceeded");
+  }
+};
+
+// node_modules/get-stream/source/utils.js
+var noop = () => void 0;
+var throwObjectStream = (chunk2) => {
+  throw new Error(`Streams in object mode are not supported: ${String(chunk2)}`);
+};
+var getLengthProperty = (convertedChunk) => convertedChunk.length;
+
+// node_modules/get-stream/source/array-buffer.js
+async function getStreamAsArrayBuffer(stream2, options) {
+  return getStreamContents(stream2, arrayBufferMethods, options);
+}
+var initArrayBuffer = () => ({ contents: new ArrayBuffer(0) });
+var useTextEncoder = (chunk2) => textEncoder.encode(chunk2);
+var textEncoder = new TextEncoder();
+var useUint8Array = (chunk2) => new Uint8Array(chunk2);
+var useUint8ArrayWithOffset = (chunk2) => new Uint8Array(chunk2.buffer, chunk2.byteOffset, chunk2.byteLength);
+var truncateArrayBufferChunk = (convertedChunk, chunkSize) => convertedChunk.slice(0, chunkSize);
+var addArrayBufferChunk = (convertedChunk, { contents, length: previousLength }, length) => {
+  const newContents = hasArrayBufferResize() ? resizeArrayBuffer(contents, length) : resizeArrayBufferSlow(contents, length);
+  new Uint8Array(newContents).set(convertedChunk, previousLength);
+  return newContents;
+};
+var resizeArrayBufferSlow = (contents, length) => {
+  if (length <= contents.byteLength) {
+    return contents;
+  }
+  const arrayBuffer = new ArrayBuffer(getNewContentsLength(length));
+  new Uint8Array(arrayBuffer).set(new Uint8Array(contents), 0);
+  return arrayBuffer;
+};
+var resizeArrayBuffer = (contents, length) => {
+  if (length <= contents.maxByteLength) {
+    contents.resize(length);
+    return contents;
+  }
+  const arrayBuffer = new ArrayBuffer(length, { maxByteLength: getNewContentsLength(length) });
+  new Uint8Array(arrayBuffer).set(new Uint8Array(contents), 0);
+  return arrayBuffer;
+};
+var getNewContentsLength = (length) => SCALE_FACTOR ** Math.ceil(Math.log(length) / Math.log(SCALE_FACTOR));
+var SCALE_FACTOR = 2;
+var finalizeArrayBuffer = ({ contents, length }) => hasArrayBufferResize() ? contents : contents.slice(0, length);
+var hasArrayBufferResize = () => "resize" in ArrayBuffer.prototype;
+var arrayBufferMethods = {
+  init: initArrayBuffer,
+  convertChunk: {
+    string: useTextEncoder,
+    buffer: useUint8Array,
+    arrayBuffer: useUint8Array,
+    dataView: useUint8ArrayWithOffset,
+    typedArray: useUint8ArrayWithOffset,
+    others: throwObjectStream
+  },
+  getSize: getLengthProperty,
+  truncateChunk: truncateArrayBufferChunk,
+  addChunk: addArrayBufferChunk,
+  getFinalChunk: noop,
+  finalize: finalizeArrayBuffer
+};
+
+// node_modules/get-stream/source/buffer.js
+async function getStreamAsBuffer(stream2, options) {
+  if (!("Buffer" in globalThis)) {
+    throw new Error("getStreamAsBuffer() is only supported in Node.js");
+  }
+  try {
+    return arrayBufferToNodeBuffer(await getStreamAsArrayBuffer(stream2, options));
+  } catch (error) {
+    if (error.bufferedData !== void 0) {
+      error.bufferedData = arrayBufferToNodeBuffer(error.bufferedData);
+    }
+    throw error;
+  }
+}
+var arrayBufferToNodeBuffer = (arrayBuffer) => globalThis.Buffer.from(arrayBuffer);
+
+// node_modules/get-stream/source/index.js
+Object.assign(nodeImports, { on: import_node_events.on, finished: import_promises.finished });
+
 // node_modules/cacheable-request/dist/index.js
-var import_get_stream = __toESM(require_get_stream(), 1);
 var import_http_cache_semantics = __toESM(require_http_cache_semantics(), 1);
 
 // node_modules/responselike/index.js
@@ -6158,8 +7168,8 @@ function mimicResponse(fromStream, toStream) {
     properties[property] = {
       get() {
         const value = fromStream[property];
-        const isFunction2 = typeof value === "function";
-        return isFunction2 ? value.bind(fromStream) : value;
+        const isFunction3 = typeof value === "function";
+        return isFunction3 ? value.bind(fromStream) : value;
       },
       set(value) {
         fromStream[property] = value;
@@ -6207,7 +7217,7 @@ var CacheError2 = class extends Error {
 var CacheableRequest = class {
   constructor(cacheRequest, cacheAdapter) {
     this.hooks = /* @__PURE__ */ new Map();
-    this.request = () => (options, cb) => {
+    this.request = () => (options, callback) => {
       let url;
       if (typeof options === "string") {
         url = normalizeUrlObject(import_node_url.default.parse(options));
@@ -6230,9 +7240,10 @@ var CacheableRequest = class {
         ...urlObjectToRequestOptions(url)
       };
       options.headers = Object.fromEntries(entries(options.headers).map(([key2, value]) => [key2.toLowerCase(), value]));
-      const ee = new import_node_events.default();
+      const ee = new import_node_events2.default();
       const normalizedUrlString = normalizeUrl(import_node_url.default.format(url), {
         stripWWW: false,
+        // eslint-disable-line @typescript-eslint/naming-convention
         removeTrailingSlash: false,
         stripAuthentication: false
       });
@@ -6269,7 +7280,12 @@ var CacheableRequest = class {
                 response.once("end", resolve);
               });
               const headers = convertHeaders(revalidatedPolicy.policy.responseHeaders());
-              response = new Response({ statusCode: revalidate.statusCode, headers, body: revalidate.body, url: revalidate.url });
+              response = new Response({
+                statusCode: revalidate.statusCode,
+                headers,
+                body: revalidate.body,
+                url: revalidate.url
+              });
               response.cachePolicy = revalidatedPolicy.policy;
               response.fromCache = true;
             }
@@ -6283,10 +7299,11 @@ var CacheableRequest = class {
             clonedResponse = cloneResponse(response);
             (async () => {
               try {
-                const bodyPromise = import_get_stream.default.buffer(response);
+                const bodyPromise = getStreamAsBuffer(response);
                 await Promise.race([
                   requestErrorPromise,
                   new Promise((resolve) => response.once("end", resolve)),
+                  // eslint-disable-line no-promise-executor-return
                   new Promise((resolve) => response.once("close", resolve))
                   // eslint-disable-line no-promise-executor-return
                 ]);
@@ -6321,8 +7338,8 @@ var CacheableRequest = class {
             })();
           }
           ee.emit("response", clonedResponse ?? response);
-          if (typeof cb === "function") {
-            cb(clonedResponse ?? response);
+          if (typeof callback === "function") {
+            callback(clonedResponse ?? response);
           }
         };
         try {
@@ -6346,12 +7363,17 @@ var CacheableRequest = class {
           const policy = import_http_cache_semantics.default.fromObject(cacheEntry.cachePolicy);
           if (policy.satisfiesWithoutRevalidation(options_) && !options_.forceRefresh) {
             const headers = convertHeaders(policy.responseHeaders());
-            const response = new Response({ statusCode: cacheEntry.statusCode, headers, body: cacheEntry.body, url: cacheEntry.url });
+            const response = new Response({
+              statusCode: cacheEntry.statusCode,
+              headers,
+              body: cacheEntry.body,
+              url: cacheEntry.url
+            });
             response.cachePolicy = policy;
             response.fromCache = true;
             ee.emit("response", response);
-            if (typeof cb === "function") {
-              cb(response);
+            if (typeof callback === "function") {
+              callback(response);
             }
           } else if (policy.satisfiesWithoutRevalidation(options_) && Date.now() >= policy.timeToLive() && options_.forceRefresh) {
             await this.cache.delete(key);
@@ -6381,17 +7403,14 @@ var CacheableRequest = class {
       })();
       return ee;
     };
-    this.addHook = (name, fn) => {
+    this.addHook = (name, function_) => {
       if (!this.hooks.has(name)) {
-        this.hooks.set(name, fn);
+        this.hooks.set(name, function_);
       }
     };
     this.removeHook = (name) => this.hooks.delete(name);
     this.getHook = (name) => this.hooks.get(name);
-    this.runHook = async (name, ...args) => {
-      var _a;
-      return (_a = this.hooks.get(name)) == null ? void 0 : _a(...args);
-    };
+    this.runHook = async (name, ...arguments_) => this.hooks.get(name)?.(...arguments_);
     if (cacheAdapter instanceof import_keyv.default) {
       this.cache = cacheAdapter;
     } else if (typeof cacheAdapter === "string") {
@@ -6446,17 +7465,50 @@ var convertHeaders = (headers) => {
   }
   return result;
 };
-var dist_default2 = CacheableRequest;
+var dist_default = CacheableRequest;
 
 // node_modules/got/dist/source/core/index.js
 var import_decompress_response = __toESM(require_decompress_response(), 1);
-var import_get_stream2 = __toESM(require_get_stream(), 1);
 
-// node_modules/form-data-encoder/lib/util/isFunction.js
-var isFunction = (value) => typeof value === "function";
-
-// node_modules/form-data-encoder/lib/util/getStreamIterator.js
-var isAsyncIterable = (value) => isFunction(value[Symbol.asyncIterator]);
+// node_modules/form-data-encoder/lib/index.js
+var __accessCheck = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet = (obj, member, getter) => {
+  __accessCheck(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet = (obj, member, value, setter) => {
+  __accessCheck(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod = (obj, member, method) => {
+  __accessCheck(obj, member, "access private method");
+  return method;
+};
+var isFunction2 = (value) => typeof value === "function";
+var isAsyncIterable2 = (value) => isFunction2(value[Symbol.asyncIterator]);
+var MAX_CHUNK_SIZE = 65536;
+function* chunk(value) {
+  if (value.byteLength <= MAX_CHUNK_SIZE) {
+    yield value;
+    return;
+  }
+  let offset = 0;
+  while (offset < value.byteLength) {
+    const size = Math.min(value.byteLength - offset, MAX_CHUNK_SIZE);
+    const buffer = value.buffer.slice(offset, offset + size);
+    offset += buffer.byteLength;
+    yield new Uint8Array(buffer);
+  }
+}
 async function* readStream(readable) {
   const reader = readable.getReader();
   while (true) {
@@ -6467,17 +7519,22 @@ async function* readStream(readable) {
     yield value;
   }
 }
+async function* chunkStream(stream2) {
+  for await (const value of stream2) {
+    yield* chunk(value);
+  }
+}
 var getStreamIterator = (source) => {
-  if (isAsyncIterable(source)) {
-    return source;
+  if (isAsyncIterable2(source)) {
+    return chunkStream(source);
   }
-  if (isFunction(source.getReader)) {
-    return readStream(source);
+  if (isFunction2(source.getReader)) {
+    return chunkStream(readStream(source));
   }
-  throw new TypeError("Unsupported data source: Expected either ReadableStream or async iterable.");
+  throw new TypeError(
+    "Unsupported data source: Expected either ReadableStream or async iterable."
+  );
 };
-
-// node_modules/form-data-encoder/lib/util/createBoundary.js
 var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
 function createBoundary() {
   let size = 16;
@@ -6487,18 +7544,14 @@ function createBoundary() {
   }
   return res;
 }
-
-// node_modules/form-data-encoder/lib/util/normalizeValue.js
-var normalizeValue = (value) => String(value).replace(/\r|\n/g, (match, i, str) => {
-  if (match === "\r" && str[i + 1] !== "\n" || match === "\n" && str[i - 1] !== "\r") {
+var normalizeValue = (value) => String(value).replace(/\r|\n/g, (match, i2, str) => {
+  if (match === "\r" && str[i2 + 1] !== "\n" || match === "\n" && str[i2 - 1] !== "\r") {
     return "\r\n";
   }
   return match;
 });
-
-// node_modules/form-data-encoder/lib/util/isPlainObject.js
 var getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-function isPlainObject(value) {
+function isPlainObject2(value) {
   if (getType(value) !== "object") {
     return false;
   }
@@ -6509,8 +7562,6 @@ function isPlainObject(value) {
   const Ctor = pp.constructor && pp.constructor.toString();
   return Ctor === Object.toString();
 }
-
-// node_modules/form-data-encoder/lib/util/proxyHeaders.js
 function getProperty(target, prop) {
   if (typeof prop === "string") {
     for (const [name, value] of Object.entries(target)) {
@@ -6521,68 +7572,53 @@ function getProperty(target, prop) {
   }
   return void 0;
 }
-var proxyHeaders = (object) => new Proxy(object, {
-  get: (target, prop) => getProperty(target, prop),
-  has: (target, prop) => getProperty(target, prop) !== void 0
-});
-
-// node_modules/form-data-encoder/lib/util/isFormData.js
-var isFormData = (value) => Boolean(value && isFunction(value.constructor) && value[Symbol.toStringTag] === "FormData" && isFunction(value.append) && isFunction(value.getAll) && isFunction(value.entries) && isFunction(value[Symbol.iterator]));
-
-// node_modules/form-data-encoder/lib/util/escapeName.js
+var proxyHeaders = (object) => new Proxy(
+  object,
+  {
+    get: (target, prop) => getProperty(target, prop),
+    has: (target, prop) => getProperty(target, prop) !== void 0
+  }
+);
+var isFormData2 = (value) => Boolean(
+  value && isFunction2(value.constructor) && value[Symbol.toStringTag] === "FormData" && isFunction2(value.append) && isFunction2(value.getAll) && isFunction2(value.entries) && isFunction2(value[Symbol.iterator])
+);
 var escapeName = (name) => String(name).replace(/\r/g, "%0D").replace(/\n/g, "%0A").replace(/"/g, "%22");
-
-// node_modules/form-data-encoder/lib/util/isFile.js
-var isFile = (value) => Boolean(value && typeof value === "object" && isFunction(value.constructor) && value[Symbol.toStringTag] === "File" && isFunction(value.stream) && value.name != null);
-
-// node_modules/form-data-encoder/lib/FormDataEncoder.js
-var __classPrivateFieldSet = function(receiver, state, value, kind, f) {
-  if (kind === "m")
-    throw new TypeError("Private method is not writable");
-  if (kind === "a" && !f)
-    throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
-    throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
-};
-var __classPrivateFieldGet = function(receiver, state, kind, f) {
-  if (kind === "a" && !f)
-    throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
-    throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var _FormDataEncoder_instances;
-var _FormDataEncoder_CRLF;
-var _FormDataEncoder_CRLF_BYTES;
-var _FormDataEncoder_CRLF_BYTES_LENGTH;
-var _FormDataEncoder_DASHES;
-var _FormDataEncoder_encoder;
-var _FormDataEncoder_footer;
-var _FormDataEncoder_form;
-var _FormDataEncoder_options;
-var _FormDataEncoder_getFieldHeader;
-var _FormDataEncoder_getContentLength;
+var isFile = (value) => Boolean(
+  value && typeof value === "object" && isFunction2(value.constructor) && value[Symbol.toStringTag] === "File" && isFunction2(value.stream) && value.name != null
+);
 var defaultOptions = {
   enableAdditionalHeaders: false
 };
 var readonlyProp = { writable: false, configurable: false };
+var _CRLF;
+var _CRLF_BYTES;
+var _CRLF_BYTES_LENGTH;
+var _DASHES;
+var _encoder;
+var _footer;
+var _form;
+var _options;
+var _getFieldHeader;
+var getFieldHeader_fn;
+var _getContentLength;
+var getContentLength_fn;
 var FormDataEncoder = class {
   constructor(form, boundaryOrOptions, options) {
-    _FormDataEncoder_instances.add(this);
-    _FormDataEncoder_CRLF.set(this, "\r\n");
-    _FormDataEncoder_CRLF_BYTES.set(this, void 0);
-    _FormDataEncoder_CRLF_BYTES_LENGTH.set(this, void 0);
-    _FormDataEncoder_DASHES.set(this, "-".repeat(2));
-    _FormDataEncoder_encoder.set(this, new TextEncoder());
-    _FormDataEncoder_footer.set(this, void 0);
-    _FormDataEncoder_form.set(this, void 0);
-    _FormDataEncoder_options.set(this, void 0);
-    if (!isFormData(form)) {
+    __privateAdd(this, _getFieldHeader);
+    __privateAdd(this, _getContentLength);
+    __privateAdd(this, _CRLF, "\r\n");
+    __privateAdd(this, _CRLF_BYTES, void 0);
+    __privateAdd(this, _CRLF_BYTES_LENGTH, void 0);
+    __privateAdd(this, _DASHES, "-".repeat(2));
+    __privateAdd(this, _encoder, new TextEncoder());
+    __privateAdd(this, _footer, void 0);
+    __privateAdd(this, _form, void 0);
+    __privateAdd(this, _options, void 0);
+    if (!isFormData2(form)) {
       throw new TypeError("Expected first argument to be a FormData instance.");
     }
     let boundary;
-    if (isPlainObject(boundaryOrOptions)) {
+    if (isPlainObject2(boundaryOrOptions)) {
       options = boundaryOrOptions;
     } else {
       boundary = boundaryOrOptions;
@@ -6593,20 +7629,22 @@ var FormDataEncoder = class {
     if (typeof boundary !== "string") {
       throw new TypeError("Expected boundary argument to be a string.");
     }
-    if (options && !isPlainObject(options)) {
+    if (options && !isPlainObject2(options)) {
       throw new TypeError("Expected options argument to be an object.");
     }
-    __classPrivateFieldSet(this, _FormDataEncoder_form, Array.from(form.entries()), "f");
-    __classPrivateFieldSet(this, _FormDataEncoder_options, { ...defaultOptions, ...options }, "f");
-    __classPrivateFieldSet(this, _FormDataEncoder_CRLF_BYTES, __classPrivateFieldGet(this, _FormDataEncoder_encoder, "f").encode(__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f")), "f");
-    __classPrivateFieldSet(this, _FormDataEncoder_CRLF_BYTES_LENGTH, __classPrivateFieldGet(this, _FormDataEncoder_CRLF_BYTES, "f").byteLength, "f");
+    __privateSet(this, _form, Array.from(form.entries()));
+    __privateSet(this, _options, { ...defaultOptions, ...options });
+    __privateSet(this, _CRLF_BYTES, __privateGet(this, _encoder).encode(__privateGet(this, _CRLF)));
+    __privateSet(this, _CRLF_BYTES_LENGTH, __privateGet(this, _CRLF_BYTES).byteLength);
     this.boundary = `form-data-boundary-${boundary}`;
     this.contentType = `multipart/form-data; boundary=${this.boundary}`;
-    __classPrivateFieldSet(this, _FormDataEncoder_footer, __classPrivateFieldGet(this, _FormDataEncoder_encoder, "f").encode(`${__classPrivateFieldGet(this, _FormDataEncoder_DASHES, "f")}${this.boundary}${__classPrivateFieldGet(this, _FormDataEncoder_DASHES, "f")}${__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f").repeat(2)}`), "f");
+    __privateSet(this, _footer, __privateGet(this, _encoder).encode(
+      `${__privateGet(this, _DASHES)}${this.boundary}${__privateGet(this, _DASHES)}${__privateGet(this, _CRLF).repeat(2)}`
+    ));
     const headers = {
       "Content-Type": this.contentType
     };
-    const contentLength = __classPrivateFieldGet(this, _FormDataEncoder_instances, "m", _FormDataEncoder_getContentLength).call(this);
+    const contentLength = __privateMethod(this, _getContentLength, getContentLength_fn).call(this);
     if (contentLength) {
       this.contentLength = contentLength;
       headers["Content-Length"] = contentLength;
@@ -6619,59 +7657,151 @@ var FormDataEncoder = class {
       headers: readonlyProp
     });
   }
-  getContentLength() {
-    return this.contentLength == null ? void 0 : Number(this.contentLength);
-  }
+  /**
+   * Creates an iterator allowing to go through form-data parts (with metadata).
+   * This method **will not** read the files and **will not** split values big into smaller chunks.
+   *
+   * Using this method, you can convert form-data content into Blob:
+   *
+   * @example
+   *
+   * ```ts
+   * import {Readable} from "stream"
+   *
+   * import {FormDataEncoder} from "form-data-encoder"
+   *
+   * import {FormData} from "formdata-polyfill/esm-min.js"
+   * import {fileFrom} from "fetch-blob/form.js"
+   * import {File} from "fetch-blob/file.js"
+   * import {Blob} from "fetch-blob"
+   *
+   * import fetch from "node-fetch"
+   *
+   * const form = new FormData()
+   *
+   * form.set("field", "Just a random string")
+   * form.set("file", new File(["Using files is class amazing"]))
+   * form.set("fileFromPath", await fileFrom("path/to/a/file.txt"))
+   *
+   * const encoder = new FormDataEncoder(form)
+   *
+   * const options = {
+   *   method: "post",
+   *   body: new Blob(encoder, {type: encoder.contentType})
+   * }
+   *
+   * const response = await fetch("https://httpbin.org/post", options)
+   *
+   * console.log(await response.json())
+   * ```
+   */
   *values() {
-    for (const [name, raw] of __classPrivateFieldGet(this, _FormDataEncoder_form, "f")) {
-      const value = isFile(raw) ? raw : __classPrivateFieldGet(this, _FormDataEncoder_encoder, "f").encode(normalizeValue(raw));
-      yield __classPrivateFieldGet(this, _FormDataEncoder_instances, "m", _FormDataEncoder_getFieldHeader).call(this, name, value);
+    for (const [name, raw] of __privateGet(this, _form)) {
+      const value = isFile(raw) ? raw : __privateGet(this, _encoder).encode(
+        normalizeValue(raw)
+      );
+      yield __privateMethod(this, _getFieldHeader, getFieldHeader_fn).call(this, name, value);
       yield value;
-      yield __classPrivateFieldGet(this, _FormDataEncoder_CRLF_BYTES, "f");
+      yield __privateGet(this, _CRLF_BYTES);
     }
-    yield __classPrivateFieldGet(this, _FormDataEncoder_footer, "f");
+    yield __privateGet(this, _footer);
   }
+  /**
+   * Creates an async iterator allowing to perform the encoding by portions.
+   * This method reads through files and splits big values into smaller pieces (65536 bytes per each).
+   *
+   * @example
+   *
+   * ```ts
+   * import {Readable} from "stream"
+   *
+   * import {FormData, File, fileFromPath} from "formdata-node"
+   * import {FormDataEncoder} from "form-data-encoder"
+   *
+   * import fetch from "node-fetch"
+   *
+   * const form = new FormData()
+   *
+   * form.set("field", "Just a random string")
+   * form.set("file", new File(["Using files is class amazing"], "file.txt"))
+   * form.set("fileFromPath", await fileFromPath("path/to/a/file.txt"))
+   *
+   * const encoder = new FormDataEncoder(form)
+   *
+   * const options = {
+   *   method: "post",
+   *   headers: encoder.headers,
+   *   body: Readable.from(encoder.encode()) // or Readable.from(encoder)
+   * }
+   *
+   * const response = await fetch("https://httpbin.org/post", options)
+   *
+   * console.log(await response.json())
+   * ```
+   */
   async *encode() {
     for (const part of this.values()) {
       if (isFile(part)) {
         yield* getStreamIterator(part.stream());
       } else {
-        yield part;
+        yield* chunk(part);
       }
     }
   }
-  [(_FormDataEncoder_CRLF = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_CRLF_BYTES = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_CRLF_BYTES_LENGTH = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_DASHES = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_encoder = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_footer = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_form = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_options = /* @__PURE__ */ new WeakMap(), _FormDataEncoder_instances = /* @__PURE__ */ new WeakSet(), _FormDataEncoder_getFieldHeader = function _FormDataEncoder_getFieldHeader2(name, value) {
-    let header = "";
-    header += `${__classPrivateFieldGet(this, _FormDataEncoder_DASHES, "f")}${this.boundary}${__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f")}`;
-    header += `Content-Disposition: form-data; name="${escapeName(name)}"`;
-    if (isFile(value)) {
-      header += `; filename="${escapeName(value.name)}"${__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f")}`;
-      header += `Content-Type: ${value.type || "application/octet-stream"}`;
-    }
-    const size = isFile(value) ? value.size : value.byteLength;
-    if (__classPrivateFieldGet(this, _FormDataEncoder_options, "f").enableAdditionalHeaders === true && size != null && !isNaN(size)) {
-      header += `${__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f")}Content-Length: ${isFile(value) ? value.size : value.byteLength}`;
-    }
-    return __classPrivateFieldGet(this, _FormDataEncoder_encoder, "f").encode(`${header}${__classPrivateFieldGet(this, _FormDataEncoder_CRLF, "f").repeat(2)}`);
-  }, _FormDataEncoder_getContentLength = function _FormDataEncoder_getContentLength2() {
-    let length = 0;
-    for (const [name, raw] of __classPrivateFieldGet(this, _FormDataEncoder_form, "f")) {
-      const value = isFile(raw) ? raw : __classPrivateFieldGet(this, _FormDataEncoder_encoder, "f").encode(normalizeValue(raw));
-      const size = isFile(value) ? value.size : value.byteLength;
-      if (size == null || isNaN(size)) {
-        return void 0;
-      }
-      length += __classPrivateFieldGet(this, _FormDataEncoder_instances, "m", _FormDataEncoder_getFieldHeader).call(this, name, value).byteLength;
-      length += size;
-      length += __classPrivateFieldGet(this, _FormDataEncoder_CRLF_BYTES_LENGTH, "f");
-    }
-    return String(length + __classPrivateFieldGet(this, _FormDataEncoder_footer, "f").byteLength);
-  }, Symbol.iterator)]() {
+  /**
+   * Creates an iterator allowing to read through the encoder data using for...of loops
+   */
+  [Symbol.iterator]() {
     return this.values();
   }
+  /**
+   * Creates an **async** iterator allowing to read through the encoder data using for-await...of loops
+   */
   [Symbol.asyncIterator]() {
     return this.encode();
   }
+};
+_CRLF = /* @__PURE__ */ new WeakMap();
+_CRLF_BYTES = /* @__PURE__ */ new WeakMap();
+_CRLF_BYTES_LENGTH = /* @__PURE__ */ new WeakMap();
+_DASHES = /* @__PURE__ */ new WeakMap();
+_encoder = /* @__PURE__ */ new WeakMap();
+_footer = /* @__PURE__ */ new WeakMap();
+_form = /* @__PURE__ */ new WeakMap();
+_options = /* @__PURE__ */ new WeakMap();
+_getFieldHeader = /* @__PURE__ */ new WeakSet();
+getFieldHeader_fn = function(name, value) {
+  let header = "";
+  header += `${__privateGet(this, _DASHES)}${this.boundary}${__privateGet(this, _CRLF)}`;
+  header += `Content-Disposition: form-data; name="${escapeName(name)}"`;
+  if (isFile(value)) {
+    header += `; filename="${escapeName(value.name)}"${__privateGet(this, _CRLF)}`;
+    header += `Content-Type: ${value.type || "application/octet-stream"}`;
+  }
+  if (__privateGet(this, _options).enableAdditionalHeaders === true) {
+    const size = isFile(value) ? value.size : value.byteLength;
+    if (size != null && !isNaN(size)) {
+      header += `${__privateGet(this, _CRLF)}Content-Length: ${size}`;
+    }
+  }
+  return __privateGet(this, _encoder).encode(`${header}${__privateGet(this, _CRLF).repeat(2)}`);
+};
+_getContentLength = /* @__PURE__ */ new WeakSet();
+getContentLength_fn = function() {
+  let length = 0;
+  for (const [name, raw] of __privateGet(this, _form)) {
+    const value = isFile(raw) ? raw : __privateGet(this, _encoder).encode(
+      normalizeValue(raw)
+    );
+    const size = isFile(value) ? value.size : value.byteLength;
+    if (size == null || isNaN(size)) {
+      return void 0;
+    }
+    length += __privateMethod(this, _getFieldHeader, getFieldHeader_fn).call(this, name, value).byteLength;
+    length += size;
+    length += __privateGet(this, _CRLF_BYTES_LENGTH);
+  }
+  return String(length + __privateGet(this, _footer).byteLength);
 };
 
 // node_modules/got/dist/source/core/utils/get-body-size.js
@@ -6679,8 +7809,8 @@ var import_node_buffer = require("node:buffer");
 var import_node_util = require("node:util");
 
 // node_modules/got/dist/source/core/utils/is-form-data.js
-function isFormData2(body) {
-  return dist_default.nodeStream(body) && dist_default.function_(body.getBoundary);
+function isFormData3(body) {
+  return distribution_default.nodeStream(body) && distribution_default.function(body.getBoundary);
 }
 
 // node_modules/got/dist/source/core/utils/get-body-size.js
@@ -6691,13 +7821,13 @@ async function getBodySize(body, headers) {
   if (!body) {
     return 0;
   }
-  if (dist_default.string(body)) {
+  if (distribution_default.string(body)) {
     return import_node_buffer.Buffer.byteLength(body);
   }
-  if (dist_default.buffer(body)) {
+  if (distribution_default.buffer(body)) {
     return body.length;
   }
-  if (isFormData2(body)) {
+  if (isFormData3(body)) {
     return (0, import_node_util.promisify)(body.getLength.bind(body))();
   }
   return void 0;
@@ -6707,8 +7837,8 @@ async function getBodySize(body, headers) {
 function proxyEvents(from, to, events) {
   const eventFunctions = {};
   for (const event of events) {
-    const eventFunction = (...args) => {
-      to.emit(event, ...args);
+    const eventFunction = (...arguments_) => {
+      to.emit(event, ...arguments_);
     };
     eventFunctions[event] = eventFunction;
     from.on(event, eventFunction);
@@ -6727,9 +7857,9 @@ var import_node_net = __toESM(require("node:net"), 1);
 function unhandle() {
   const handlers = [];
   return {
-    once(origin, event, fn) {
-      origin.once(event, fn);
-      handlers.push({ origin, event, fn });
+    once(origin, event, function_) {
+      origin.once(event, function_);
+      handlers.push({ origin, event, fn: function_ });
     },
     unhandleAll() {
       for (const handler of handlers) {
@@ -6743,38 +7873,28 @@ function unhandle() {
 
 // node_modules/got/dist/source/core/timed-out.js
 var reentry = Symbol("reentry");
-var noop = () => {
+var noop2 = () => {
 };
 var TimeoutError2 = class extends Error {
+  event;
+  code;
   constructor(threshold, event) {
     super(`Timeout awaiting '${event}' for ${threshold}ms`);
-    Object.defineProperty(this, "event", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: event
-    });
-    Object.defineProperty(this, "code", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
+    this.event = event;
     this.name = "TimeoutError";
     this.code = "ETIMEDOUT";
   }
 };
 function timedOut(request, delays, options) {
   if (reentry in request) {
-    return noop;
+    return noop2;
   }
   request[reentry] = true;
   const cancelers = [];
   const { once, unhandleAll } = unhandle();
   const addTimeout = (delay2, callback, event) => {
-    var _a;
     const timeout = setTimeout(callback, delay2, delay2, event);
-    (_a = timeout.unref) == null ? void 0 : _a.call(timeout);
+    timeout.unref?.();
     const cancel = () => {
       clearTimeout(timeout);
     };
@@ -6877,7 +7997,7 @@ function urlToOptions(url) {
   url = url;
   const options = {
     protocol: url.protocol,
-    hostname: dist_default.string(url.hostname) && url.hostname.startsWith("[") ? url.hostname.slice(1, -1) : url.hostname,
+    hostname: distribution_default.string(url.hostname) && url.hostname.startsWith("[") ? url.hostname.slice(1, -1) : url.hostname,
     host: url.host,
     hash: url.hash,
     search: url.search,
@@ -6885,7 +8005,7 @@ function urlToOptions(url) {
     href: url.href,
     path: `${url.pathname || ""}${url.search || ""}`
   };
-  if (dist_default.string(url.port) && url.port.length > 0) {
+  if (distribution_default.string(url.port) && url.port.length > 0) {
     options.port = Number(url.port);
   }
   if (url.username || url.password) {
@@ -6896,19 +8016,9 @@ function urlToOptions(url) {
 
 // node_modules/got/dist/source/core/utils/weakable-map.js
 var WeakableMap = class {
+  weakMap;
+  map;
   constructor() {
-    Object.defineProperty(this, "weakMap", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "map", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
     this.weakMap = /* @__PURE__ */ new WeakMap();
     this.map = /* @__PURE__ */ new Map();
   }
@@ -6967,8 +8077,8 @@ var calculate_retry_delay_default = calculateRetryDelay;
 var import_node_process = __toESM(require("node:process"), 1);
 var import_node_util3 = require("node:util");
 var import_node_tls = require("node:tls");
-var import_node_http = __toESM(require("node:http"), 1);
 var import_node_https = __toESM(require("node:https"), 1);
+var import_node_http = __toESM(require("node:http"), 1);
 
 // node_modules/cacheable-lookup/source/index.js
 var import_node_dns = require("node:dns");
@@ -7013,7 +8123,7 @@ var getIfaceInfo = () => {
   }
   return { has4, has6 };
 };
-var isIterable = (map) => {
+var isIterable2 = (map) => {
   return Symbol.iterator in map;
 };
 var ignoreNoResultErrors = (dnsPromise) => {
@@ -7232,7 +8342,7 @@ var CacheableLookup = class {
           throw cacheError;
         };
       }
-      if (isIterable(this._cache)) {
+      if (isIterable2(this._cache)) {
         this._tick(cacheTtl);
       }
     }
@@ -7329,7 +8439,7 @@ function parseLinkHeader(link) {
   for (const item of items) {
     const [rawUriReference, ...rawLinkParameters] = item.split(";");
     const trimmedUriReference = rawUriReference.trim();
-    if (trimmedUriReference[0] !== "<" || trimmedUriReference[trimmedUriReference.length - 1] !== ">") {
+    if (trimmedUriReference[0] !== "<" || trimmedUriReference.at(-1) !== ">") {
       throw new Error(`Invalid format of the Link header reference: ${trimmedUriReference}`);
     }
     const reference = trimmedUriReference.slice(1, -1);
@@ -7360,7 +8470,7 @@ var [major, minor] = import_node_process.default.versions.node.split(".").map(Nu
 function validateSearchParameters(searchParameters) {
   for (const key in searchParameters) {
     const value = searchParameters[key];
-    assert.any([dist_default.string, dist_default.number, dist_default.boolean, dist_default.null_, dist_default.undefined], value);
+    assert.any([distribution_default.string, distribution_default.number, distribution_default.boolean, distribution_default.null, distribution_default.undefined], value);
   }
 }
 var globalCache = /* @__PURE__ */ new Map();
@@ -7562,63 +8672,63 @@ var cloneInternals = (internals) => {
 var cloneRaw = (raw) => {
   const { hooks, retry } = raw;
   const result = { ...raw };
-  if (dist_default.object(raw.context)) {
+  if (distribution_default.object(raw.context)) {
     result.context = { ...raw.context };
   }
-  if (dist_default.object(raw.cacheOptions)) {
+  if (distribution_default.object(raw.cacheOptions)) {
     result.cacheOptions = { ...raw.cacheOptions };
   }
-  if (dist_default.object(raw.https)) {
+  if (distribution_default.object(raw.https)) {
     result.https = { ...raw.https };
   }
-  if (dist_default.object(raw.cacheOptions)) {
+  if (distribution_default.object(raw.cacheOptions)) {
     result.cacheOptions = { ...result.cacheOptions };
   }
-  if (dist_default.object(raw.agent)) {
+  if (distribution_default.object(raw.agent)) {
     result.agent = { ...raw.agent };
   }
-  if (dist_default.object(raw.headers)) {
+  if (distribution_default.object(raw.headers)) {
     result.headers = { ...raw.headers };
   }
-  if (dist_default.object(retry)) {
+  if (distribution_default.object(retry)) {
     result.retry = { ...retry };
-    if (dist_default.array(retry.errorCodes)) {
+    if (distribution_default.array(retry.errorCodes)) {
       result.retry.errorCodes = [...retry.errorCodes];
     }
-    if (dist_default.array(retry.methods)) {
+    if (distribution_default.array(retry.methods)) {
       result.retry.methods = [...retry.methods];
     }
-    if (dist_default.array(retry.statusCodes)) {
+    if (distribution_default.array(retry.statusCodes)) {
       result.retry.statusCodes = [...retry.statusCodes];
     }
   }
-  if (dist_default.object(raw.timeout)) {
+  if (distribution_default.object(raw.timeout)) {
     result.timeout = { ...raw.timeout };
   }
-  if (dist_default.object(hooks)) {
+  if (distribution_default.object(hooks)) {
     result.hooks = {
       ...hooks
     };
-    if (dist_default.array(hooks.init)) {
+    if (distribution_default.array(hooks.init)) {
       result.hooks.init = [...hooks.init];
     }
-    if (dist_default.array(hooks.beforeRequest)) {
+    if (distribution_default.array(hooks.beforeRequest)) {
       result.hooks.beforeRequest = [...hooks.beforeRequest];
     }
-    if (dist_default.array(hooks.beforeError)) {
+    if (distribution_default.array(hooks.beforeError)) {
       result.hooks.beforeError = [...hooks.beforeError];
     }
-    if (dist_default.array(hooks.beforeRedirect)) {
+    if (distribution_default.array(hooks.beforeRedirect)) {
       result.hooks.beforeRedirect = [...hooks.beforeRedirect];
     }
-    if (dist_default.array(hooks.beforeRetry)) {
+    if (distribution_default.array(hooks.beforeRetry)) {
       result.hooks.beforeRetry = [...hooks.beforeRetry];
     }
-    if (dist_default.array(hooks.afterResponse)) {
+    if (distribution_default.array(hooks.afterResponse)) {
       result.hooks.afterResponse = [...hooks.afterResponse];
     }
   }
-  if (dist_default.object(raw.pagination)) {
+  if (distribution_default.object(raw.pagination)) {
     result.pagination = { ...raw.pagination };
   }
   return result;
@@ -7631,52 +8741,31 @@ var getHttp2TimeoutOption = (internals) => {
   return void 0;
 };
 var init = (options, withOptions, self) => {
-  var _a;
-  const initHooks = (_a = options.hooks) == null ? void 0 : _a.init;
+  const initHooks = options.hooks?.init;
   if (initHooks) {
     for (const hook of initHooks) {
       hook(withOptions, self);
     }
   }
 };
-var Options = class {
+var Options = class _Options {
+  _unixOptions;
+  _internals;
+  _merging;
+  _init;
   constructor(input, options, defaults2) {
-    Object.defineProperty(this, "_unixOptions", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_internals", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_merging", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_init", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    assert.any([dist_default.string, dist_default.urlInstance, dist_default.object, dist_default.undefined], input);
-    assert.any([dist_default.object, dist_default.undefined], options);
-    assert.any([dist_default.object, dist_default.undefined], defaults2);
-    if (input instanceof Options || options instanceof Options) {
+    assert.any([distribution_default.string, distribution_default.urlInstance, distribution_default.object, distribution_default.undefined], input);
+    assert.any([distribution_default.object, distribution_default.undefined], options);
+    assert.any([distribution_default.object, distribution_default.undefined], defaults2);
+    if (input instanceof _Options || options instanceof _Options) {
       throw new TypeError("The defaults must be passed as the third argument");
     }
-    this._internals = cloneInternals((defaults2 == null ? void 0 : defaults2._internals) ?? defaults2 ?? defaultInternals);
-    this._init = [...(defaults2 == null ? void 0 : defaults2._init) ?? []];
+    this._internals = cloneInternals(defaults2?._internals ?? defaults2 ?? defaultInternals);
+    this._init = [...defaults2?._init ?? []];
     this._merging = false;
     this._unixOptions = void 0;
     try {
-      if (dist_default.plainObject(input)) {
+      if (distribution_default.plainObject(input)) {
         try {
           this.merge(input);
           this.merge(options);
@@ -7687,7 +8776,7 @@ var Options = class {
         try {
           this.merge(options);
         } finally {
-          if ((options == null ? void 0 : options.url) !== void 0) {
+          if (options?.url !== void 0) {
             if (input === void 0) {
               this.url = options.url;
             } else {
@@ -7707,7 +8796,7 @@ var Options = class {
     if (!options) {
       return;
     }
-    if (options instanceof Options) {
+    if (options instanceof _Options) {
       for (const init2 of options._init) {
         this.merge(init2);
       }
@@ -7756,7 +8845,7 @@ var Options = class {
     return this._internals.request;
   }
   set request(value) {
-    assert.any([dist_default.function_, dist_default.undefined], value);
+    assert.any([distribution_default.function, distribution_default.undefined], value);
     this._internals.request = value;
   }
   /**
@@ -7790,7 +8879,7 @@ var Options = class {
       if (!(key in this._internals.agent)) {
         throw new TypeError(`Unexpected agent option: ${key}`);
       }
-      assert.any([dist_default.object, dist_default.undefined], value[key]);
+      assert.any([distribution_default.object, distribution_default.undefined], value[key]);
     }
     if (this._merging) {
       Object.assign(this._internals.agent, value);
@@ -7845,7 +8934,7 @@ var Options = class {
       if (!(key in this._internals.timeout)) {
         throw new Error(`Unexpected timeout option: ${key}`);
       }
-      assert.any([dist_default.number, dist_default.undefined], value[key]);
+      assert.any([distribution_default.number, distribution_default.undefined], value[key]);
     }
     if (this._merging) {
       Object.assign(this._internals.timeout, value);
@@ -7896,7 +8985,7 @@ var Options = class {
     return this._internals.prefixUrl;
   }
   set prefixUrl(value) {
-    assert.any([dist_default.string, dist_default.urlInstance], value);
+    assert.any([distribution_default.string, distribution_default.urlInstance], value);
     if (value === "") {
       this._internals.prefixUrl = "";
       return;
@@ -7928,8 +9017,8 @@ var Options = class {
     return this._internals.body;
   }
   set body(value) {
-    assert.any([dist_default.string, dist_default.buffer, dist_default.nodeStream, dist_default.generator, dist_default.asyncGenerator, isFormData, dist_default.undefined], value);
-    if (dist_default.nodeStream(value)) {
+    assert.any([distribution_default.string, distribution_default.buffer, distribution_default.nodeStream, distribution_default.generator, distribution_default.asyncGenerator, isFormData2, distribution_default.undefined], value);
+    if (distribution_default.nodeStream(value)) {
       assert.truthy(value.readable);
     }
     if (value !== void 0) {
@@ -7951,7 +9040,7 @@ var Options = class {
     return this._internals.form;
   }
   set form(value) {
-    assert.any([dist_default.plainObject, dist_default.undefined], value);
+    assert.any([distribution_default.plainObject, distribution_default.undefined], value);
     if (value !== void 0) {
       assert.undefined(this._internals.body);
       assert.undefined(this._internals.json);
@@ -7997,12 +9086,12 @@ var Options = class {
     return this._internals.url;
   }
   set url(value) {
-    assert.any([dist_default.string, dist_default.urlInstance, dist_default.undefined], value);
+    assert.any([distribution_default.string, distribution_default.urlInstance, distribution_default.undefined], value);
     if (value === void 0) {
       this._internals.url = void 0;
       return;
     }
-    if (dist_default.string(value) && value.startsWith("/")) {
+    if (distribution_default.string(value) && value.startsWith("/")) {
       throw new Error("`url` must not start with a slash");
     }
     const urlString = `${this.prefixUrl}${value.toString()}`;
@@ -8033,7 +9122,7 @@ var Options = class {
         throw new Error("Using UNIX domain sockets but option `enableUnixSockets` is not enabled");
       }
       const matches = /(?<socketPath>.+?):(?<path>.+)/.exec(`${url.pathname}${url.search}`);
-      if (matches == null ? void 0 : matches.groups) {
+      if (matches?.groups) {
         const { socketPath, path } = matches.groups;
         this._unixOptions = {
           socketPath,
@@ -8056,14 +9145,14 @@ var Options = class {
     return this._internals.cookieJar;
   }
   set cookieJar(value) {
-    assert.any([dist_default.object, dist_default.undefined], value);
+    assert.any([distribution_default.object, distribution_default.undefined], value);
     if (value === void 0) {
       this._internals.cookieJar = void 0;
       return;
     }
     let { setCookie, getCookieString } = value;
-    assert.function_(setCookie);
-    assert.function_(getCookieString);
+    assert.function(setCookie);
+    assert.function(getCookieString);
     if (setCookie.length === 4 && getCookieString.length === 0) {
       setCookie = (0, import_node_util3.promisify)(setCookie.bind(value));
       getCookieString = (0, import_node_util3.promisify)(getCookieString.bind(value));
@@ -8141,7 +9230,7 @@ var Options = class {
     return this._internals.searchParams;
   }
   set searchParams(value) {
-    assert.any([dist_default.string, dist_default.object, dist_default.undefined], value);
+    assert.any([distribution_default.string, distribution_default.object, distribution_default.undefined], value);
     const url = this._internals.url;
     if (value === void 0) {
       this._internals.searchParams = void 0;
@@ -8152,7 +9241,7 @@ var Options = class {
     }
     const searchParameters = this.searchParams;
     let updated;
-    if (dist_default.string(value)) {
+    if (distribution_default.string(value)) {
       updated = new URLSearchParams(value);
     } else if (value instanceof URLSearchParams) {
       updated = value;
@@ -8193,7 +9282,7 @@ var Options = class {
     return this._internals.dnsLookup;
   }
   set dnsLookup(value) {
-    assert.any([dist_default.function_, dist_default.undefined], value);
+    assert.any([distribution_default.function, distribution_default.undefined], value);
     this._internals.dnsLookup = value;
   }
   /**
@@ -8210,7 +9299,7 @@ var Options = class {
     return this._internals.dnsCache;
   }
   set dnsCache(value) {
-    assert.any([dist_default.object, dist_default.boolean, dist_default.undefined], value);
+    assert.any([distribution_default.object, distribution_default.boolean, distribution_default.undefined], value);
     if (value === true) {
       this._internals.dnsCache = getGlobalDnsCache();
     } else if (value === false) {
@@ -8276,10 +9365,10 @@ var Options = class {
       }
       const typedKnownHookEvent = knownHookEvent;
       const hooks = value[typedKnownHookEvent];
-      assert.any([dist_default.array, dist_default.undefined], hooks);
+      assert.any([distribution_default.array, distribution_default.undefined], hooks);
       if (hooks) {
         for (const hook of hooks) {
-          assert.function_(hook);
+          assert.function(hook);
         }
       }
       if (this._merging) {
@@ -8295,7 +9384,9 @@ var Options = class {
     }
   }
   /**
-      Defines if redirect responses should be followed automatically.
+      Whether redirect responses should be followed automatically.
+  
+      Optionally, pass a function to dynamically decide based on the response object.
   
       Note that if a `303` is sent by the server in response to any request type (`POST`, `DELETE`, etc.), Got will automatically request the resource pointed to in the location header via `GET`.
       This is in accordance with [the spec](https://tools.ietf.org/html/rfc7231#section-6.4.4). You can optionally turn on this behavior also for other redirect codes - see `methodRewriting`.
@@ -8306,7 +9397,7 @@ var Options = class {
     return this._internals.followRedirect;
   }
   set followRedirect(value) {
-    assert.boolean(value);
+    assert.any([distribution_default.boolean, distribution_default.function], value);
     this._internals.followRedirect = value;
   }
   get followRedirects() {
@@ -8336,7 +9427,7 @@ var Options = class {
     return this._internals.cache;
   }
   set cache(value) {
-    assert.any([dist_default.object, dist_default.string, dist_default.boolean, dist_default.undefined], value);
+    assert.any([distribution_default.object, distribution_default.string, distribution_default.boolean, distribution_default.undefined], value);
     if (value === true) {
       this._internals.cache = globalCache;
     } else if (value === false) {
@@ -8507,7 +9598,7 @@ var Options = class {
     return this._internals.parseJson;
   }
   set parseJson(value) {
-    assert.function_(value);
+    assert.function(value);
     this._internals.parseJson = value;
   }
   /**
@@ -8555,7 +9646,7 @@ var Options = class {
     return this._internals.stringifyJson;
   }
   set stringifyJson(value) {
-    assert.function_(value);
+    assert.function(value);
     this._internals.stringifyJson = value;
   }
   /**
@@ -8585,13 +9676,13 @@ var Options = class {
   }
   set retry(value) {
     assert.plainObject(value);
-    assert.any([dist_default.function_, dist_default.undefined], value.calculateDelay);
-    assert.any([dist_default.number, dist_default.undefined], value.maxRetryAfter);
-    assert.any([dist_default.number, dist_default.undefined], value.limit);
-    assert.any([dist_default.array, dist_default.undefined], value.methods);
-    assert.any([dist_default.array, dist_default.undefined], value.statusCodes);
-    assert.any([dist_default.array, dist_default.undefined], value.errorCodes);
-    assert.any([dist_default.number, dist_default.undefined], value.noise);
+    assert.any([distribution_default.function, distribution_default.undefined], value.calculateDelay);
+    assert.any([distribution_default.number, distribution_default.undefined], value.maxRetryAfter);
+    assert.any([distribution_default.number, distribution_default.undefined], value.limit);
+    assert.any([distribution_default.array, distribution_default.undefined], value.methods);
+    assert.any([distribution_default.array, distribution_default.undefined], value.statusCodes);
+    assert.any([distribution_default.array, distribution_default.undefined], value.errorCodes);
+    assert.any([distribution_default.number, distribution_default.undefined], value.noise);
     if (value.noise && Math.abs(value.noise) > 100) {
       throw new Error(`The maximum acceptable retry noise is +/- 100ms, got ${value.noise}`);
     }
@@ -8619,7 +9710,7 @@ var Options = class {
     return this._internals.localAddress;
   }
   set localAddress(value) {
-    assert.any([dist_default.string, dist_default.undefined], value);
+    assert.any([distribution_default.string, distribution_default.undefined], value);
     this._internals.localAddress = value;
   }
   /**
@@ -8638,7 +9729,7 @@ var Options = class {
     return this._internals.createConnection;
   }
   set createConnection(value) {
-    assert.any([dist_default.function_, dist_default.undefined], value);
+    assert.any([distribution_default.function, distribution_default.undefined], value);
     this._internals.createConnection = value;
   }
   /**
@@ -8651,10 +9742,10 @@ var Options = class {
   }
   set cacheOptions(value) {
     assert.plainObject(value);
-    assert.any([dist_default.boolean, dist_default.undefined], value.shared);
-    assert.any([dist_default.number, dist_default.undefined], value.cacheHeuristic);
-    assert.any([dist_default.number, dist_default.undefined], value.immutableMinTimeToLive);
-    assert.any([dist_default.boolean, dist_default.undefined], value.ignoreCargoCult);
+    assert.any([distribution_default.boolean, distribution_default.undefined], value.shared);
+    assert.any([distribution_default.number, distribution_default.undefined], value.cacheHeuristic);
+    assert.any([distribution_default.number, distribution_default.undefined], value.immutableMinTimeToLive);
+    assert.any([distribution_default.boolean, distribution_default.undefined], value.ignoreCargoCult);
     for (const key in value) {
       if (!(key in this._internals.cacheOptions)) {
         throw new Error(`Cache option \`${key}\` does not exist`);
@@ -8674,23 +9765,23 @@ var Options = class {
   }
   set https(value) {
     assert.plainObject(value);
-    assert.any([dist_default.boolean, dist_default.undefined], value.rejectUnauthorized);
-    assert.any([dist_default.function_, dist_default.undefined], value.checkServerIdentity);
-    assert.any([dist_default.string, dist_default.object, dist_default.array, dist_default.undefined], value.certificateAuthority);
-    assert.any([dist_default.string, dist_default.object, dist_default.array, dist_default.undefined], value.key);
-    assert.any([dist_default.string, dist_default.object, dist_default.array, dist_default.undefined], value.certificate);
-    assert.any([dist_default.string, dist_default.undefined], value.passphrase);
-    assert.any([dist_default.string, dist_default.buffer, dist_default.array, dist_default.undefined], value.pfx);
-    assert.any([dist_default.array, dist_default.undefined], value.alpnProtocols);
-    assert.any([dist_default.string, dist_default.undefined], value.ciphers);
-    assert.any([dist_default.string, dist_default.buffer, dist_default.undefined], value.dhparam);
-    assert.any([dist_default.string, dist_default.undefined], value.signatureAlgorithms);
-    assert.any([dist_default.string, dist_default.undefined], value.minVersion);
-    assert.any([dist_default.string, dist_default.undefined], value.maxVersion);
-    assert.any([dist_default.boolean, dist_default.undefined], value.honorCipherOrder);
-    assert.any([dist_default.number, dist_default.undefined], value.tlsSessionLifetime);
-    assert.any([dist_default.string, dist_default.undefined], value.ecdhCurve);
-    assert.any([dist_default.string, dist_default.buffer, dist_default.array, dist_default.undefined], value.certificateRevocationLists);
+    assert.any([distribution_default.boolean, distribution_default.undefined], value.rejectUnauthorized);
+    assert.any([distribution_default.function, distribution_default.undefined], value.checkServerIdentity);
+    assert.any([distribution_default.string, distribution_default.object, distribution_default.array, distribution_default.undefined], value.certificateAuthority);
+    assert.any([distribution_default.string, distribution_default.object, distribution_default.array, distribution_default.undefined], value.key);
+    assert.any([distribution_default.string, distribution_default.object, distribution_default.array, distribution_default.undefined], value.certificate);
+    assert.any([distribution_default.string, distribution_default.undefined], value.passphrase);
+    assert.any([distribution_default.string, distribution_default.buffer, distribution_default.array, distribution_default.undefined], value.pfx);
+    assert.any([distribution_default.array, distribution_default.undefined], value.alpnProtocols);
+    assert.any([distribution_default.string, distribution_default.undefined], value.ciphers);
+    assert.any([distribution_default.string, distribution_default.buffer, distribution_default.undefined], value.dhparam);
+    assert.any([distribution_default.string, distribution_default.undefined], value.signatureAlgorithms);
+    assert.any([distribution_default.string, distribution_default.undefined], value.minVersion);
+    assert.any([distribution_default.string, distribution_default.undefined], value.maxVersion);
+    assert.any([distribution_default.boolean, distribution_default.undefined], value.honorCipherOrder);
+    assert.any([distribution_default.number, distribution_default.undefined], value.tlsSessionLifetime);
+    assert.any([distribution_default.string, distribution_default.undefined], value.ecdhCurve);
+    assert.any([distribution_default.string, distribution_default.buffer, distribution_default.array, distribution_default.undefined], value.certificateRevocationLists);
     for (const key in value) {
       if (!(key in this._internals.https)) {
         throw new Error(`HTTPS option \`${key}\` does not exist`);
@@ -8719,7 +9810,7 @@ var Options = class {
     if (value === null) {
       throw new TypeError("To get a Buffer, set `options.responseType` to `buffer` instead");
     }
-    assert.any([dist_default.string, dist_default.undefined], value);
+    assert.any([distribution_default.string, distribution_default.undefined], value);
     this._internals.encoding = value;
   }
   /**
@@ -8818,7 +9909,7 @@ var Options = class {
     return this._internals.maxHeaderSize;
   }
   set maxHeaderSize(value) {
-    assert.any([dist_default.number, dist_default.undefined], value);
+    assert.any([distribution_default.number, distribution_default.undefined], value);
     this._internals.maxHeaderSize = value;
   }
   get enableUnixSockets() {
@@ -8836,7 +9927,6 @@ var Options = class {
     return (0, import_node_util3.inspect)(this._internals, options);
   }
   createNativeRequestOptions() {
-    var _a;
     const internals = this._internals;
     const url = internals.url;
     let agent;
@@ -8847,7 +9937,7 @@ var Options = class {
     }
     const { https: https2 } = internals;
     let { pfx } = https2;
-    if (dist_default.array(pfx) && dist_default.plainObject(pfx[0])) {
+    if (distribution_default.array(pfx) && distribution_default.plainObject(pfx[0])) {
       pfx = pfx.map((object) => ({
         buf: object.buffer,
         passphrase: object.passphrase
@@ -8876,7 +9966,7 @@ var Options = class {
       ecdhCurve: https2.ecdhCurve,
       crl: https2.certificateRevocationLists,
       // HTTP options
-      lookup: internals.dnsLookup ?? ((_a = internals.dnsCache) == null ? void 0 : _a.lookup),
+      lookup: internals.dnsLookup ?? internals.dnsCache?.lookup,
       family: internals.dnsLookupIpVersion,
       agent,
       setHost: internals.setHost,
@@ -8941,7 +10031,9 @@ var Options = class {
 // node_modules/got/dist/source/core/response.js
 var isResponseOk = (response) => {
   const { statusCode } = response;
-  const limitStatusCode = response.request.options.followRedirect ? 299 : 399;
+  const { followRedirect } = response.request.options;
+  const shouldFollow = typeof followRedirect === "function" ? followRedirect(response) : followRedirect;
+  const limitStatusCode = shouldFollow ? 299 : 399;
   return statusCode >= 200 && statusCode <= limitStatusCode || statusCode === 304;
 };
 var ParseError = class extends RequestError {
@@ -8985,8 +10077,7 @@ function isUnixSocketURL(url) {
 }
 
 // node_modules/got/dist/source/core/index.js
-var { buffer: getStreamAsBuffer } = import_get_stream2.default;
-var supportsBrotli = dist_default.string(import_node_process2.default.versions.brotli);
+var supportsBrotli = distribution_default.string(import_node_process2.default.versions.brotli);
 var methodsWithoutBody = /* @__PURE__ */ new Set(["GET", "HEAD"]);
 var cacheableStore = new WeakableMap();
 var redirectCodes = /* @__PURE__ */ new Set([300, 301, 302, 303, 304, 307, 308]);
@@ -8997,9 +10088,37 @@ var proxiedRequestEvents = [
   "information",
   "upgrade"
 ];
-var noop2 = () => {
+var noop3 = () => {
 };
-var Request = class extends import_node_stream3.Duplex {
+var Request = class _Request extends import_node_stream3.Duplex {
+  // @ts-expect-error - Ignoring for now.
+  ["constructor"];
+  _noPipe;
+  // @ts-expect-error https://github.com/microsoft/TypeScript/issues/9568
+  options;
+  response;
+  requestUrl;
+  redirectUrls;
+  retryCount;
+  _stopRetry;
+  _downloadedSize;
+  _uploadedSize;
+  _stopReading;
+  _pipedServerResponses;
+  _request;
+  _responseSize;
+  _bodySize;
+  _unproxyEvents;
+  _isFromCache;
+  _cannotHaveBody;
+  _triggerRead;
+  _cancelTimeouts;
+  _removeListeners;
+  _nativeResponse;
+  _flushed;
+  _aborted;
+  // We need this because `this._request` if `undefined` when using cache
+  _requestInitialized;
   constructor(url, options, defaults2) {
     super({
       // Don't destroy immediately, as the error may be emitted on unsuccessful retry
@@ -9007,174 +10126,24 @@ var Request = class extends import_node_stream3.Duplex {
       // It needs to be zero because we're just proxying the data to another stream
       highWaterMark: 0
     });
-    Object.defineProperty(this, "constructor", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_noPipe", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "options", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "response", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "requestUrl", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "redirectUrls", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "retryCount", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_stopRetry", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_downloadedSize", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_uploadedSize", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_stopReading", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_pipedServerResponses", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_request", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_responseSize", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_bodySize", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_unproxyEvents", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_isFromCache", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_cannotHaveBody", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_triggerRead", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_cancelTimeouts", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_removeListeners", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_nativeResponse", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_flushed", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_aborted", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
-    Object.defineProperty(this, "_requestInitialized", {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: void 0
-    });
     this._downloadedSize = 0;
     this._uploadedSize = 0;
     this._stopReading = false;
     this._pipedServerResponses = /* @__PURE__ */ new Set();
     this._cannotHaveBody = false;
-    this._unproxyEvents = noop2;
+    this._unproxyEvents = noop3;
     this._triggerRead = false;
-    this._cancelTimeouts = noop2;
-    this._removeListeners = noop2;
+    this._cancelTimeouts = noop3;
+    this._removeListeners = noop3;
     this._jobs = [];
     this._flushed = false;
     this._requestInitialized = false;
     this._aborted = false;
     this.redirectUrls = [];
     this.retryCount = 0;
-    this._stopRetry = noop2;
+    this._stopRetry = noop3;
     this.on("pipe", (source) => {
-      if (source == null ? void 0 : source.headers) {
+      if (source?.headers) {
         Object.assign(this.options.headers, source.headers);
       }
     });
@@ -9205,7 +10174,7 @@ var Request = class extends import_node_stream3.Duplex {
       return;
     }
     const { body } = this.options;
-    if (dist_default.nodeStream(body)) {
+    if (distribution_default.nodeStream(body)) {
       body.once("error", (error) => {
         if (this._flushed) {
           this._beforeError(new UploadError(error, this));
@@ -9227,14 +10196,12 @@ var Request = class extends import_node_stream3.Duplex {
       } else {
         this.options.signal.addEventListener("abort", abort);
         this._removeListeners = () => {
-          var _a;
-          (_a = this.options.signal) == null ? void 0 : _a.removeEventListener("abort", abort);
+          this.options.signal?.removeEventListener("abort", abort);
         };
       }
     }
   }
   async flush() {
-    var _a;
     if (this._flushed) {
       return;
     }
@@ -9246,7 +10213,7 @@ var Request = class extends import_node_stream3.Duplex {
       }
       await this._makeRequest();
       if (this.destroyed) {
-        (_a = this._request) == null ? void 0 : _a.destroy();
+        this._request?.destroy();
         return;
       }
       for (const job of this._jobs) {
@@ -9270,8 +10237,7 @@ var Request = class extends import_node_stream3.Duplex {
     }
     const typedError = error;
     void (async () => {
-      var _a, _b;
-      if ((response == null ? void 0 : response.readable) && !response.rawBody && !((_b = (_a = this._request) == null ? void 0 : _a.socket) == null ? void 0 : _b.destroyed)) {
+      if (response?.readable && !response.rawBody && !this._request?.socket?.destroyed) {
         response.setEncoding(this.readableEncoding);
         const success = await this._setRawBody(response);
         if (success) {
@@ -9335,7 +10301,7 @@ var Request = class extends import_node_stream3.Duplex {
           }
           this.destroy();
           this.emit("retry", this.retryCount + 1, error, (updatedOptions) => {
-            const request = new Request(options.url, updatedOptions, options);
+            const request = new _Request(options.url, updatedOptions, options);
             request.retryCount = this.retryCount + 1;
             import_node_process2.default.nextTick(() => {
               void request.flush();
@@ -9366,9 +10332,9 @@ var Request = class extends import_node_stream3.Duplex {
       }
     }
   }
-  _write(chunk, encoding, callback) {
+  _write(chunk2, encoding, callback) {
     const write = () => {
-      this._writeRequest(chunk, encoding, callback);
+      this._writeRequest(chunk2, encoding, callback);
     };
     if (this._requestInitialized) {
       write();
@@ -9383,8 +10349,7 @@ var Request = class extends import_node_stream3.Duplex {
         return;
       }
       this._request.end((error) => {
-        var _a;
-        if ((_a = this._request._writableState) == null ? void 0 : _a.errored) {
+        if (this._request._writableState?.errored) {
           return;
         }
         if (!error) {
@@ -9410,14 +10375,14 @@ var Request = class extends import_node_stream3.Duplex {
     this._removeListeners();
     if (this.options) {
       const { body } = this.options;
-      if (dist_default.nodeStream(body)) {
+      if (distribution_default.nodeStream(body)) {
         body.destroy();
       }
     }
     if (this._request) {
       this._request.destroy();
     }
-    if (error !== null && !dist_default.undefined(error) && !(error instanceof RequestError)) {
+    if (error !== null && !distribution_default.undefined(error) && !(error instanceof RequestError)) {
       error = new RequestError(error.message, error, this);
     }
     callback(error);
@@ -9438,18 +10403,18 @@ var Request = class extends import_node_stream3.Duplex {
   async _finalizeBody() {
     const { options } = this;
     const { headers } = options;
-    const isForm = !dist_default.undefined(options.form);
-    const isJSON = !dist_default.undefined(options.json);
-    const isBody = !dist_default.undefined(options.body);
+    const isForm = !distribution_default.undefined(options.form);
+    const isJSON = !distribution_default.undefined(options.json);
+    const isBody = !distribution_default.undefined(options.body);
     const cannotHaveBody = methodsWithoutBody.has(options.method) && !(options.method === "GET" && options.allowGetBody);
     this._cannotHaveBody = cannotHaveBody;
     if (isForm || isJSON || isBody) {
       if (cannotHaveBody) {
         throw new TypeError(`The \`${options.method}\` method cannot be used with a body`);
       }
-      const noContentType = !dist_default.string(headers["content-type"]);
+      const noContentType = !distribution_default.string(headers["content-type"]);
       if (isBody) {
-        if (isFormData(options.body)) {
+        if (isFormData2(options.body)) {
           const encoder = new FormDataEncoder(options.body);
           if (noContentType) {
             headers["content-type"] = encoder.headers["Content-Type"];
@@ -9459,7 +10424,7 @@ var Request = class extends import_node_stream3.Duplex {
           }
           options.body = encoder.encode();
         }
-        if (isFormData2(options.body) && noContentType) {
+        if (isFormData3(options.body) && noContentType) {
           headers["content-type"] = `multipart/form-data; boundary=${options.body.getBoundary()}`;
         }
       } else if (isForm) {
@@ -9478,7 +10443,7 @@ var Request = class extends import_node_stream3.Duplex {
         options.body = options.stringifyJson(json);
       }
       const uploadBodySize = await getBodySize(options.body, options.headers);
-      if (dist_default.undefined(headers["content-length"]) && dist_default.undefined(headers["transfer-encoding"]) && !cannotHaveBody && !dist_default.undefined(uploadBodySize)) {
+      if (distribution_default.undefined(headers["content-length"]) && distribution_default.undefined(headers["transfer-encoding"]) && !cannotHaveBody && !distribution_default.undefined(uploadBodySize)) {
         headers["content-length"] = String(uploadBodySize);
       }
     }
@@ -9530,7 +10495,7 @@ var Request = class extends import_node_stream3.Duplex {
     });
     this.emit("downloadProgress", this.downloadProgress);
     const rawCookies = response.headers["set-cookie"];
-    if (dist_default.object(options.cookieJar) && rawCookies) {
+    if (distribution_default.object(options.cookieJar) && rawCookies) {
       let promises = rawCookies.map(async (rawCookie) => options.cookieJar.setCookie(rawCookie, url.toString()));
       if (options.ignoreInvalidCookies) {
         promises = promises.map(async (promise) => {
@@ -9550,65 +10515,68 @@ var Request = class extends import_node_stream3.Duplex {
     if (this.isAborted) {
       return;
     }
-    if (options.followRedirect && response.headers.location && redirectCodes.has(statusCode)) {
-      response.resume();
-      this._cancelTimeouts();
-      this._unproxyEvents();
-      if (this.redirectUrls.length >= options.maxRedirects) {
-        this._beforeError(new MaxRedirectsError(this));
-        return;
-      }
-      this._request = void 0;
-      const updatedOptions = new Options(void 0, void 0, this.options);
-      const serverRequestedGet = statusCode === 303 && updatedOptions.method !== "GET" && updatedOptions.method !== "HEAD";
-      const canRewrite = statusCode !== 307 && statusCode !== 308;
-      const userRequestedGet = updatedOptions.methodRewriting && canRewrite;
-      if (serverRequestedGet || userRequestedGet) {
-        updatedOptions.method = "GET";
-        updatedOptions.body = void 0;
-        updatedOptions.json = void 0;
-        updatedOptions.form = void 0;
-        delete updatedOptions.headers["content-length"];
-      }
-      try {
-        const redirectBuffer = import_node_buffer2.Buffer.from(response.headers.location, "binary").toString();
-        const redirectUrl = new URL(redirectBuffer, url);
-        if (!isUnixSocketURL(url) && isUnixSocketURL(redirectUrl)) {
-          this._beforeError(new RequestError("Cannot redirect to UNIX socket", {}, this));
+    if (response.headers.location && redirectCodes.has(statusCode)) {
+      const shouldFollow = typeof options.followRedirect === "function" ? options.followRedirect(typedResponse) : options.followRedirect;
+      if (shouldFollow) {
+        response.resume();
+        this._cancelTimeouts();
+        this._unproxyEvents();
+        if (this.redirectUrls.length >= options.maxRedirects) {
+          this._beforeError(new MaxRedirectsError(this));
           return;
         }
-        if (redirectUrl.hostname !== url.hostname || redirectUrl.port !== url.port) {
-          if ("host" in updatedOptions.headers) {
-            delete updatedOptions.headers.host;
-          }
-          if ("cookie" in updatedOptions.headers) {
-            delete updatedOptions.headers.cookie;
-          }
-          if ("authorization" in updatedOptions.headers) {
-            delete updatedOptions.headers.authorization;
-          }
-          if (updatedOptions.username || updatedOptions.password) {
-            updatedOptions.username = "";
-            updatedOptions.password = "";
-          }
-        } else {
-          redirectUrl.username = updatedOptions.username;
-          redirectUrl.password = updatedOptions.password;
+        this._request = void 0;
+        const updatedOptions = new Options(void 0, void 0, this.options);
+        const serverRequestedGet = statusCode === 303 && updatedOptions.method !== "GET" && updatedOptions.method !== "HEAD";
+        const canRewrite = statusCode !== 307 && statusCode !== 308;
+        const userRequestedGet = updatedOptions.methodRewriting && canRewrite;
+        if (serverRequestedGet || userRequestedGet) {
+          updatedOptions.method = "GET";
+          updatedOptions.body = void 0;
+          updatedOptions.json = void 0;
+          updatedOptions.form = void 0;
+          delete updatedOptions.headers["content-length"];
         }
-        this.redirectUrls.push(redirectUrl);
-        updatedOptions.prefixUrl = "";
-        updatedOptions.url = redirectUrl;
-        for (const hook of updatedOptions.hooks.beforeRedirect) {
-          await hook(updatedOptions, typedResponse);
+        try {
+          const redirectBuffer = import_node_buffer2.Buffer.from(response.headers.location, "binary").toString();
+          const redirectUrl = new URL(redirectBuffer, url);
+          if (!isUnixSocketURL(url) && isUnixSocketURL(redirectUrl)) {
+            this._beforeError(new RequestError("Cannot redirect to UNIX socket", {}, this));
+            return;
+          }
+          if (redirectUrl.hostname !== url.hostname || redirectUrl.port !== url.port) {
+            if ("host" in updatedOptions.headers) {
+              delete updatedOptions.headers.host;
+            }
+            if ("cookie" in updatedOptions.headers) {
+              delete updatedOptions.headers.cookie;
+            }
+            if ("authorization" in updatedOptions.headers) {
+              delete updatedOptions.headers.authorization;
+            }
+            if (updatedOptions.username || updatedOptions.password) {
+              updatedOptions.username = "";
+              updatedOptions.password = "";
+            }
+          } else {
+            redirectUrl.username = updatedOptions.username;
+            redirectUrl.password = updatedOptions.password;
+          }
+          this.redirectUrls.push(redirectUrl);
+          updatedOptions.prefixUrl = "";
+          updatedOptions.url = redirectUrl;
+          for (const hook of updatedOptions.hooks.beforeRedirect) {
+            await hook(updatedOptions, typedResponse);
+          }
+          this.emit("redirect", updatedOptions, typedResponse);
+          this.options = updatedOptions;
+          await this._makeRequest();
+        } catch (error) {
+          this._beforeError(error);
+          return;
         }
-        this.emit("redirect", updatedOptions, typedResponse);
-        this.options = updatedOptions;
-        await this._makeRequest();
-      } catch (error) {
-        this._beforeError(error);
         return;
       }
-      return;
     }
     if (options.isStream && options.throwHttpErrors && !isResponseOk(typedResponse)) {
       this._beforeError(new HTTPError(typedResponse));
@@ -9655,7 +10623,8 @@ var Request = class extends import_node_stream3.Duplex {
       return false;
     }
     try {
-      const rawBody = await getStreamAsBuffer(from);
+      const fromArray = await from.toArray();
+      const rawBody = isBuffer(fromArray.at(0)) ? import_node_buffer2.Buffer.concat(fromArray) : import_node_buffer2.Buffer.from(fromArray.join(""));
       if (!this.isAborted) {
         this.response.rawBody = rawBody;
         return true;
@@ -9695,9 +10664,9 @@ var Request = class extends import_node_stream3.Duplex {
     this._sendBody();
     this.emit("request", request);
   }
-  async _asyncWrite(chunk) {
+  async _asyncWrite(chunk2) {
     return new Promise((resolve, reject) => {
-      super.write(chunk, (error) => {
+      super.write(chunk2, (error) => {
         if (error) {
           reject(error);
           return;
@@ -9709,20 +10678,20 @@ var Request = class extends import_node_stream3.Duplex {
   _sendBody() {
     const { body } = this.options;
     const currentRequest = this.redirectUrls.length === 0 ? this : this._request ?? this;
-    if (dist_default.nodeStream(body)) {
+    if (distribution_default.nodeStream(body)) {
       body.pipe(currentRequest);
-    } else if (dist_default.generator(body) || dist_default.asyncGenerator(body)) {
+    } else if (distribution_default.generator(body) || distribution_default.asyncGenerator(body)) {
       (async () => {
         try {
-          for await (const chunk of body) {
-            await this._asyncWrite(chunk);
+          for await (const chunk2 of body) {
+            await this._asyncWrite(chunk2);
           }
           super.end();
         } catch (error) {
           this._beforeError(error);
         }
       })();
-    } else if (!dist_default.undefined(body)) {
+    } else if (!distribution_default.undefined(body)) {
       this._writeRequest(body, void 0, () => {
       });
       currentRequest.end();
@@ -9732,9 +10701,9 @@ var Request = class extends import_node_stream3.Duplex {
   }
   _prepareCache(cache) {
     if (!cacheableStore.has(cache)) {
-      const cacheableRequest = new dist_default2((requestOptions, handler) => {
+      const cacheableRequest = new dist_default((requestOptions, handler) => {
         const result = requestOptions._request(requestOptions, handler);
-        if (dist_default.promise(result)) {
+        if (distribution_default.promise(result)) {
           result.once = (event, handler2) => {
             if (event === "error") {
               (async () => {
@@ -9793,13 +10762,13 @@ var Request = class extends import_node_stream3.Duplex {
     const { headers, username, password } = options;
     const cookieJar = options.cookieJar;
     for (const key in headers) {
-      if (dist_default.undefined(headers[key])) {
+      if (distribution_default.undefined(headers[key])) {
         delete headers[key];
-      } else if (dist_default.null_(headers[key])) {
+      } else if (distribution_default.null(headers[key])) {
         throw new TypeError(`Use \`undefined\` instead of \`null\` to delete the \`${key}\` header`);
       }
     }
-    if (options.decompress && dist_default.undefined(headers["accept-encoding"])) {
+    if (options.decompress && distribution_default.undefined(headers["accept-encoding"])) {
       headers["accept-encoding"] = supportsBrotli ? "gzip, deflate, br" : "gzip, deflate";
     }
     if (username || password) {
@@ -9808,7 +10777,7 @@ var Request = class extends import_node_stream3.Duplex {
     }
     if (cookieJar) {
       const cookieString = await cookieJar.getCookieString(options.url.toString());
-      if (dist_default.nonEmptyString(cookieString)) {
+      if (distribution_default.nonEmptyString(cookieString)) {
         headers.cookie = cookieString;
       }
     }
@@ -9816,14 +10785,12 @@ var Request = class extends import_node_stream3.Duplex {
     let request;
     for (const hook of options.hooks.beforeRequest) {
       const result = await hook(options);
-      if (!dist_default.undefined(result)) {
+      if (!distribution_default.undefined(result)) {
         request = () => result;
         break;
       }
     }
-    if (!request) {
-      request = options.getRequestFunction();
-    }
+    request ||= options.getRequestFunction();
     const url = options.url;
     this._requestOptions = options.createNativeRequestOptions();
     if (options.cache) {
@@ -9832,15 +10799,15 @@ var Request = class extends import_node_stream3.Duplex {
       this._requestOptions.body = options.body;
       this._prepareCache(options.cache);
     }
-    const fn = options.cache ? this._createCacheableRequest : request;
+    const function_ = options.cache ? this._createCacheableRequest : request;
     try {
-      let requestOrResponse = fn(url, this._requestOptions);
-      if (dist_default.promise(requestOrResponse)) {
+      let requestOrResponse = function_(url, this._requestOptions);
+      if (distribution_default.promise(requestOrResponse)) {
         requestOrResponse = await requestOrResponse;
       }
-      if (dist_default.undefined(requestOrResponse)) {
+      if (distribution_default.undefined(requestOrResponse)) {
         requestOrResponse = options.getFallbackRequestFunction()(url, this._requestOptions);
-        if (dist_default.promise(requestOrResponse)) {
+        if (distribution_default.promise(requestOrResponse)) {
           requestOrResponse = await requestOrResponse;
         }
       }
@@ -9874,13 +10841,13 @@ var Request = class extends import_node_stream3.Duplex {
     }
     this.destroy(error);
   }
-  _writeRequest(chunk, encoding, callback) {
+  _writeRequest(chunk2, encoding, callback) {
     if (!this._request || this._request.destroyed) {
       return;
     }
-    this._request.write(chunk, encoding, (error) => {
+    this._request.write(chunk2, encoding, (error) => {
       if (!error && !this._request.destroyed) {
-        this._uploadedSize += import_node_buffer2.Buffer.byteLength(chunk, encoding);
+        this._uploadedSize += import_node_buffer2.Buffer.byteLength(chunk2, encoding);
         const progress = this.uploadProgress;
         if (progress.percent < 1) {
           this.emit("uploadProgress", progress);
@@ -9893,8 +10860,7 @@ var Request = class extends import_node_stream3.Duplex {
   The remote IP address.
   */
   get ip() {
-    var _a;
-    return (_a = this.socket) == null ? void 0 : _a.remoteAddress;
+    return this.socket?.remoteAddress;
   }
   /**
   Indicates whether the request has been aborted or not.
@@ -9903,8 +10869,7 @@ var Request = class extends import_node_stream3.Duplex {
     return this._aborted;
   }
   get socket() {
-    var _a;
-    return ((_a = this._request) == null ? void 0 : _a.socket) ?? void 0;
+    return this._request?.socket ?? void 0;
   }
   /**
   Progress event for downloading (receiving a response).
@@ -9970,8 +10935,7 @@ var Request = class extends import_node_stream3.Duplex {
       __Note__: The time is a `number` representing the milliseconds elapsed since the UNIX epoch.
       */
   get timings() {
-    var _a;
-    return (_a = this._request) == null ? void 0 : _a.timings;
+    return this._request?.timings;
   }
   /**
   Whether the response was retrieved from the cache.
@@ -9980,8 +10944,7 @@ var Request = class extends import_node_stream3.Duplex {
     return this._isFromCache;
   }
   get reusedSocket() {
-    var _a;
-    return (_a = this._request) == null ? void 0 : _a.reusedSocket;
+    return this._request?.reusedSocket;
   }
 };
 
@@ -10012,7 +10975,7 @@ function asPromise(firstRequest) {
   let globalRequest;
   let globalResponse;
   let normalizedOptions;
-  const emitter = new import_node_events2.EventEmitter();
+  const emitter = new import_node_events3.EventEmitter();
   const promise = new PCancelable((resolve, reject, onCancel) => {
     onCancel(() => {
       globalRequest.destroy();
@@ -10022,7 +10985,6 @@ function asPromise(firstRequest) {
       reject(new CancelError2(globalRequest));
     });
     const makeRequest = (retryCount) => {
-      var _a;
       onCancel(() => {
       });
       const request = firstRequest ?? new Request(void 0, void 0, normalizedOptions);
@@ -10039,7 +11001,12 @@ function asPromise(firstRequest) {
           try {
             response.body = parseBody(response, options.responseType, options.parseJson, options.encoding);
           } catch (error) {
-            response.body = response.rawBody.toString();
+            try {
+              response.body = response.rawBody.toString();
+            } catch (error2) {
+              request._beforeError(new ParseError(error2, response));
+              return;
+            }
             if (isResponseOk(response)) {
               request._beforeError(error);
               return;
@@ -10058,7 +11025,7 @@ function asPromise(firstRequest) {
               options.hooks.afterResponse = options.hooks.afterResponse.slice(0, index);
               throw new RetryError(request);
             });
-            if (!(dist_default.object(response) && dist_default.number(response.statusCode) && !dist_default.nullOrUndefined(response.body))) {
+            if (!(distribution_default.object(response) && distribution_default.number(response.statusCode) && !distribution_default.nullOrUndefined(response.body))) {
               throw new TypeError("The `afterResponse` hook returned an invalid value");
             }
           }
@@ -10088,11 +11055,11 @@ function asPromise(firstRequest) {
         reject(error);
       };
       request.once("error", onError);
-      const previousBody = (_a = request.options) == null ? void 0 : _a.body;
+      const previousBody = request.options?.body;
       request.once("retry", (newRetryCount, error) => {
         firstRequest = void 0;
         const newBody = request.options.body;
-        if (previousBody === newBody && dist_default.nodeStream(newBody)) {
+        if (previousBody === newBody && distribution_default.nodeStream(newBody)) {
           error.message = "Cannot retry with consumed body stream";
           onError(error);
           return;
@@ -10101,18 +11068,18 @@ function asPromise(firstRequest) {
         makeRequest(newRetryCount);
       });
       proxyEvents(request, emitter, proxiedRequestEvents2);
-      if (dist_default.undefined(firstRequest)) {
+      if (distribution_default.undefined(firstRequest)) {
         void request.flush();
       }
     };
     makeRequest(0);
   });
-  promise.on = (event, fn) => {
-    emitter.on(event, fn);
+  promise.on = (event, function_) => {
+    emitter.on(event, function_);
     return promise;
   };
-  promise.off = (event, fn) => {
-    emitter.off(event, fn);
+  promise.off = (event, function_) => {
+    emitter.off(event, function_);
     return promise;
   };
   const shortcut = (responseType) => {
@@ -10142,7 +11109,7 @@ function asPromise(firstRequest) {
 var delay = async (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
-var isGotInstance = (value) => dist_default.function_(value);
+var isGotInstance = (value) => distribution_default.function(value);
 var aliases = [
   "get",
   "post",
@@ -10167,24 +11134,20 @@ var create = (defaults2) => {
     let promise;
     const lastHandler = (normalized) => {
       request.options = normalized;
-      request._noPipe = !normalized.isStream;
+      request._noPipe = !normalized?.isStream;
       void request.flush();
-      if (normalized.isStream) {
+      if (normalized?.isStream) {
         return request;
       }
-      if (!promise) {
-        promise = asPromise(request);
-      }
+      promise ||= asPromise(request);
       return promise;
     };
     let iteration = 0;
     const iterateHandlers = (newOptions) => {
       const handler = defaults2.handlers[iteration++] ?? lastHandler;
       const result = handler(newOptions, iterateHandlers);
-      if (dist_default.promise(result) && !request.options.isStream) {
-        if (!promise) {
-          promise = asPromise(request);
-        }
+      if (distribution_default.promise(result) && !request.options?.isStream) {
+        promise ||= asPromise(request);
         if (result !== promise) {
           const descriptors = Object.getOwnPropertyDescriptors(promise);
           for (const key in descriptors) {
@@ -10227,10 +11190,10 @@ var create = (defaults2) => {
     let normalizedOptions = new Options(url, options, defaults2.options);
     normalizedOptions.resolveBodyOnly = false;
     const { pagination } = normalizedOptions;
-    assert.function_(pagination.transform);
-    assert.function_(pagination.shouldContinue);
-    assert.function_(pagination.filter);
-    assert.function_(pagination.paginate);
+    assert.function(pagination.transform);
+    assert.function(pagination.shouldContinue);
+    assert.function(pagination.filter);
+    assert.function(pagination.paginate);
     assert.number(pagination.countLimit);
     assert.number(pagination.requestLimit);
     assert.number(pagination.backoff);
@@ -10272,7 +11235,7 @@ var create = (defaults2) => {
         normalizedOptions = response.request.options;
       } else {
         normalizedOptions.merge(optionsToMerge);
-        assert.any([dist_default.urlInstance, dist_default.undefined], optionsToMerge.url);
+        assert.any([distribution_default.urlInstance, distribution_default.undefined], optionsToMerge.url);
         if (optionsToMerge.url !== void 0) {
           normalizedOptions.prefixUrl = "";
           normalizedOptions.url = optionsToMerge.url;
@@ -10339,15 +11302,21 @@ async function main() {
   core.debug(`Using auth method: ${methodName}`);
   let data;
   try {
-    data = await client.put(url, {
+    data = await client.post(url, {
       json: payload
     }).json();
   } catch (err) {
-    core.debug("Error making Put to Nomad");
+    core.debug("Error making POST to Nomad");
     core.debug(err);
+    const { response } = err;
+    if (response && response.body) {
+      err.message = response;
+      core.debug(response);
+    }
     throw err;
   }
   if (data && data.SecretID) {
+    core.setSecret(data.SecretID);
     core.debug("\u2714 Nomad Token successfully retrieved");
     core.startGroup("Token Info");
     core.debug(`Name: ${data.Name}`);

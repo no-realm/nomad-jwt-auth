@@ -9,8 +9,7 @@ description: "A GitHub Action to mint a short-lived Nomad token using GHA identi
 inputs:
   url:
     description: "The URL of the Nomad cluster"
-    default: "http://localhost:4646"
-    required: false
+    required: true
   methodName:
     description: "The name of the Nomad Auth Method to use"
     default: "github"
@@ -49,7 +48,7 @@ outputs:
   nomad_token:
     description: "The Nomad token minted using github auth"
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: "terminal"
